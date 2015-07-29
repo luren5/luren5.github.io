@@ -3,24 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vim下NERDTree配置及快捷键 | 路人-戊</title>
+  <title>路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="配置NERDTreeNERDTree是vim下的一个很好用的插件，它可以把所有文件以树形菜单的形式展现出来，类似于IDE那样
-1、下载插件,解压后把 plugin/NERD_tree.vim 和 doc/NERD_tree.txt 分别拷贝到 ~/.vim/plugin 和 ~/.vim/doc 目录下。
-2、安装已经完成，进入需要编辑的目录后输入vim，然后再 shift + :   输入NER">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vim下NERDTree配置及快捷键">
-<meta property="og:url" content="http://minishine.github.io/2015/07/29/vim下NERDTree配置及快捷键/index.html">
+  <meta name="description" content="this is a test">
+<meta property="og:type" content="website">
+<meta property="og:title" content="路人-戊">
+<meta property="og:url" content="http://minishine.github.io/about/index.html">
 <meta property="og:site_name" content="路人-戊">
-<meta property="og:description" content="配置NERDTreeNERDTree是vim下的一个很好用的插件，它可以把所有文件以树形菜单的形式展现出来，类似于IDE那样
-1、下载插件,解压后把 plugin/NERD_tree.vim 和 doc/NERD_tree.txt 分别拷贝到 ~/.vim/plugin 和 ~/.vim/doc 目录下。
-2、安装已经完成，进入需要编辑的目录后输入vim，然后再 shift + :   输入NER">
-<meta property="og:updated_time" content="2015-07-29T02:18:35.000Z">
+<meta property="og:description" content="this is a test">
+<meta property="og:updated_time" content="2015-07-29T14:39:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim下NERDTree配置及快捷键">
-<meta name="twitter:description" content="配置NERDTreeNERDTree是vim下的一个很好用的插件，它可以把所有文件以树形菜单的形式展现出来，类似于IDE那样
-1、下载插件,解压后把 plugin/NERD_tree.vim 和 doc/NERD_tree.txt 分别拷贝到 ~/.vim/plugin 和 ~/.vim/doc 目录下。
-2、安装已经完成，进入需要编辑的目录后输入vim，然后再 shift + :   输入NER">
+<meta name="twitter:title" content="路人-戊">
+<meta name="twitter:description" content="this is a test">
   
   
     <link rel="icon" href="favicon.png">
@@ -131,85 +125,25 @@
 </aside>
 
       
-      <section id="main"><article id="post-vim下NERDTree配置及快捷键" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      vim下NERDTree配置及快捷键
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/29/vim下NERDTree配置及快捷键/">
-      <time datetime="2015-07-29T01:37:59.000Z" itemprop="datePublished">2015-07-29</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="配置NERDTree">配置NERDTree</h3><p>NERDTree是vim下的一个很好用的插件，它可以把所有文件以树形菜单的形式展现出来，类似于IDE那样</p>
-<p>1、<a href="http://www.vim.org/scripts/script.php?script_id=1658" target="_blank" rel="external">下载插件</a>,解压后把 <em>plugin/NERD_tree.vim</em> 和 <em>doc/NERD_tree.txt</em> 分别拷贝到 <em>~/.vim/plugin</em> 和 <em>~/.vim/doc</em> 目录下。</p>
-<p>2、安装已经完成，进入需要编辑的目录后输入vim，然后再 <em>shift + :</em>   输入NERDTree就可以看到树形菜单了。不过每次都是要输入NERDTree非常麻烦, 改可以简化一下。</p>
-<p>3、编辑 ~/.vimrc文件(如果没有自己新建一个)，在最后一行添加一句<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span>  ND  NERDTree</span><br></pre></td></tr></table></figure></p>
-<p>相当于给NERDTree命令起了一个别名，注意这个别名一定要以大写字母开头，不会会报以下error<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E183: User defined      commands must start with an uppercase letter</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="快捷键速查">快捷键速查</h3><p>o…….打开文件或目录或书签</p>
-<p>go……打开文件,但把光标停留在NERDTree窗口内,即所谓的后台打开.</p>
-<p>i…….使用一个水平分割窗口来打开选中的文件.</p>
-<p>gi……如i, 使用后台打开模式</p>
-<p>s…….使用一个垂直窗口来打开选中的文件</p>
-<p>gs……如s,后台打开模式</p>
-<p>O…….打开所选目录下的所有子目录</p>
-<p>x…….关闭当前节点的目录</p>
-<p>X…….关闭所选目录下的所有子目录</p>
-<p>P…….跳到当前的根目录(什么是当前的根目录? 自己实际操作就明白了)</p>
-<p>p…….跳到父目录</p>
-<p>r……刷新当前目录<br>m……打开命令菜单,可以创建文件/移动目录等</p>
+        <p>this is a test</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/29/vim下NERDTree配置及快捷键/" data-id="cicow06yj000jjk3ndfkn6hey" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/about/index.html" data-id="cicow06xv000bjk3nce2rj3k7" class="article-share-link">分享到</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NERDTree/">NERDTree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/快捷键/">快捷键</a></li></ul>
-
     </footer>
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/2015/07/29/session存储到redis/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          session存储到redis
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/07/28/路人-戊正式搬家到gitpage/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">路人-戊正式搬家到git page</div>
-    </a>
-  
-</nav>
-
   
 </article>
 

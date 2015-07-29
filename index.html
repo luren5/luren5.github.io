@@ -154,14 +154,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天在项目开发中遇到一个“天坑”，没错，一个耗了大半天也没解决的bug，最好幸好<a href="&quot;http://www.biadu.com&quot;," title="Title">破鱼缸</a>的点拨，茅塞顿开。记录一下</p>
-<h4 id="具体业务就不说了，问题重现步骤抽象如下：">具体业务就不说了，问题重现步骤抽象如下：</h4><p>新建一个php文件，test.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">	<span class="comment">// 把session的类引进来，具体可看这里[RedisSessionHandler]("http://www.sina.com", "Title")。把文件下面的测试部分的代码去掉</span></span><br><span class="line"></span><br><span class="line">	session_start();  				<span class="comment">// 开启一个会话</span></span><br><span class="line">	<span class="variable">$_SESSION</span>[<span class="string">'name'</span>] = <span class="string">"luren5"</span>;	<span class="comment">// 在session里面加点内容</span></span><br><span class="line"></span><br><span class="line">	<span class="variable">$redis</span> = <span class="keyword">new</span> Redis();</span><br><span class="line">	<span class="variable">$redis</span>-&gt;connect(<span class="string">"172.32.1.201"</span>, <span class="number">6379</span>);</span><br><span class="line">	<span class="variable">$key</span> = session_id();</span><br><span class="line">	<span class="variable">$redis</span>-&gt;del(<span class="variable">$key</span>);              <span class="comment">//显式的删除这个session</span></span><br><span class="line"></span><br><span class="line">	print_r(<span class="variable">$_SESSION</span>); 			<span class="comment">//还是可以正常打印出数据，去库里查看这条数据还在</span></span><br></pre></td></tr></table></figure></p>
+        <p>今天在项目开发中遇到一个“天坑”，没错，一个耗了大半天也没解决的bug，最好幸好 <em>@破鱼缸</em> 的点拨，茅塞顿开。记录一下</p>
+<h4 id="具体业务就不说了，问题重现步骤抽象如下：">具体业务就不说了，问题重现步骤抽象如下：</h4><p>新建一个php文件，test.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">	<span class="comment">// 把session的类引进来，看这里[RedisSessionHandler]("http://minishine.github.io/2015/07/29/session存储到redis/", "Title")。把文件下面的测试部分的代码去掉</span></span><br><span class="line"></span><br><span class="line">	session_start();  				<span class="comment">// 开启一个会话</span></span><br><span class="line">	<span class="variable">$_SESSION</span>[<span class="string">'name'</span>] = <span class="string">"luren5"</span>;	<span class="comment">// 在session里面加点内容</span></span><br><span class="line"></span><br><span class="line">	<span class="variable">$redis</span> = <span class="keyword">new</span> Redis();</span><br><span class="line">	<span class="variable">$redis</span>-&gt;connect(<span class="string">"172.32.1.201"</span>, <span class="number">6379</span>);</span><br><span class="line">	<span class="variable">$key</span> = session_id();</span><br><span class="line">	<span class="variable">$redis</span>-&gt;del(<span class="variable">$key</span>);              <span class="comment">//显式的删除这个session</span></span><br><span class="line"></span><br><span class="line">	print_r(<span class="variable">$_SESSION</span>); 			<span class="comment">//还是可以正常打印出数据，去库里查看这条数据还在</span></span><br></pre></td></tr></table></figure></p>
 <p>要达到目的可以直接把session_id 对应的内容置为空即可</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/29/回写机制造成session-无法被删除/" data-id="cicouux2m000cds3niod248af" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/29/回写机制造成session-无法被删除/" data-id="cicow06y5000djk3npjjz7z6i" class="article-share-link">分享到</a>
       
       
     </footer>
@@ -212,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/29/session存储到redis/" data-id="cicouux1b0000ds3nub16476i" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/29/session存储到redis/" data-id="cicow06vy0000jk3nsm05mb0y" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/session/">session</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/session-set-save-handler/">session_set_save_handler</a></li></ul>
@@ -266,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/29/vim下NERDTree配置及快捷键/" data-id="cicouux2u000ids3ny5bt11x7" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/29/vim下NERDTree配置及快捷键/" data-id="cicow06yj000jjk3ndfkn6hey" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NERDTree/">NERDTree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/快捷键/">快捷键</a></li></ul>
@@ -318,7 +318,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/28/路人-戊正式搬家到gitpage/" data-id="cicouux2k000bds3nl4ovdr30" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/28/路人-戊正式搬家到gitpage/" data-id="cicow06xy000cjk3n8rswop3k" class="article-share-link">分享到</a>
       
       
     </footer>
@@ -367,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/28/人生之艰难如洪水猛兽/" data-id="cicouux2o000dds3n36gov5c3" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/28/人生之艰难如洪水猛兽/" data-id="cicow06ye000ejk3na026lvjd" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/亲情/">亲情</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人生多艰/">人生多艰</a></li></ul>

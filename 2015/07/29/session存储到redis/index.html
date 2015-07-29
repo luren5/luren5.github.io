@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>路人-戊正式搬家到git page | 路人-戊</title>
+  <title>session存储到redis | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mark一下折腾了大半天，终于把博客迁移到git page. 为了跟进时代我也是蛮拼的!
-下面的示例信息就先不删了，或者能用的上呢">
+  <meta name="description" content="当活跃用户比较多的时候，默认的session处理机制显然就不那么好了session放在redis里面可以 解决文件读写效率低和跨服务器session读取不到的问题
+
+下面是使用redis处理redis的demo，已在 5.3.3 下测试通过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="路人-戊正式搬家到git page">
-<meta property="og:url" content="http://minishine.github.io/2015/07/28/路人-戊正式搬家到gitpage/index.html">
+<meta property="og:title" content="session存储到redis">
+<meta property="og:url" content="http://minishine.github.io/2015/07/29/session存储到redis/index.html">
 <meta property="og:site_name" content="路人-戊">
-<meta property="og:description" content="mark一下折腾了大半天，终于把博客迁移到git page. 为了跟进时代我也是蛮拼的!
-下面的示例信息就先不删了，或者能用的上呢">
-<meta property="og:updated_time" content="2015-07-28T07:33:01.000Z">
+<meta property="og:description" content="当活跃用户比较多的时候，默认的session处理机制显然就不那么好了session放在redis里面可以 解决文件读写效率低和跨服务器session读取不到的问题
+
+下面是使用redis处理redis的demo，已在 5.3.3 下测试通过">
+<meta property="og:updated_time" content="2015-07-29T14:18:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="路人-戊正式搬家到git page">
-<meta name="twitter:description" content="mark一下折腾了大半天，终于把博客迁移到git page. 为了跟进时代我也是蛮拼的!
-下面的示例信息就先不删了，或者能用的上呢">
+<meta name="twitter:title" content="session存储到redis">
+<meta name="twitter:description" content="当活跃用户比较多的时候，默认的session处理机制显然就不那么好了session放在redis里面可以 解决文件读写效率低和跨服务器session读取不到的问题
+
+下面是使用redis处理redis的demo，已在 5.3.3 下测试通过">
   
   
     <link rel="icon" href="favicon.png">
@@ -128,7 +131,7 @@
 </aside>
 
       
-      <section id="main"><article id="post-路人-戊正式搬家到gitpage" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-session存储到redis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -137,7 +140,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      路人-戊正式搬家到git page
+      session存储到redis
     </h1>
   
 
@@ -145,8 +148,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/28/路人-戊正式搬家到gitpage/">
-      <time datetime="2015-07-28T07:33:01.000Z" itemprop="datePublished">2015-07-28</time>
+    <a href="/2015/07/29/session存储到redis/">
+      <time datetime="2015-07-29T11:50:56.000Z" itemprop="datePublished">2015-07-29</time>
     </a>
   </div>
 
@@ -157,42 +160,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>mark一下<br>折腾了大半天，终于把博客迁移到git page. 为了跟进时代我也是蛮拼的!</p>
-<p>下面的示例信息就先不删了，或者能用的上呢<br><a id="more"></a></p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>当活跃用户比较多的时候，默认的session处理机制显然就不那么好了<br>session放在redis里面可以 解决文件读写效率低和跨服务器session读取不到的问题</p>
+<hr>
+<p>下面是使用redis处理redis的demo，已在 5.3.3 下测试通过<br><a id="more"></a><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">RedisSessionHandler</span>  </span>&#123; </span><br><span class="line">	 <span class="keyword">public</span> <span class="variable">$ttl</span> = <span class="number">1800</span>;</span><br><span class="line">         <span class="keyword">protected</span> <span class="variable">$db</span>;</span><br><span class="line">         <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">             <span class="variable">$this</span>---&gt;db = <span class="keyword">new</span> Redis();</span><br><span class="line">             <span class="variable">$this</span>-&gt;db-&gt;connect(<span class="string">"192.168.10.214"</span>, <span class="number">6379</span>);</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">open</span><span class="params">(<span class="variable">$savePath</span>, <span class="variable">$sessionName</span>)</span> </span>&#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">close</span><span class="params">()</span> </span>&#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">read</span><span class="params">(<span class="variable">$id</span>)</span> </span>&#123;</span><br><span class="line">           <span class="variable">$sessionData</span> = <span class="variable">$this</span>-&gt;db-&gt;get(<span class="variable">$id</span>);</span><br><span class="line">              <span class="variable">$this</span>-&gt;db-&gt;expire(<span class="variable">$id</span>, <span class="variable">$this</span>-&gt;ttl);</span><br><span class="line">             <span class="keyword">return</span> <span class="variable">$sessionData</span>;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">write</span><span class="params">(<span class="variable">$id</span>, <span class="variable">$data</span>)</span> </span>&#123;</span><br><span class="line">             <span class="variable">$this</span>-&gt;db-&gt;set(<span class="variable">$id</span>, <span class="variable">$data</span>);</span><br><span class="line">             <span class="variable">$this</span>-&gt;db-&gt;expire(<span class="variable">$id</span>, <span class="variable">$this</span>-&gt;ttl);</span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">destroy</span><span class="params">(<span class="variable">$id</span>)</span> </span>&#123;</span><br><span class="line">             <span class="variable">$this</span>-&gt;db-&gt;del(<span class="variable">$id</span>);</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">gc</span><span class="params">(i<span class="variable">$maxLifetime</span>)</span> </span>&#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     ini_set(<span class="string">"session.save_handler"</span>, <span class="string">'user'</span>);</span><br><span class="line">     ini_set(<span class="string">"session.name"</span>, <span class="string">"TEST_PHPSESSID"</span>);</span><br><span class="line"></span><br><span class="line">     <span class="variable">$sessHandler</span> = <span class="keyword">new</span> RedisSessionHandler();</span><br><span class="line">     session_set_save_handler(</span><br><span class="line">         <span class="keyword">array</span>(<span class="variable">$sessHandler</span>, <span class="string">"open"</span>),</span><br><span class="line">         <span class="keyword">array</span>(<span class="variable">$sessHandler</span>, <span class="string">"close"</span>),</span><br><span class="line">         <span class="keyword">array</span>(<span class="variable">$sessHandler</span>, <span class="string">"read"</span>),</span><br><span class="line">         <span class="keyword">array</span>(<span class="variable">$sessHandler</span>, <span class="string">"write"</span>),</span><br><span class="line">         <span class="keyword">array</span>(<span class="variable">$sessHandler</span>, <span class="string">"destroy"</span>),</span><br><span class="line">         <span class="keyword">array</span>(<span class="variable">$sessHandler</span>, <span class="string">"gc"</span>)</span><br><span class="line"></span><br><span class="line">     );</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 测试</span></span><br><span class="line">     session_start();</span><br><span class="line">     <span class="variable">$_SESSION</span>[<span class="string">'name'</span>] = <span class="string">"luren5"</span>;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">echo</span> session_id();</span><br><span class="line">     <span class="keyword">echo</span> <span class="string">"&lt;br/&gt;"</span>;</span><br><span class="line">     <span class="keyword">echo</span> session_name();</span><br><span class="line">     print_r(<span class="variable">$_SESSION</span>);</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/28/路人-戊正式搬家到gitpage/" data-id="cicouux2k000bds3nl4ovdr30" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/29/session存储到redis/" data-id="cicouux1b0000ds3nub16476i" class="article-share-link">分享到</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/session/">session</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/session-set-save-handler/">session_set_save_handler</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2015/07/29/vim下NERDTree配置及快捷键/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/29/回写机制造成session-无法被删除/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          vim下NERDTree配置及快捷键
+          回写机制造成session &#39;无法被删除&#39;
         
       </div>
     </a>
   
   
-    <a href="/2015/07/28/人生之艰难如洪水猛兽/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/07/29/vim下NERDTree配置及快捷键/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">人生之艰难如洪水猛兽</div>
+      <div class="article-nav-title">vim下NERDTree配置及快捷键</div>
     </a>
   
 </nav>

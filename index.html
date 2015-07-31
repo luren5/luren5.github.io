@@ -92,11 +92,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        11
+        17
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        23
+        37
         <span>标签</span>
       </div>
     </div>
@@ -123,7 +123,7 @@
 
       
       <section id="main">
-      <article id="post-基友们" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-memcache内存管理机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -132,7 +132,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/基友们/">基友们</a>
+      <a class="article-title" href="/2015/07/31/memcache内存管理机制/">memcache内存管理机制</a>
     </h1>
   
 
@@ -140,8 +140,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/基友们/">
-      <time datetime="2015-07-31T06:28:10.000Z" itemprop="datePublished">2015-07-31</time>
+    <a href="/2015/07/31/memcache内存管理机制/">
+      <time datetime="2015-07-31T10:02:35.000Z" itemprop="datePublished">2015-07-31</time>
     </a>
   </div>
 
@@ -152,17 +152,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/pics/jiyou.jpg" alt="帝都生活-某日在上地公园"></p>
+        <p>Memcache使用了一个非常简单的内存管理机制——固定空间分配</p>
+<p>Memcache将内存空间分为一组slab，每个slab里又包含一组chunk，同一个slab里的每个chunk的大小是固定的，拥有相同大小chunk的slab被组织在一起，叫做slab_class。存储数据时根据数据的Size大小，寻找一个大于Size的最小chunk将数据写入。这种内存管理方式避免了内存碎片管理的问题，内存的分配和释放都是以chunk为单位的。</p>
+<p>Memcahce采用LRU算法释放最近最少使用的数据，释放的chunk会被标记为未用，等待下一个合适大小数据写入</p>
+<p>这种机制会存在内存浪费的问题，数据只能存入一个比它大的chunk里，而一个chunk只能存一个数据，其它的空间就被浪费了。所以应该注意启动参数的配置，否则浪费可能惊人…</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/31/基友们/" data-id="cicr941f7000ngo3n3qp82n71" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/31/memcache内存管理机制/" data-id="cicrhcu110029jj3nyd0ojo0z" class="article-share-link">分享到</a>
       
-        <a href="http://minishine.github.io/2015/07/31/基友们/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://minishine.github.io/2015/07/31/memcache内存管理机制/#ds-thread" class="article-comment-link">评论</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基友/">基友</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcache/">memcache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存管理/">内存管理</a></li></ul>
 
     </footer>
   </div>
@@ -172,7 +175,7 @@
 
 
     
-      <article id="post-centos-使用yum-install安装nginx…" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-ubuntu下安装配置vsftp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -181,7 +184,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/centos-使用yum-install安装nginx…/">centos,使用yum install安装nginx…</a>
+      <a class="article-title" href="/2015/07/31/ubuntu下安装配置vsftp/">ubuntu下安装配置vsftp</a>
     </h1>
   
 
@@ -189,8 +192,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/centos-使用yum-install安装nginx…/">
-      <time datetime="2015-07-31T06:24:44.000Z" itemprop="datePublished">2015-07-31</time>
+    <a href="/2015/07/31/ubuntu下安装配置vsftp/">
+      <time datetime="2015-07-31T09:58:07.000Z" itemprop="datePublished">2015-07-31</time>
     </a>
   </div>
 
@@ -201,17 +204,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如果你想通过yum安装，得先添加源地址，mark一下<br>To add nginx yum repository, create a file named /etc/yum.repos.d/nginx.repo and paste one of the configurations below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[nginx]</span><br><span class="line">name=nginx repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/<span class="variable">$releasever</span>/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=<span class="number">0</span></span><br><span class="line">enabled=<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+        <p>安装的过程很简单，不多说, 参照这里：<a href="http://ahangin.blog.163.com/blog/static/18525570201081304349192/" target="_blank" rel="external">http://ahangin.blog.163.com/blog/static/18525570201081304349192/</a></p>
+<p>登录的时候发现报这个error :   <span color="red">530 Login incorrect</span></p>
+<p>解决方案：直接打开/etc/pam.d/vsftpd  , 把如下注释掉<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auth   required  pam_shells.so</span><br></pre></td></tr></table></figure></p>
+<p>现在可以顺利登录了，但是还发现一个问题，就是登录后用户的文件夹权限是可以访问整个系统 /,  但是我们想让它控制在某个文件夹下面，而不是 系统根目录</p>
+<p>解决方案：修改以下几个配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chroot_list_<span class="built_in">enable</span>=YES</span><br><span class="line">chroot_list_file=/etc/vsftpd.chroot_list</span><br><span class="line">allow_writeable_chroot=YES</span><br></pre></td></tr></table></figure></p>
+<p>然后在 /etc/vsftpd.chroot_list  填上允许的用户名，每行一个，比如我填写的是 ftpuser, 那么登录之后就可能访问  /home/ftpuser/这个文件夹下面的文件！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/31/centos-使用yum-install安装nginx…/" data-id="cicr941gh001wgo3n45i9486x" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/31/ubuntu下安装配置vsftp/" data-id="cicrhcu0q001ojj3nwen53zsw" class="article-share-link">分享到</a>
       
-        <a href="http://minishine.github.io/2015/07/31/centos-使用yum-install安装nginx…/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://minishine.github.io/2015/07/31/ubuntu下安装配置vsftp/#ds-thread" class="article-comment-link">评论</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yum-install/">yum install</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vsftp/">vsftp</a></li></ul>
 
     </footer>
   </div>
@@ -221,7 +229,7 @@
 
 
     
-      <article id="post-常用命令速查" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-mac下把日历分享给其它用户" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -230,7 +238,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/常用命令速查/">常用命令速查</a>
+      <a class="article-title" href="/2015/07/31/mac下把日历分享给其它用户/">mac下把日历分享给其它用户</a>
     </h1>
   
 
@@ -238,8 +246,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/常用命令速查/">
-      <time datetime="2015-07-31T03:40:09.000Z" itemprop="datePublished">2015-07-31</time>
+    <a href="/2015/07/31/mac下把日历分享给其它用户/">
+      <time datetime="2015-07-31T09:54:52.000Z" itemprop="datePublished">2015-07-31</time>
     </a>
   </div>
 
@@ -250,20 +258,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="经常要用到些命令，虽然知道就是它，奈何死活想不起来怎么用…好记性不如乱笔头">经常要用到些命令，虽然知道就是它，奈何死活想不起来怎么用…好记性不如乱笔头</h5><h2 id="Linux">Linux</h2><p>文件传输<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp  ~/aaa.txt   user@ip:/var/www  <span class="comment">#下载正好相反</span></span><br></pre></td></tr></table></figure></p>
-<p>新建软链接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln <span class="operator">-s</span> 源文件名 链接文件名</span><br></pre></td></tr></table></figure></p>
-<h2 id="git">git</h2><p>git命令别名，在~/.gitconfig里面进行设置，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[alias]&#10;st = status&#10;ci = commit</span><br></pre></td></tr></table></figure></p>
-<h2 id="mysql">mysql</h2><p>给新用户加权限<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to joe@localhost identified by &#39;password&#39;;&#10;flush privileges;</span><br></pre></td></tr></table></figure></p>
+        <p>工作原因，需要把自己的日历分享给组长，然后组长每天就可以看到我们干了些什么</p>
+<p>1、在网页版的outlook（mac下的客户端的outlook没试）上登录你的邮箱，然后里面有日历，把你的日历分享给要对应的用户即可</p>
+<p>2、在 “我的日历” 日历里面添加事件，然后你分享的用户就可以看到这个事件,到这里其实已经完成了，但是本人用的是foxmail for mac，里面根本没有日历功能（mac自带的邮件客户端也没有日历共享功能），又不想换微软的outlook, 于是只好折腾一下。</p>
+<p>3、完成前两步后打开mac自带的日历，在菜单栏上点击  日历 -&gt; 添加账户 -&gt; Exchange,  然后输入工作的邮箱账户和密码，验证通过后就可以了</p>
+<p>4、选择要共享的东西，确保日历是被勾选的</p>
+<p>5、以后直接在mac自带的日历上添加事件，就可以同步到 工作邮箱的日历上，组长那边也可以看到你添加的事件</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/31/常用命令速查/" data-id="cicr941f3000ego3n5ani0b1g" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/31/mac下把日历分享给其它用户/" data-id="cicrhcu15002ejj3n0yua45ml" class="article-share-link">分享到</a>
       
-        <a href="http://minishine.github.io/2015/07/31/常用命令速查/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://minishine.github.io/2015/07/31/mac下把日历分享给其它用户/#ds-thread" class="article-comment-link">评论</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日历/">日历</a></li></ul>
 
     </footer>
   </div>
@@ -273,7 +283,7 @@
 
 
     
-      <article id="post-nginx-php-fpm-下php错误日志" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-Linux配置ssh免密码登录" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -282,7 +292,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/nginx-php-fpm-下php错误日志/">nginx + php-fpm 下php错误日志</a>
+      <a class="article-title" href="/2015/07/31/Linux配置ssh免密码登录/">Linux配置ssh免密码登录</a>
     </h1>
   
 
@@ -290,8 +300,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/nginx-php-fpm-下php错误日志/">
-      <time datetime="2015-07-31T03:30:47.000Z" itemprop="datePublished">2015-07-31</time>
+    <a href="/2015/07/31/Linux配置ssh免密码登录/">
+      <time datetime="2015-07-31T09:49:33.000Z" itemprop="datePublished">2015-07-31</time>
     </a>
   </div>
 
@@ -302,20 +312,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在lamp组合中php的错误日志位置是在当前的 vhost来定义的，很好找<br>现在使用nginx+php-fpm，调试过程中错误日志肯定少不了… 网上搜了下，都行不通</p>
-<p>好吧，记录下我解决的过程<br>编辑 <em>/etc/php-fpm.d/www.conf</em>  (别的环境或者不同的安装方法位置可能不同)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php_admin_value[error_<span class="built_in">log</span>]=<span class="string">"error_log_path"</span>      <span class="comment">#注意文件的写权限</span></span><br><span class="line">php_admin_flag[<span class="built_in">log</span>_errors] = on</span><br></pre></td></tr></table></figure></p>
-<p>重启下 php-fpm, OK了，记录什么级别的错误也是受php.ini里的 error_reporting 设置的影响</p>
-<p>有时候为了开发调试方便，希望错误信息直接显示在浏览器上，怎么破？<br>编辑php.ini 文件，设置 <em>display_errors = on</em> 即可<br>不要忘记重启php-fpm</p>
+        <p>经常需要登录vps或者开发机，然后每次都要  ssh xxx@ip , 然后再输入一堆密码…真麻烦<br>懒人统治世界，so  解决方案：<br>1、在自己的电脑上生成一对 ssh  key, 如果记不住命令戳这里  <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a> , 注意在生成的过程中，会提示输入密码，可输也可直接跳过</p>
+<p>2、完成步骤1之后，在你的home目录下会有个  .ssh目录，cd进去，把id_rsa.pub 里面的内容copy一份，保护好 id_rsa ,  这个是你的私钥，丢了的话就危险了</p>
+<p><em>注意这里的 文件名（id_rsa）和存储位置(~/.ssh/)在步骤1 生成的过程中是可以自己定义的, <span style="color:red;">如果需要生成多对密钥文件，可以修改文件名而不覆盖原来的</span></em></p>
+<p>3、登录到 开发机/vps ，cd 到你要用来登录的用户的home目录，比如  ssh  aaa@ip,  就cd   /home/aaa/ , 再切换到 /home/aaa/.ssh , 编辑 authorized_keys 文件，将步骤2中copy的内容追回到authorized_keys 末尾</p>
+<p>4、回到你自己的计算机上，在~/.bash_profile  文件里面添加一个自定义命令  alias logind=”ssh  aaa@ip”, 然后执行 source  ~/.bash_profile,   这样每次输入logind  就可以直接登录远程服务器了</p>
+<p>如果在步骤1生成key的过程中有输入密码，那logind后会提示输入密码，如果是在windows下连接远程服务器，就没这么多事了，安装secureCRT，它会帮你搞定一切！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/31/nginx-php-fpm-下php错误日志/" data-id="cicr941g9001lgo3nhi31xwxx" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/31/Linux配置ssh免密码登录/" data-id="cicrhcu1u002rjj3nwog4e4dx" class="article-share-link">分享到</a>
       
-        <a href="http://minishine.github.io/2015/07/31/nginx-php-fpm-下php错误日志/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://minishine.github.io/2015/07/31/Linux配置ssh免密码登录/#ds-thread" class="article-comment-link">评论</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php-fpm/">php-fpm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误日志/">错误日志</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
 
     </footer>
   </div>
@@ -325,7 +337,7 @@
 
 
     
-      <article id="post-centos-桌面安装与卸载" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -334,7 +346,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/centos-桌面安装与卸载/">centos 桌面安装与卸载</a>
+      <a class="article-title" href="/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/">什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI?</a>
     </h1>
   
 
@@ -342,8 +354,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/centos-桌面安装与卸载/">
-      <time datetime="2015-07-31T03:05:43.000Z" itemprop="datePublished">2015-07-31</time>
+    <a href="/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/">
+      <time datetime="2015-07-31T09:23:52.000Z" itemprop="datePublished">2015-07-31</time>
     </a>
   </div>
 
@@ -354,25 +366,47 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.登录系统，使用yum 安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall ‘X Window System’  -y</span><br></pre></td></tr></table></figure></p>
-<p>2.安装GNOME桌面环境<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall  ’GNOME Desktop Environment’ -y</span><br></pre></td></tr></table></figure></p>
-<p>3.如果安装KDE桌面环境<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall ‘KDE (K Desktop Environment)’ -y</span><br></pre></td></tr></table></figure></p>
-<p>4.卸载GNOME桌面环境<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupremove “GNOME Desktop Environment”</span><br></pre></td></tr></table></figure></p>
-<p>5.卸载KDE桌面环境<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupremove “KDE (K Desktop Environment)”</span><br></pre></td></tr></table></figure></p>
-<p>6.卸载Xwindows<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum  groupremove   ‘X Window System’  -y</span><br></pre></td></tr></table></figure></p>
-<p>以上转自<a href="http://blog.sina.com.cn/s/blog_46177c3401014ktx.html" target="_blank" rel="external">这里</a></p>
-<p>如果想启动的时候不启动桌面而是以命令窗口启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/inittab/</span><br></pre></td></tr></table></figure></p>
-<p>搜一下initdefault,这句改成 id:3:initdefault:  重启，OK~  </p>
+        <p>本文转自<a href="http://www.mike.org.cn/articles/what-is-cgi-fastcgi-php-fpm-spawn-fcgi/" target="_blank" rel="external">http://www.mike.org.cn/articles/what-is-cgi-fastcgi-php-fpm-spawn-fcgi/</a>  感谢原博主的辛勤奉献</p>
+<h3 id="什么是CGI">什么是CGI</h3><p>CGI全称是“公共网关接口”(Common Gateway Interface)，HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。</p>
+<p>CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等。</p>
+<h3 id="什么是FastCGI">什么是FastCGI</h3><p>FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次(这是CGI最为人诟病的fork-and-execute 模式)。它还支持分布式的运算, 即 FastCGI 程序可以在网站服务器以外的主机上执行并且接受来自其它网站服务器来的请求。</p>
+<p>FastCGI是语言无关的、可伸缩架构的CGI开放扩展，其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能。众所周知，CGI解释器的反复加载是CGI性能低下的主要原因，如果CGI解释器保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail- Over特性等等。</p>
+<h3 id="FastCGI与CGI特点">FastCGI与CGI特点</h3><p>1、如CGI，FastCGI也具有语言无关性.</p>
+<p>2、如CGI, FastCGI在进程中的应用程序，独立于核心web服务器运行,提供了一个比API更安全的环境。(APIs把应用程序的代码与核心的web服务器链接在一起，这意味着在一个错误的API的应用程序可能会损坏其他应用程序或核心服务器; 恶意的API的应用程序代码甚至可以窃取另一个应用程序或核心服务器的密钥。)</p>
+<p>3、FastCGI技术目前支持语言有：C/C++、Java、Perl、Tcl、Python、SmallTalk、Ruby等。相关模块在Apache, ISS, Lighttpd等流行的服务器上也是可用的。</p>
+<p>4、如CGI，FastCGI的不依赖于任何Web服务器的内部架构，因此即使服务器技术的变化, FastCGI依然稳定不变。</p>
+<h3 id="FastCGI的工作原理">FastCGI的工作原理</h3><p>1、Web Server启动时载入FastCGI进程管理器（IIS ISAPI或Apache Module)</p>
+<p>2、FastCGI进程管理器自身初始化，启动多个CGI解释器进程(可见多个php-cgi)并等待来自Web Server的连接。</p>
+<p>3、当客户端请求到达Web Server时，FastCGI进程管理器选择并连接到一个CGI解释器。Web server将CGI环境变量和标准输入发送到FastCGI子进程php-cgi。</p>
+<p>4、FastCGI子进程完成处理后将标准输出和错误信息从同一连接返回Web Server。当FastCGI子进程关闭连接时，请求便告处理完成。FastCGI子进程接着等待并处理来自FastCGI进程管理器(运行在Web Server中)的下一个连接。 在CGI模式中，php-cgi在此便退出了。</p>
+<p>在上述情况中，你可以想象CGI通常有多慢。每一个Web请求PHP都必须重新解析php.ini、重新载入全部扩展并重初始化全部数据结构。使用FastCGI，所有这些都只在进程启动时发生一次。一个额外的好处是，持续数据库连接(Persistent database connection)可以工作。</p>
+<h3 id="FastCGI的不足">FastCGI的不足</h3><p>因为是多进程，所以比CGI多线程消耗更多的服务器内存，PHP-CGI解释器每进程消耗7至25兆内存，将这个数字乘以50或100就是很大的内存数。</p>
+<p>Nginx 0.8.46+PHP 5.2.14(FastCGI)服务器在3万并发连接下，开启的10个Nginx进程消耗150M内存（15M<em>10=150M），开启的64个php-cgi进程消耗1280M内存（20M</em>64=1280M），加上系统自身消耗的内存，总共消耗不到2GB内存。如果服务器内存较小，完全可以只开启25个php-cgi进程，这样php-cgi消耗的总内存数才500M。</p>
+<p>上面的数据摘自<a href="http://zyan.cc/nginx_php_v6/" target="_blank" rel="external">Nginx 0.8.x + PHP 5.2.13(FastCGI)搭建胜过Apache十倍的Web服务器(第6版)</a></p>
+<h3 id="什么是PHP-CGI">什么是PHP-CGI</h3><p>PHP-CGI是PHP自带的FastCGI管理器</p>
+<h5 id="PHP-CGI的不足">PHP-CGI的不足</h5><p>1、php-cgi变更php.ini配置后需重启php-cgi才能让新的php-ini生效，不可以平滑重启</p>
+<p>2、直接杀死php-cgi进程,php就不能运行了。(PHP-FPM和Spawn-FCGI就没有这个问题,守护进程会平滑从新生成新的子进程。）</p>
+<h3 id="什么是PHP-FPM">什么是PHP-FPM</h3><p>PHP-FPM是一个PHP FastCGI管理器，是只用于PHP的,可以在 <a href="http://php-fpm.org/download" target="_blank" rel="external">http://php-fpm.org/download</a> 下载得到.</p>
+<p>PHP-FPM其实是PHP源代码的一个补丁，旨在将FastCGI进程管理整合进PHP包中。必须将它patch到你的PHP源代码中，在编译安装PHP后才可以使用。</p>
+<p>相对Spawn-FCGI，PHP-FPM在CPU和内存方面的控制都更胜一筹，而且前者很容易崩溃，必须用crontab进行监控，而PHP-FPM则没有这种烦恼。</p>
+<p>PHP5.3.3已经集成php-fpm了，不再是第三方的包了。PHP-FPM提供了更好的PHP进程管理方式，可以有效控制内存和进程、可以平滑重载PHP配置，比spawn-fcgi具有更多有点，所以被PHP官方收录了。在./configure的时候带 –enable-fpm参数即可开启PHP-FPM。</p>
+<h3 id="什么是Spawn-FCGI">什么是Spawn-FCGI</h3><p>Spawn-FCGI是一个通用的FastCGI管理服务器，它是lighttpd中的一部份，很多人都用Lighttpd的Spawn-FCGI进行FastCGI模式下的管理工作，不过有不少缺点。而PHP-FPM的出现多少缓解了一些问题，但PHP-FPM有个缺点就是要重新编译，这对于一些已经运行的环境可能有不小的风险(refer)，在php 5.3.3中可以直接使用PHP-FPM了。</p>
+<p>Spawn-FCGI目前已经独成为一个项目，更加稳定一些，也给很多Web 站点的配置带来便利。已经有不少站点将它与nginx搭配来解决动态网页。</p>
+<p>最新的lighttpd也没有包含这一块了(<a href="http://www.lighttpd.net/search?q=Spawn-FCGI" target="_blank" rel="external">http://www.lighttpd.net/search?q=Spawn-FCGI</a> )，但可以在以前版本中找到它。在lighttpd-1.4.15版本中就包含了(<a href="http://www.lighttpd.net/download/lighttpd-1.4.15.tar.gz" target="_blank" rel="external">http://www.lighttpd.net/download/lighttpd-1.4.15.tar.gz</a>)</p>
+<p>目前Spawn-FCGI的下载地址是<a href="http://redmine.lighttpd.net/projects/spawn-fcgi" target="_blank" rel="external">http://redmine.lighttpd.net/projects/spawn-fcgi</a> ，最新版本是<a href="http://www.lighttpd.net/download/spawn-fcgi-1.6.3.tar.gz" target="_blank" rel="external">http://www.lighttpd.net/download/spawn-fcgi-1.6.3.tar.gz</a></p>
+<p>注：最新的Spawn-FCGI可以到lighttpd.net网站搜索“Spawn-FCGI”找到它的最新版本发布地址</p>
+<h3 id="PHP-FPM与spawn-CGI对比测试">PHP-FPM与spawn-CGI对比测试</h3><p>PHP-FPM的使用非常方便,配置都是在PHP-FPM.ini的文件内，而启动、重启都可以从php/sbin/PHP-FPM中进行。更方便的是修改php.ini后可以直接使用PHP-FPM reload进行加载，无需杀掉进程就可以完成php.ini的修改加载<br>结果显示使用PHP-FPM可以使php有不小的性能提升。PHP-FPM控制的进程cpu回收的速度比较慢,内存分配的很均匀。</p>
+<p>Spawn-FCGI控制的进程CPU下降的很快,而内存分配的比较不均匀。有很多进程似乎未分配到,而另外一些却占用很高。可能是由于进程任务分配的不均匀导致的.而这也导致了总体响应速度的下降。而PHP-FPM合理的分配，导致总体响应的提到以及任务的平均。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/31/centos-桌面安装与卸载/" data-id="cicr941gd001tgo3n080y4x2k" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="cicrhcu05000zjj3nelqvkqoj" class="article-share-link">分享到</a>
       
-        <a href="http://minishine.github.io/2015/07/31/centos-桌面安装与卸载/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://minishine.github.io/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/#ds-thread" class="article-comment-link">评论</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CGI/">CGI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FastCGI/">FastCGI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP-CGI/">PHP-CGI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP-FPM/">PHP-FPM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spawn-FCGI/">Spawn-FCGI</a></li></ul>
 
     </footer>
   </div>
@@ -382,7 +416,7 @@
 
 
     
-      <article id="post-路人-戊正式搬家到gitpage" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="post-Linux给普通用户添加sudo权限" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -391,7 +425,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/30/路人-戊正式搬家到gitpage/">路人-戊正式搬家到git page</a>
+      <a class="article-title" href="/2015/07/31/Linux给普通用户添加sudo权限/">Linux给普通用户添加sudo权限</a>
     </h1>
   
 
@@ -399,33 +433,32 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/30/路人-戊正式搬家到gitpage/">
-      <time datetime="2015-07-30T11:00:39.000Z" itemprop="datePublished">2015-07-30</time>
+    <a href="/2015/07/31/Linux给普通用户添加sudo权限/">
+      <time datetime="2015-07-31T09:19:14.000Z" itemprop="datePublished">2015-07-31</time>
     </a>
   </div>
 
 
           
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
         </div>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>mark一下<br>折腾了大半天，终于把博客迁移到git page. 为了跟进时代我也是蛮拼的!<br><img src="/pics/suolue.png" alt=""></p>
+        <p>记一下，免得每次都要google<br>修改/etc/sudoers文件，修改命令必须为visudo才行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visudo -f /etc/sudoers</span></span><br></pre></td></tr></table></figure></p>
+<p>或者直接输入 visudo 就可以<br>在root ALL=(ALL) ALL 之后增加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tom ALL=(ALL) ALL</span><br><span class="line">Defaults:tom timestamp_timeout=-<span class="number">1</span>,runaspw</span><br></pre></td></tr></table></figure></p>
+<p>timestamp_timeout=-1 只需验证一次密码，以后系统自动记忆<br>runaspw  需要root密码，如果不加默认是要输入普通账户的密码</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.github.io/2015/07/30/路人-戊正式搬家到gitpage/" data-id="cicr941ep0004go3n0s03yj7t" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.github.io/2015/07/31/Linux给普通用户添加sudo权限/" data-id="cicrhcu1x002vjj3ntnb6fibp" class="article-share-link">分享到</a>
       
-        <a href="http://minishine.github.io/2015/07/30/路人-戊正式搬家到gitpage/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://minishine.github.io/2015/07/31/Linux给普通用户添加sudo权限/#ds-thread" class="article-comment-link">评论</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sudo/">sudo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/权限/">权限</a></li></ul>
+
     </footer>
   </div>
   
@@ -435,7 +468,7 @@
 
     
       <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
       </nav>
     </section>
       
@@ -443,93 +476,61 @@
   
     
   <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
-      <ul id="recent-post" class="">
+      <ul id="recent-post" class="no-thumbnail">
         
           <li>
             
-            <div class="item-thumbnail">
-              <a href="/2015/07/31/基友们/" class="thumbnail">
-  
-    <span style="background-image:url(/pics/jiyou.jpg
-)" alt="基友们" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
             <div class="item-inner">
               <p class="item-category"></p>
-              <p class="item-title"><a href="/2015/07/31/基友们/" class="title">基友们</a></p>
-              <p class="item-date"><time datetime="2015-07-31T06:28:10.000Z" itemprop="datePublished">2015-07-31</time></p>
+              <p class="item-title"><a href="/2015/07/31/memcache内存管理机制/" class="title">memcache内存管理机制</a></p>
+              <p class="item-date"><time datetime="2015-07-31T10:02:35.000Z" itemprop="datePublished">2015-07-31</time></p>
             </div>
           </li>
         
           <li>
             
-            <div class="item-thumbnail">
-              <a href="/2015/07/31/centos-使用yum-install安装nginx…/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
             <div class="item-inner">
               <p class="item-category"></p>
-              <p class="item-title"><a href="/2015/07/31/centos-使用yum-install安装nginx…/" class="title">centos,使用yum install安装nginx…</a></p>
-              <p class="item-date"><time datetime="2015-07-31T06:24:44.000Z" itemprop="datePublished">2015-07-31</time></p>
+              <p class="item-title"><a href="/2015/07/31/ubuntu下安装配置vsftp/" class="title">ubuntu下安装配置vsftp</a></p>
+              <p class="item-date"><time datetime="2015-07-31T09:58:07.000Z" itemprop="datePublished">2015-07-31</time></p>
             </div>
           </li>
         
           <li>
             
-            <div class="item-thumbnail">
-              <a href="/2015/07/31/常用命令速查/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
             <div class="item-inner">
               <p class="item-category"></p>
-              <p class="item-title"><a href="/2015/07/31/常用命令速查/" class="title">常用命令速查</a></p>
-              <p class="item-date"><time datetime="2015-07-31T03:40:09.000Z" itemprop="datePublished">2015-07-31</time></p>
+              <p class="item-title"><a href="/2015/07/31/mac下把日历分享给其它用户/" class="title">mac下把日历分享给其它用户</a></p>
+              <p class="item-date"><time datetime="2015-07-31T09:54:52.000Z" itemprop="datePublished">2015-07-31</time></p>
             </div>
           </li>
         
           <li>
             
-            <div class="item-thumbnail">
-              <a href="/2015/07/31/nginx-php-fpm-下php错误日志/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
             <div class="item-inner">
               <p class="item-category"></p>
-              <p class="item-title"><a href="/2015/07/31/nginx-php-fpm-下php错误日志/" class="title">nginx + php-fpm 下php错误日志</a></p>
-              <p class="item-date"><time datetime="2015-07-31T03:30:47.000Z" itemprop="datePublished">2015-07-31</time></p>
+              <p class="item-title"><a href="/2015/07/31/Linux配置ssh免密码登录/" class="title">Linux配置ssh免密码登录</a></p>
+              <p class="item-date"><time datetime="2015-07-31T09:49:33.000Z" itemprop="datePublished">2015-07-31</time></p>
             </div>
           </li>
         
           <li>
             
-            <div class="item-thumbnail">
-              <a href="/2015/07/31/centos-桌面安装与卸载/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
             <div class="item-inner">
               <p class="item-category"></p>
-              <p class="item-title"><a href="/2015/07/31/centos-桌面安装与卸载/" class="title">centos 桌面安装与卸载</a></p>
-              <p class="item-date"><time datetime="2015-07-31T03:05:43.000Z" itemprop="datePublished">2015-07-31</time></p>
+              <p class="item-title"><a href="/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" class="title">什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI?</a></p>
+              <p class="item-date"><time datetime="2015-07-31T09:23:52.000Z" itemprop="datePublished">2015-07-31</time></p>
             </div>
           </li>
         
@@ -548,30 +549,27 @@
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NERDTree/">NERDTree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hgdonline/">hgdonline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-fpm/">php-fpm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/session/">session</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/session-set-save-handler/">session_set_save_handler</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yum-install/">yum install</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/亲情/">亲情</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/人生多艰/">人生多艰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令/">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基友/">基友</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/换届合影/">换届合影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/无法删除/">无法删除</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/湖工大在线/">湖工大在线</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/错误日志/">错误日志</a><span class="tag-list-count">1</span></li></ul>
+      <ul>
+        
+          <li>
+            <a href="http://veryyoung.me/">Veryyoung</a>
+          </li>
+        
+          <li>
+            <a href="http://helloco.github.io">Helloco</a>
+          </li>
+        
+          <li>
+            <a href="https://ironmantony.github.io/">Ironman</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/centos/" style="font-size: 20px;">centos</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 20px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">11</span></li></ul>
-    </div>
-  </div>
 
   
   <div id="toTop" class="fa fa-chevron-up"></div>

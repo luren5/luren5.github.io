@@ -3,24 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>mac下把日历分享给其它用户 | 路人-戊</title>
+  <title>nginx平滑改变配置 | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工作原因，需要把自己的日历分享给组长，然后组长每天就可以看到我们干了些什么
-1、在网页版的outlook（mac下的客户端的outlook没试）上登录你的邮箱，然后里面有日历，把你的日历分享给要对应的用户即可
-2、在 “我的日历” 日历里面添加事件，然后你分享的用户就可以看到这个事件,到这里其实已经完成了，但是本人用的是foxmail for mac，里面根本没有日历功能（mac自带的邮件客户端也">
+  <meta name="description" content="本文主要是记录下怎样在不停止nginx服务的同时修复nginx的配置，节选自这里
+1、测试新的配置文件1#nginx -t -c /etc/nginx/nginx.conf
+解释一下参数-t : 不运行，仅仅测试配置文件。nginx将检查配置文件的语法正确性，并尝试打开配置文件中所引用到的文件-c : 指定一个配置文件位置，代码缺省的
+2、执行以下命令，找到nginx的进程号pid1ps aux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mac下把日历分享给其它用户">
-<meta property="og:url" content="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/index.html">
+<meta property="og:title" content="nginx平滑改变配置">
+<meta property="og:url" content="http://minishine.com/2015/08/01/nginx平滑改变配置/index.html">
 <meta property="og:site_name" content="路人-戊">
-<meta property="og:description" content="工作原因，需要把自己的日历分享给组长，然后组长每天就可以看到我们干了些什么
-1、在网页版的outlook（mac下的客户端的outlook没试）上登录你的邮箱，然后里面有日历，把你的日历分享给要对应的用户即可
-2、在 “我的日历” 日历里面添加事件，然后你分享的用户就可以看到这个事件,到这里其实已经完成了，但是本人用的是foxmail for mac，里面根本没有日历功能（mac自带的邮件客户端也">
-<meta property="og:updated_time" content="2015-07-31T09:57:53.000Z">
+<meta property="og:description" content="本文主要是记录下怎样在不停止nginx服务的同时修复nginx的配置，节选自这里
+1、测试新的配置文件1#nginx -t -c /etc/nginx/nginx.conf
+解释一下参数-t : 不运行，仅仅测试配置文件。nginx将检查配置文件的语法正确性，并尝试打开配置文件中所引用到的文件-c : 指定一个配置文件位置，代码缺省的
+2、执行以下命令，找到nginx的进程号pid1ps aux">
+<meta property="og:updated_time" content="2015-08-01T07:46:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mac下把日历分享给其它用户">
-<meta name="twitter:description" content="工作原因，需要把自己的日历分享给组长，然后组长每天就可以看到我们干了些什么
-1、在网页版的outlook（mac下的客户端的outlook没试）上登录你的邮箱，然后里面有日历，把你的日历分享给要对应的用户即可
-2、在 “我的日历” 日历里面添加事件，然后你分享的用户就可以看到这个事件,到这里其实已经完成了，但是本人用的是foxmail for mac，里面根本没有日历功能（mac自带的邮件客户端也">
+<meta name="twitter:title" content="nginx平滑改变配置">
+<meta name="twitter:description" content="本文主要是记录下怎样在不停止nginx服务的同时修复nginx的配置，节选自这里
+1、测试新的配置文件1#nginx -t -c /etc/nginx/nginx.conf
+解释一下参数-t : 不运行，仅仅测试配置文件。nginx将检查配置文件的语法正确性，并尝试打开配置文件中所引用到的文件-c : 指定一个配置文件位置，代码缺省的
+2、执行以下命令，找到nginx的进程号pid1ps aux">
   
   
     <link rel="icon" href="favicon.png">
@@ -129,7 +132,7 @@
 </aside>
 
       
-      <section id="main"><article id="post-mac下把日历分享给其它用户" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-nginx平滑改变配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -138,7 +141,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mac下把日历分享给其它用户
+      nginx平滑改变配置
     </h1>
   
 
@@ -146,34 +149,40 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/mac下把日历分享给其它用户/">
-      <time datetime="2015-07-31T09:54:52.000Z" itemprop="datePublished">2015-07-31</time>
+    <a href="/2015/08/01/nginx平滑改变配置/">
+      <time datetime="2015-08-01T03:49:17.000Z" itemprop="datePublished">2015-08-01</time>
     </a>
   </div>
 
 
           
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Nginx/">Nginx</a>
+  </div>
+
         </div>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>工作原因，需要把自己的日历分享给组长，然后组长每天就可以看到我们干了些什么</p>
-<p>1、在网页版的outlook（mac下的客户端的outlook没试）上登录你的邮箱，然后里面有日历，把你的日历分享给要对应的用户即可</p>
-<p>2、在 “我的日历” 日历里面添加事件，然后你分享的用户就可以看到这个事件,到这里其实已经完成了，但是本人用的是foxmail for mac，里面根本没有日历功能（mac自带的邮件客户端也没有日历共享功能），又不想换微软的outlook, 于是只好折腾一下。</p>
-<p>3、完成前两步后打开mac自带的日历，在菜单栏上点击  日历 -&gt; 添加账户 -&gt; Exchange,  然后输入工作的邮箱账户和密码，验证通过后就可以了</p>
-<p>4、选择要共享的东西，确保日历是被勾选的</p>
-<p>5、以后直接在mac自带的日历上添加事件，就可以同步到 工作邮箱的日历上，组长那边也可以看到你添加的事件</p>
+        <p>本文主要是记录下怎样在不停止nginx服务的同时修复nginx的配置，节选自<a href="http://www.nginx.cn/nginxchscommandline" target="_blank" rel="external">这里</a></p>
+<p>1、测试新的配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#nginx -t -c /etc/nginx/nginx.conf</span></span><br></pre></td></tr></table></figure></p>
+<p>解释一下参数<br>-t : 不运行，仅仅测试配置文件。nginx将检查配置文件的语法正确性，并尝试打开配置文件中所引用到的文件<br>-c : 指定一个配置文件位置，代码缺省的</p>
+<p>2、执行以下命令，找到nginx的进程号pid<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | egrep <span class="string">'(PID|nginx)'</span></span><br></pre></td></tr></table></figure></p>
+<p>3、执行以下命令平滑过渡<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -HUP pid</span><br></pre></td></tr></table></figure></p>
+<p>HUP是nginx的控制信号之一，nginx可以使用信号系统来控制主进程。HUP的意思是 重载配置，用新的配置开始新的工作进程，从容关闭旧的工作进程</p>
+<p>当 nginx 接收到 HUP 信号，它会尝试先解析配置文件（如果指定配置文件，就使用指定的，否则使用默认的），成功的话，就应用新的配置文件（例如：重新打开日志文件或监听的套接 字）。之后，nginx 运行新的工作进程并从容关闭旧的工作进程。通知工作进程关闭监听套接字但是继续为当前连接的客户提供服务。所有客户端的服务完成后，旧的工作进程被关闭。 如果新的配置文件应用失败，nginx 将继续使用旧的配置进行工作。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/" data-id="cicsr92a0002d1r3nj741lbiy" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/01/nginx平滑改变配置/" data-id="cicsr9wxp0000233nlzbeawma" class="article-share-link">分享到</a>
       
-        <a href="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://minishine.com/2015/08/01/nginx平滑改变配置/#ds-thread" class="article-comment-link">评论</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日历/">日历</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 
     </footer>
   </div>
@@ -181,19 +190,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/07/31/ubuntu下安装配置vsftp/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          ubuntu下安装配置vsftp
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/31/Linux配置ssh免密码登录/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/07/31/memcache内存管理机制/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Linux配置ssh免密码登录</div>
+      <div class="article-nav-title">memcache内存管理机制</div>
     </a>
   
 </nav>
@@ -203,7 +203,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/" data-title="mac下把日历分享给其它用户" data-url="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://minishine.com/2015/08/01/nginx平滑改变配置/" data-title="nginx平滑改变配置" data-url="http://minishine.com/2015/08/01/nginx平滑改变配置/">
       <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
       </div>
   </section>

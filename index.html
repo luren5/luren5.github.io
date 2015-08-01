@@ -92,7 +92,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        17
+        18
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -123,6 +123,66 @@
 
       
       <section id="main">
+      <article id="post-nginx平滑改变配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/01/nginx平滑改变配置/">nginx平滑改变配置</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/01/nginx平滑改变配置/">
+      <time datetime="2015-08-01T03:49:17.000Z" itemprop="datePublished">2015-08-01</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Nginx/">Nginx</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要是记录下怎样在不停止nginx服务的同时修复nginx的配置，节选自<a href="http://www.nginx.cn/nginxchscommandline" target="_blank" rel="external">这里</a></p>
+<p>1、测试新的配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#nginx -t -c /etc/nginx/nginx.conf</span></span><br></pre></td></tr></table></figure></p>
+<p>解释一下参数<br>-t : 不运行，仅仅测试配置文件。nginx将检查配置文件的语法正确性，并尝试打开配置文件中所引用到的文件<br>-c : 指定一个配置文件位置，代码缺省的</p>
+<p>2、执行以下命令，找到nginx的进程号pid<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | egrep <span class="string">'(PID|nginx)'</span></span><br></pre></td></tr></table></figure></p>
+<p>3、执行以下命令平滑过渡<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -HUP pid</span><br></pre></td></tr></table></figure></p>
+<p>HUP是nginx的控制信号之一，nginx可以使用信号系统来控制主进程。HUP的意思是 重载配置，用新的配置开始新的工作进程，从容关闭旧的工作进程</p>
+<p>当 nginx 接收到 HUP 信号，它会尝试先解析配置文件（如果指定配置文件，就使用指定的，否则使用默认的），成功的话，就应用新的配置文件（例如：重新打开日志文件或监听的套接 字）。之后，nginx 运行新的工作进程并从容关闭旧的工作进程。通知工作进程关闭监听套接字但是继续为当前连接的客户提供服务。所有客户端的服务完成后，旧的工作进程被关闭。 如果新的配置文件应用失败，nginx 将继续使用旧的配置进行工作。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/01/nginx平滑改变配置/" data-id="cicsr9wxp0000233nlzbeawma" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/08/01/nginx平滑改变配置/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-memcache内存管理机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -160,7 +220,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/memcache内存管理机制/" data-id="cicsoot9e0029w93n5nfxgyq8" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/memcache内存管理机制/" data-id="cicsr929w00281r3nqlkr9nc7" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/memcache内存管理机制/#ds-thread" class="article-comment-link">评论</a>
       
@@ -214,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/ubuntu下安装配置vsftp/" data-id="cicsoot8x001ow93n9simh25h" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/ubuntu下安装配置vsftp/" data-id="cicsr929c001n1r3n3emfvesp" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/ubuntu下安装配置vsftp/#ds-thread" class="article-comment-link">评论</a>
       
@@ -268,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/" data-id="cicsoot9j002ew93nplo33l1o" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/" data-id="cicsr92a0002d1r3nj741lbiy" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/#ds-thread" class="article-comment-link">评论</a>
       
@@ -322,7 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/Linux配置ssh免密码登录/" data-id="cicsoota7002rw93nb96xzq58" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/Linux配置ssh免密码登录/" data-id="cicsr92aw002q1r3nfdru0qof" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/Linux配置ssh免密码登录/#ds-thread" class="article-comment-link">评论</a>
       
@@ -401,63 +461,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="cicsoot8h000zw93nfbb8bnc1" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="cicsr928p000y1r3nm4ck1eft" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CGI/">CGI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FastCGI/">FastCGI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP-CGI/">PHP-CGI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP-FPM/">PHP-FPM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spawn-FCGI/">Spawn-FCGI</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-Linux给普通用户添加sudo权限" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/Linux给普通用户添加sudo权限/">Linux给普通用户添加sudo权限</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/Linux给普通用户添加sudo权限/">
-      <time datetime="2015-07-31T09:19:14.000Z" itemprop="datePublished">2015-07-31</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记一下，免得每次都要google<br>修改/etc/sudoers文件，修改命令必须为visudo才行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visudo -f /etc/sudoers</span></span><br></pre></td></tr></table></figure></p>
-<p>或者直接输入 visudo 就可以<br>在root ALL=(ALL) ALL 之后增加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tom ALL=(ALL) ALL</span><br><span class="line">Defaults:tom timestamp_timeout=-<span class="number">1</span>,runaspw</span><br></pre></td></tr></table></figure></p>
-<p>timestamp_timeout=-1 只需验证一次密码，以后系统自动记忆<br>runaspw  需要root密码，如果不加默认是要输入普通账户的密码</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/Linux给普通用户添加sudo权限/" data-id="cicsootae002vw93ndtmtl9ef" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/07/31/Linux给普通用户添加sudo权限/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sudo/">sudo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/权限/">权限</a></li></ul>
 
     </footer>
   </div>
@@ -478,7 +487,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 
@@ -488,6 +497,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/Nginx/">Nginx</a></p>
+              <p class="item-title"><a href="/2015/08/01/nginx平滑改变配置/" class="title">nginx平滑改变配置</a></p>
+              <p class="item-date"><time datetime="2015-08-01T03:49:17.000Z" itemprop="datePublished">2015-08-01</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -525,15 +543,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" class="title">什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI?</a></p>
-              <p class="item-date"><time datetime="2015-07-31T09:23:52.000Z" itemprop="datePublished">2015-07-31</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -543,7 +552,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 

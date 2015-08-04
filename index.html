@@ -179,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/redis编译安装杂记/" data-id="cicvihlrv00286b3nm7vboklt" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/redis编译安装杂记/" data-id="cicx85hig0028ow3ne4elhl7h" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/redis编译安装杂记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -235,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/什么是资源类型变量/" data-id="cicvihlq400136b3nvyjq7yeg" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/什么是资源类型变量/" data-id="cicx85hhp0013ow3nl8cm05uh" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/什么是资源类型变量/#ds-thread" class="article-comment-link">评论</a>
       
@@ -288,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/" data-id="cicvihlt5002y6b3ndzztuzep" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/" data-id="cicx85hjb002yow3neff2e3mg" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/#ds-thread" class="article-comment-link">评论</a>
       
@@ -337,38 +337,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>desc~新浪小组内技术分享<br>题目链接：<a href="http://www.diaochapai.com/survey/b23e2785-35d9-48f6-8da5-ac3a155a6d94" target="_blank" rel="external">http://www.diaochapai.com/survey/b23e2785-35d9-48f6-8da5-ac3a155a6d94</a><br>答案：  A A C A C &nbsp;&nbsp;D C C E B &nbsp;&nbsp; A B C C A &nbsp; B B B A C &nbsp;&nbsp; B C C C C&nbsp;&nbsp; D B D A D</p>
-<p>1、int(n), 这里的n只是指定显示宽度（注意和varchar(n)的区别），如果是zerofill，宽度不足的时候会补0。另外建表的时候，如果指定int为 unsigned,  执行desc tablename的时候发现类型为  int(10)，如果没有指定则是  int(11), 烦请大家注意，具体细节google it</p>
-<p>2、varchar类型长度可自动伸缩，varchar(n) 表示最大字符数不能超过n，如果超过非严格模式下会被截断，但是在严格模式下会直接报错</p>
-<p>3、这道题如果做错了，那肯定没好好看高鹏发的那个pdf，varchar(n) 此处n是字符数，具体占多少个字节mysql会根据编码来确定</p>
-<p>4、like 不一定会使索引失效，比如  like  ”afasfas%”， 只要通配符没在开头位置就行</p>
-<p>此题本来拟定的答案是A, 但是 mysql  5.6以后的版本InnoDB也支持全文索引了，所以此题没有正确选项，谢谢亮亮童鞋的指正！</p>
-<p>5、具体情况大家看下hash索引的实现原理吧，它是不能避免扫表的</p>
-<p>6、Innodb存储引擎默认是行级锁</p>
-<p>7、支持事务的还有BDB， memory的数据是在内存里面，表结构文件是放在硬盘上的</p>
-<p>8、C选项，其它都是瞎编的干扰项</p>
-<p>9、Partial Level  是我瞎编的，  Routine Level 的权限主要只有 EXECUTE 和 ALTER ROUTINE 两种，主要针对的对象是procedure 和 function 这两种对象，在授予 Routine Level 权限的时候，需要指定数据库和相关对象。</p>
-<p>10、复合索引只有最左列被用到，索引才能生效</p>
-<p>11、这个如果做错了，肯定也是没有好好看高鹏的pdf的，column是关键字，应当尽量避免。查询的时候可以加个小引号（esc下面那个） ·column·  就不会报错了</p>
-<p>12、选 B，null会参与字段比较，并且不会被B树索引，另外null是需要占磁盘空间的</p>
-<p>13、pdf里面有、培训时候也有讲</p>
-<p>14、InnoDB是把表的主键最大值放到内存里面，所以MYSQL重启之后就会丢失。MyISAM是把表的主键最大值放到文件里面，所以MYSQL重启之后不会丢失</p>
-<p> 15、其实这题主要是表达 “不要在列上面进行计算” ，B项就违反了这点，会使索引失效，C是干扰项，把所有的内容先查出来再筛选，应该没人会这么做<br> 16、不要在区分度很小的字段上建索引，例如  status, 性别…<br> 17、B项描述不是太严谨，但是A、C、D肯定是没问题的<br> 18、题目已经说了，确定只有一条记录，加limit 1 主要是当查到一条之后立即结束查询，而不是继续扫表，可提高效率。C项是干扰项，如果加个唯一索引，再来一个叫“徐欢欢”的员工，Ta的信息就无法录入了<br> 19、MyISAM和Memory不支持事务，只能用  InnoDB<br> 20、这个比较简单，不多说了</p>
-<p> 21、 这里涉及的东西比较多，可查这里 《 深入浅出mysql》   P52</p>
-<p> 22、整理碎片</p>
-<p> 23、A 和B肯定不对，D项，复合索引比分别建索引效率高，具体google吧</p>
-<p> 24、desc tablename  是看不到存储引擎的</p>
-<p> 25、type为ALL的时候表示在扫表，效率是最低的</p>
-<p> 26、Qcache_free_blocks  缓存中相邻内存块的个数。数目大说明可能有碎片。FLUSH QUERY CACHE 会对缓存中的碎片进行整理，从而得到一个空闲块。</p>
-<p> 27、InnoDB行锁实现分析，可看这里  <a href="http://www.penglixun.com/tech/database/innodb_next_key_locking.html" target="_blank" rel="external">http://www.penglixun.com/tech/database/innodb_next_key_locking.html</a></p>
-<p> 28、必要的时候是需要反范式的，比如这个博客  <a href="http://book.51cto.com/art/201304/391990.htm" target="_blank" rel="external">http://book.51cto.com/art/201304/391990.htm</a></p>
-<p> 29、master端是没有sql线程的</p>
-<p> 30、D是胡扯的，B选项 master-master  是很常见的，互为主从</p>
-
+        <p>desc~新浪小组内技术分享<br>题目链接：<a href="http://www.diaochapai.com/survey/b23e2785-35d9-48f6-8da5-ac3a155a6d94">http://www.diaochapai.com/survey/b23e2785-35d9-48f6-8da5-ac3a155a6d94</a><br>答案：  A A C A C &nbsp;&nbsp;D C C E B &nbsp;&nbsp; A B C C A &nbsp; B B B A C &nbsp;&nbsp; B C C C C&nbsp;&nbsp; D B D A D</p>
+<p>1、int(n), 这里的n只是指定显示宽度（注意和varchar(n)的区别），如果是zerofill，宽度不足的时候会补0。另外建表的时候，如果指定int为 unsigned,  执行desc tablename的时候发现类型为  int(10)，如果没有指定则是  int(11), 烦请大家注意，具体细节google it<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/08/03/MySQL最佳实践培训后测试——参考答案/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/" data-id="cicvihlts003f6b3nak0iwi6b" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/" data-id="cicx85hjn003fow3nxne96g59" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/#ds-thread" class="article-comment-link">评论</a>
       
@@ -429,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/XSS攻击相关/" data-id="cicvihlto003a6b3nj3s1bb7r" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/XSS攻击相关/" data-id="cicx85hjl003aow3nd81y8py5" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/XSS攻击相关/#ds-thread" class="article-comment-link">评论</a>
       
@@ -489,7 +468,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/01/nginx平滑改变配置/" data-id="cicvihls3002c6b3nm0vh9yhp" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/01/nginx平滑改变配置/" data-id="cicx85hil002cow3nj9qm7nuq" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/01/nginx平滑改变配置/#ds-thread" class="article-comment-link">评论</a>
       

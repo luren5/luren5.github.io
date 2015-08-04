@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/index.html">
 <meta property="og:site_name" content="路人-戊">
 <meta property="og:description" content="desc~新浪小组内技术分享题目链接：http://www.diaochapai.com/survey/b23e2785-35d9-48f6-8da5-ac3a155a6d94答案：  A A C A C &amp;nbsp;&amp;nbsp;D C C E B &amp;nbsp;&amp;nbsp; A B C C A &amp;nbsp; B B B A C &amp;nbsp;&amp;nbsp; B C C C C&amp;nbsp;&amp;nbsp;">
-<meta property="og:updated_time" content="2015-08-03T05:25:43.000Z">
+<meta property="og:updated_time" content="2015-08-04T10:49:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL最佳实践培训后测试——参考答案">
 <meta name="twitter:description" content="desc~新浪小组内技术分享题目链接：http://www.diaochapai.com/survey/b23e2785-35d9-48f6-8da5-ac3a155a6d94答案：  A A C A C &amp;nbsp;&amp;nbsp;D C C E B &amp;nbsp;&amp;nbsp; A B C C A &amp;nbsp; B B B A C &amp;nbsp;&amp;nbsp; B C C C C&amp;nbsp;&amp;nbsp;">
@@ -159,8 +159,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>desc~新浪小组内技术分享<br>题目链接：<a href="http://www.diaochapai.com/survey/b23e2785-35d9-48f6-8da5-ac3a155a6d94" target="_blank" rel="external">http://www.diaochapai.com/survey/b23e2785-35d9-48f6-8da5-ac3a155a6d94</a><br>答案：  A A C A C &nbsp;&nbsp;D C C E B &nbsp;&nbsp; A B C C A &nbsp; B B B A C &nbsp;&nbsp; B C C C C&nbsp;&nbsp; D B D A D</p>
-<p>1、int(n), 这里的n只是指定显示宽度（注意和varchar(n)的区别），如果是zerofill，宽度不足的时候会补0。另外建表的时候，如果指定int为 unsigned,  执行desc tablename的时候发现类型为  int(10)，如果没有指定则是  int(11), 烦请大家注意，具体细节google it</p>
-<p>2、varchar类型长度可自动伸缩，varchar(n) 表示最大字符数不能超过n，如果超过非严格模式下会被截断，但是在严格模式下会直接报错</p>
+<p>1、int(n), 这里的n只是指定显示宽度（注意和varchar(n)的区别），如果是zerofill，宽度不足的时候会补0。另外建表的时候，如果指定int为 unsigned,  执行desc tablename的时候发现类型为  int(10)，如果没有指定则是  int(11), 烦请大家注意，具体细节google it<br><a id="more"></a><br>2、varchar类型长度可自动伸缩，varchar(n) 表示最大字符数不能超过n，如果超过非严格模式下会被截断，但是在严格模式下会直接报错</p>
 <p>3、这道题如果做错了，那肯定没好好看高鹏发的那个pdf，varchar(n) 此处n是字符数，具体占多少个字节mysql会根据编码来确定</p>
 <p>4、like 不一定会使索引失效，比如  like  ”afasfas%”， 只要通配符没在开头位置就行</p>
 <p>此题本来拟定的答案是A, 但是 mysql  5.6以后的版本InnoDB也支持全文索引了，所以此题没有正确选项，谢谢亮亮童鞋的指正！</p>
@@ -189,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/" data-id="cicvihlts003f6b3nak0iwi6b" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/" data-id="cicx85hjn003fow3nxne96g59" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/#ds-thread" class="article-comment-link">评论</a>
       

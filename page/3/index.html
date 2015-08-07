@@ -93,7 +93,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        24
+        25
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -124,6 +124,57 @@
 
       
       <section id="main">
+      <article id="post-Linux给普通用户添加sudo权限" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/31/Linux给普通用户添加sudo权限/">Linux给普通用户添加sudo权限</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/07/31/Linux给普通用户添加sudo权限/">
+      <time datetime="2015-07-31T09:19:14.000Z" itemprop="datePublished">2015-07-31</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记一下，免得每次都要google<br>修改/etc/sudoers文件，修改命令必须为visudo才行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visudo -f /etc/sudoers</span></span><br></pre></td></tr></table></figure></p>
+<p>或者直接输入 visudo 就可以<br>在root ALL=(ALL) ALL 之后增加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tom ALL=(ALL) ALL</span><br><span class="line">Defaults:tom timestamp_timeout=-<span class="number">1</span>,runaspw</span><br></pre></td></tr></table></figure></p>
+<p>timestamp_timeout=-1 只需验证一次密码，以后系统自动记忆<br>runaspw  需要root密码，如果不加默认是要输入普通账户的密码</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/07/31/Linux给普通用户添加sudo权限/" data-id="cid1ddpfq003su33nmqdjp4sy" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/07/31/Linux给普通用户添加sudo权限/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sudo/">sudo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/权限/">权限</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-基友们" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -163,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/基友们/" data-id="cicx85hhe000row3nhxeu8yys" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/基友们/" data-id="cid1ddpd2000tu33nextnzamr" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/基友们/#ds-thread" class="article-comment-link">评论</a>
       
@@ -212,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/centos-使用yum-install安装nginx…/" data-id="cicx85hjj0035ow3n4n82u4ti" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/centos-使用yum-install安装nginx…/" data-id="cid1ddpfe0037u33nsfo47fnq" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/centos-使用yum-install安装nginx…/#ds-thread" class="article-comment-link">评论</a>
       
@@ -264,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/常用命令速查/" data-id="cicx85hha000iow3nzou9pydf" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/常用命令速查/" data-id="cid1ddpcy000ku33nl01ezenh" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/常用命令速查/#ds-thread" class="article-comment-link">评论</a>
       
@@ -316,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/nginx-php-fpm-下php错误日志/" data-id="cicx85hip002how3nirjfuabd" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/nginx-php-fpm-下php错误日志/" data-id="cid1ddpei002ju33n55j4qruv" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/nginx-php-fpm-下php错误日志/#ds-thread" class="article-comment-link">评论</a>
       
@@ -373,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/centos-桌面安装与卸载/" data-id="cicx85hjg0032ow3nmyrdx3w7" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/centos-桌面安装与卸载/" data-id="cid1ddpfc0034u33nse8l7he2" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/centos-桌面安装与卸载/#ds-thread" class="article-comment-link">评论</a>
       
@@ -388,60 +439,8 @@
 
 
     
-      <article id="post-路人-戊正式搬家到gitpage" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/30/路人-戊正式搬家到gitpage/">路人-戊正式搬家到git page</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/30/路人-戊正式搬家到gitpage/">
-      <time datetime="2015-07-30T11:00:39.000Z" itemprop="datePublished">2015-07-30</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>mark一下<br>折腾了大半天，终于把博客迁移到git page. 为了跟进时代我也是蛮拼的!<br><img src="/pics/suolue.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/30/路人-戊正式搬家到gitpage/" data-id="cicx85hgk0003ow3nnm1m4z8r" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/07/30/路人-戊正式搬家到gitpage/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
       </nav>
     </section>
       
@@ -461,6 +460,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/杂谈/">杂谈</a></p>
+              <p class="item-title"><a href="/2015/08/07/总结一下/" class="title">总结一下</a></p>
+              <p class="item-date"><time datetime="2015-08-07T07:49:52.000Z" itemprop="datePublished">2015-08-07</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -498,15 +506,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/security/">security</a></p>
-              <p class="item-title"><a href="/2015/08/03/XSS攻击相关/" class="title">XSS攻击相关</a></p>
-              <p class="item-date"><time datetime="2015-08-03T03:56:03.000Z" itemprop="datePublished">2015-08-03</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -516,7 +515,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 

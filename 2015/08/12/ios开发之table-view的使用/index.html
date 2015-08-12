@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: php | 路人-戊</title>
+  <title>ios开发之table view的使用 | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="this is a test">
-<meta property="og:type" content="website">
-<meta property="og:title" content="路人-戊">
-<meta property="og:url" content="http://minishine.com/tags/php/index.html">
+  <meta name="description" content="每次都忘记…好记性不好烂笔头1、拉一个table view控件到storyboard,然后选中table view右击，将选项中的delegate和dataSource连接到controller,如下截图
+2、拉一个table view cell控件到上述table view中，然后正常结构应该是这样的
+
+3、让controller的声明文件添加协议和Property,如下代码1@interfac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ios开发之table view的使用">
+<meta property="og:url" content="http://minishine.com/2015/08/12/ios开发之table-view的使用/index.html">
 <meta property="og:site_name" content="路人-戊">
-<meta property="og:description" content="this is a test">
+<meta property="og:description" content="每次都忘记…好记性不好烂笔头1、拉一个table view控件到storyboard,然后选中table view右击，将选项中的delegate和dataSource连接到controller,如下截图
+2、拉一个table view cell控件到上述table view中，然后正常结构应该是这样的
+
+3、让controller的声明文件添加协议和Property,如下代码1@interfac">
+<meta property="og:image" content="http://minishine.com/pics/table-pic1.png">
+<meta property="og:image" content="http://minishine.com/pics/table-pic2.png">
+<meta property="og:updated_time" content="2015-08-12T13:37:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="路人-戊">
-<meta name="twitter:description" content="this is a test">
+<meta name="twitter:title" content="ios开发之table view的使用">
+<meta name="twitter:description" content="每次都忘记…好记性不好烂笔头1、拉一个table view控件到storyboard,然后选中table view右击，将选项中的delegate和dataSource连接到controller,如下截图
+2、拉一个table view cell控件到上述table view中，然后正常结构应该是这样的
+
+3、让controller的声明文件添加协议和Property,如下代码1@interfac">
   
   
     <link rel="icon" href="favicon.png">
@@ -123,67 +135,83 @@
 </aside>
 
       
-      <section id="main">
-    <section class="archives-wrap">
-    <div class="archive-tag-wrap">
-      <span class="archive-tag">#php</span>
+      <section id="main"><article id="post-ios开发之table-view的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ios开发之table view的使用
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/12/ios开发之table-view的使用/">
+      <time datetime="2015-08-12T12:51:52.000Z" itemprop="datePublished">2015-08-12</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/ios开发学习笔记/">ios开发学习笔记</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>每次都忘记…好记性不好烂笔头<br>1、拉一个table view控件到storyboard,然后选中table view右击，将选项中的delegate和dataSource连接到controller,如下截图<br><img src="pics/table-pic1.png" alt="pic1"></p>
+<p>2、拉一个table view cell控件到上述table view中，然后正常结构应该是这样的</p>
+<p><img src="pics/table-pic2.png" alt="pic2"></p>
+<p>3、让controller的声明文件添加协议和Property,如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@interface ViewController  : UIViewController &#60;UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate&#62;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>4、<em>生成row</em>,实现UITableViewDataSource接口中的方法，添加如下两个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath &#123;&#10;    &#10;&#9;    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @&#34;tableIdentifier&#34;];&#10;&#9;&#9;    &#10;&#9;&#9;&#9;    if(cell == nil)&#123;&#10;&#9;&#9;&#9;&#9;        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@&#34;tableIdentifier&#34;];&#10;&#9;&#9;&#9;&#9;&#9;&#9;    &#125;&#10;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;    cell.textLabel.text = [self.testData objectAtIndex: [indexPath row]];&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;    return cell;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#125;&#10;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#123;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;    return self.testData.count;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述方法中的 self.testData 是自定义的一个NSArray,测试数据<br> @”tableIdentifier”是自定义的一个标识符</p>
+
+      
     </div>
-    <div class="archives">
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <header class="archive-article-header">
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/12/ios开发之table-view的使用/" data-id="cid8tordu0037f13nmuhco1zl" class="article-share-link">分享到</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/31/nginx-php-fpm-下php错误日志/">nginx + php-fpm 下php错误日志</a>
-    </h1>
-  
+        <a href="http://minishine.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/table-view/">table view</a></li></ul>
 
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/nginx-php-fpm-下php错误日志/">
-      <time datetime="2015-07-31T03:30:47.000Z" itemprop="datePublished">2015 7月 31</time>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/10/怎么使用NSTimer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">怎么使用NSTimer</div>
     </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <header class="archive-article-header">
-      
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/29/session存储到redis/">session存储到redis</a>
-    </h1>
+</nav>
+
   
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/29/session存储到redis/">
-      <time datetime="2015-07-29T11:50:56.000Z" itemprop="datePublished">2015 7月 29</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
 </article>
-    
-    </div></section>
-    </section>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://minishine.com/2015/08/12/ios开发之table-view的使用/" data-title="ios开发之table view的使用" data-url="http://minishine.com/2015/08/12/ios开发之table-view的使用/">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
+      </div>
+  </section>
+
+</section>
       
         <aside id="sidebar">
   

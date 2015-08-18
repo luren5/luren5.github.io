@@ -168,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-id="cidgqz25r003sm83ntt0r11lc" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-id="cidh1agvf003ss13nhnvtpz7n" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/18/Xcode安装插件失败/#ds-thread" class="article-comment-link">评论</a>
       
@@ -215,16 +215,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="改变控件的大小">改变控件的大小</h4><p>1、frame，可改变大小和位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CGRect originFrame = self.img.frame;&#10;// origin &#25913;&#21464;&#20301;&#32622;&#10;originFrame.origin.x += 10;&#10;originFrame.origin.y -=10;&#10;// size&#25913;&#21464;&#22823;&#23567;&#10;originFrame.size.width +=10;&#10;originFrame.size.height +=10;&#10;self.img.frame = originFrame;</span><br></pre></td></tr></table></figure></p>
-<p>2、center,只能改变控件的位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CGPoint centerPoint = self.img.center;&#10;centerPoint.x += 10;&#10;self.img.center = centerPoint;</span><br></pre></td></tr></table></figure></p>
+        <h4 id="改变控件的大小">改变控件的大小</h4><p>1、frame，可改变大小和位置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGRect</span> originFrame = <span class="keyword">self</span><span class="variable">.img</span><span class="variable">.frame</span>;</span><br><span class="line"><span class="comment">// origin 改变位置</span></span><br><span class="line">originFrame<span class="variable">.origin</span><span class="variable">.x</span> += <span class="number">10</span>;</span><br><span class="line">originFrame<span class="variable">.origin</span><span class="variable">.y</span> -=<span class="number">10</span>;</span><br><span class="line"><span class="comment">// size改变大小</span></span><br><span class="line">originFrame<span class="variable">.size</span><span class="variable">.width</span> +=<span class="number">10</span>;</span><br><span class="line">originFrame<span class="variable">.size</span><span class="variable">.height</span> +=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.img</span><span class="variable">.frame</span> = originFrame;</span><br></pre></td></tr></table></figure></p>
+<p>2、center,只能改变控件的位置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGPoint</span> centerPoint = <span class="keyword">self</span><span class="variable">.img</span><span class="variable">.center</span>;</span><br><span class="line">centerPoint<span class="variable">.x</span> += <span class="number">10</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.img</span><span class="variable">.center</span> = centerPoint;</span><br></pre></td></tr></table></figure></p>
 <p>3、bounds,只能改变控件的大小<br>使用方法和frame类似，虽然都可以改变大小，但是注意<code>bounds改变控件大小其中心坐标位置不变</code>，而<code>frame则是左上角的坐标不变</code></p>
 <p>4、transform，既能改变大小坐标，又能旋转</p>
-<h4 id="动画效果">动画效果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// &#24320;&#22987;&#21160;&#30011;&#10;[UIView beginAnimations:nil context:nil];&#10;// &#35774;&#32622;&#21160;&#30011;&#26102;&#38388;&#10;[UIView setAnimationDuration:5];&#10;//&#20197;&#19979;&#21487;&#20197;&#26159;&#21508;&#31181;&#21160;&#30011;&#30340;&#21160;&#20316;&#10;&#9;&#9;&#9;&#9;    &#10;// &#25552;&#20132;&#21160;&#30011;&#10;[UIView commitAnimations];</span><br></pre></td></tr></table></figure>
+<h4 id="动画效果">动画效果</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开始动画</span></span><br><span class="line">[<span class="built_in">UIView</span> beginAnimations:<span class="literal">nil</span> context:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">// 设置动画时间</span></span><br><span class="line">[<span class="built_in">UIView</span> setAnimationDuration:<span class="number">5</span>];</span><br><span class="line"><span class="comment">//以下可以是各种动画的动作</span></span><br><span class="line">				    </span><br><span class="line"><span class="comment">// 提交动画</span></span><br><span class="line">[<span class="built_in">UIView</span> commitAnimations];</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cidgqz25a0037m83nijzadryi" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cidh1aguz0037s13n21hpbvuy" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/#ds-thread" class="article-comment-link">评论</a>
       
@@ -271,16 +271,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.字符串和数字互转<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[str1 intValue]&#10;str1.intValue&#10;&#10;[NSString stringWithFormat:@&#34;%d&#34;, 8];</span><br></pre></td></tr></table></figure></p>
-<p>2、收回键盘<br>a)当页面内textField比较少的时候，比如有两个<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self.tfield1 resignFirstResponder];&#10;[self.tfield2 resignFirstResponder];</span><br></pre></td></tr></table></figure></p>
+        <p>1.字符串和数字互转<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[str1 intValue]</span><br><span class="line">str1<span class="variable">.intValue</span></span><br><span class="line"></span><br><span class="line">[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d"</span>, <span class="number">8</span>];</span><br></pre></td></tr></table></figure></p>
+<p>2、收回键盘<br>a)当页面内textField比较少的时候，比如有两个<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span><span class="variable">.tfield1</span> resignFirstResponder];</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.tfield2</span> resignFirstResponder];</span><br></pre></td></tr></table></figure></p>
 <p>给一个并不是第一响应者的UIView取消第一响应并不会有什么问题</p>
-<p>b)当页面内编辑框很多的时候，上述写法显然很繁琐，如下解决<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self.view endEditing:YES];</span><br></pre></td></tr></table></figure></p>
+<p>b)当页面内编辑框很多的时候，上述写法显然很繁琐，如下解决<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span><span class="variable">.view</span> endEditing:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure></p>
 <p>让控制器所管理的view停止编辑</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/15/ios学习笔记——散记/" data-id="cidgqz25f003em83n9db82513" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/15/ios学习笔记——散记/" data-id="cidh1agv3003es13nphrr5xug" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/15/ios学习笔记——散记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -327,10 +327,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>每次都忘记…好记性不好烂笔头<br>1、拉一个table view控件到storyboard,然后选中table view右击，将选项中的delegate和dataSource连接到controller,如下截图<br><img src="pics/table-pic1.png" alt="pic1"></p>
+        <p>每次都忘记…好记性不好烂笔头<br>1、拉一个table view控件到storyboard,然后选中table view右击，将选项中的delegate和dataSource连接到controller,如下截图<br><img src="/pics/table-pic1.png" alt="pic1"></p>
 <p>2、拉一个table view cell控件到上述table view中，然后正常结构应该是这样的</p>
-<p><img src="pics/table-pic2.png" alt="pic2"></p>
-<p>3、让controller的声明文件添加协议和Property,如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@interface ViewController  : UIViewController &#60;UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate&#62;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/pics/table-pic2.png" alt="pic2"></p>
+<p>3、让controller的声明文件添加协议和Property,如下代码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span>  : <span class="title">UIViewController</span> &lt;<span class="title">UITableViewDelegate</span>, <span class="title">UITableViewDataSource</span>, <span class="title">UIActionSheetDelegate</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
         
           <p class="article-more-link">
             <a href="/2015/08/12/ios开发之table-view的使用/#more">Read More</a>
@@ -339,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/12/ios开发之table-view的使用/" data-id="cidgqz25c0039m83nhvxo6fuu" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/12/ios开发之table-view的使用/" data-id="cidh1agv10039s13ns3z9e5sk" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
       
@@ -389,13 +389,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今天在做demo的时候需要用到定时器，这里简要记录一下</p>
-<p>1、先定义一个timer<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSTimer *hqTimer = [NSTimer scheduledTimerWithTimeInterval:<span class="number">5.0</span></span><br><span class="line">                                                        target:self</span><br><span class="line">							selector:@selector(refreshHq:) </span><br><span class="line">							userInfo:nil repeats:YES];</span><br></pre></td></tr></table></figure></p>
-<p>以上定义一个timer,5.0表示每5秒执行一次，<code>repeats:YES</code>表示重复执行，如果为NO执行一次就失效，<code>refreshHq:</code>表示要调用的方法，将在下面定义<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)refreshHq:(NSTimer *)theTimer &#123;</span><br><span class="line">	NSLog(@<span class="string">"fsdafsf"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>1、先定义一个timer<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSTimer</span> *hqTimer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">5.0</span></span><br><span class="line">                                                        target:<span class="keyword">self</span></span><br><span class="line">							selector:<span class="keyword">@selector</span>(refreshHq:) </span><br><span class="line">							userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure></p>
+<p>以上定义一个timer,5.0表示每5秒执行一次，<code>repeats:YES</code>表示重复执行，如果为NO执行一次就失效，<code>refreshHq:</code>表示要调用的方法，将在下面定义<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)refreshHq:(<span class="built_in">NSTimer</span> *)theTimer &#123;</span><br><span class="line">	<span class="built_in">NSLog</span>(<span class="string">@"fsdafsf"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/10/怎么使用NSTimer/" data-id="cidgqz22h000km83nolw5jn7p" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/10/怎么使用NSTimer/" data-id="cidh1ags9000ks13nw81ezqww" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/10/怎么使用NSTimer/#ds-thread" class="article-comment-link">评论</a>
       
@@ -452,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/07/总结一下/" data-id="cidgqz22d000im83n0f32otl6" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/07/总结一下/" data-id="cidh1agry000is13niv3d24h7" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/07/总结一下/#ds-thread" class="article-comment-link">评论</a>
       
@@ -476,7 +476,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模板/" style="font-size: 10px;">设计模板</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 

@@ -93,7 +93,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        29
+        30
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -124,6 +124,58 @@
 
       
       <section id="main">
+      <article id="post-memcache内存管理机制" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/31/memcache内存管理机制/">memcache内存管理机制</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/07/31/memcache内存管理机制/">
+      <time datetime="2015-07-31T10:02:35.000Z" itemprop="datePublished">2015-07-31</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Memcache使用了一个非常简单的内存管理机制——固定空间分配</p>
+<p>Memcache将内存空间分为一组slab，每个slab里又包含一组chunk，同一个slab里的每个chunk的大小是固定的，拥有相同大小chunk的slab被组织在一起，叫做slab_class。存储数据时根据数据的Size大小，寻找一个大于Size的最小chunk将数据写入。这种内存管理方式避免了内存碎片管理的问题，内存的分配和释放都是以chunk为单位的。</p>
+<p>Memcahce采用LRU算法释放最近最少使用的数据，释放的chunk会被标记为未用，等待下一个合适大小数据写入</p>
+<p>这种机制会存在内存浪费的问题，数据只能存入一个比它大的chunk里，而一个chunk只能存一个数据，其它的空间就被浪费了。所以应该注意启动参数的配置，否则浪费可能惊人…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/07/31/memcache内存管理机制/" data-id="cidgqz253002xm83nbryux4kf" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/07/31/memcache内存管理机制/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcache/">memcache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存管理/">内存管理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-ubuntu下安装配置vsftp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -163,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/ubuntu下安装配置vsftp/" data-id="cidebj9pm0024eidswe72xezo" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/ubuntu下安装配置vsftp/" data-id="cidgqz2480024m83n0wobrz5z" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/ubuntu下安装配置vsftp/#ds-thread" class="article-comment-link">评论</a>
       
@@ -217,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/" data-id="cidebj9si0032eidsjwolz1en" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/" data-id="cidgqz2580032m83nlf2fot89" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/mac下把日历分享给其它用户/#ds-thread" class="article-comment-link">评论</a>
       
@@ -273,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/Linux配置ssh免密码登录/" data-id="cidebj9ui0044eidssd16791r" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/Linux配置ssh免密码登录/" data-id="cidgqz2600046m83nu0vsr0r3" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/Linux配置ssh免密码登录/#ds-thread" class="article-comment-link">评论</a>
       
@@ -352,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="cidebj9oe001feidsy521xhf1" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="cidgqz23r001fm83ngmwnap31" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/#ds-thread" class="article-comment-link">评论</a>
       
@@ -403,66 +455,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/Linux给普通用户添加sudo权限/" data-id="cidebj9uq0048eidsxnrodxm2" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/Linux给普通用户添加sudo权限/" data-id="cidgqz265004am83nfdgzhs1c" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/Linux给普通用户添加sudo权限/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sudo/">sudo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/权限/">权限</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-基友们" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/基友们/">基友们</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/基友们/">
-      <time datetime="2015-07-31T06:28:10.000Z" itemprop="datePublished">2015-07-31</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/pics/jiyou.jpg" alt="帝都生活-某日在上地公园"><br><img src="/pics/jiyou2.jpg" alt="当年我们还是学生--在长江大桥上"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/基友们/" data-id="cidebj9nc0010eidscmfe8gd7" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/07/31/基友们/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基友/">基友</a></li></ul>
 
     </footer>
   </div>
@@ -493,6 +491,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a></p>
+              <p class="item-title"><a href="/2015/08/18/Xcode安装插件失败/" class="title">Xcode安装插件失败</a></p>
+              <p class="item-date"><time datetime="2015-08-18T02:34:50.000Z" itemprop="datePublished">2015-08-18</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -530,15 +537,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/杂谈/">杂谈</a></p>
-              <p class="item-title"><a href="/2015/08/07/总结一下/" class="title">总结一下</a></p>
-              <p class="item-date"><time datetime="2015-08-07T07:49:52.000Z" itemprop="datePublished">2015-08-07</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -548,7 +546,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 

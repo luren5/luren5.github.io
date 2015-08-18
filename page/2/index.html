@@ -93,7 +93,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        29
+        30
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -124,6 +124,76 @@
 
       
       <section id="main">
+      <article id="post-redis编译安装杂记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/03/redis编译安装杂记/">redis编译安装杂记</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/03/redis编译安装杂记/">
+      <time datetime="2015-08-03T05:52:19.000Z" itemprop="datePublished">2015-08-03</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/reids/">reids</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装可以参考这里  <a href="http://871421448.iteye.com/blog/1921701" target="_blank" rel="external">http://871421448.iteye.com/blog/1921701</a></p>
+<p>启动用如下命令：redis-server /etc/redis/redis.conf&amp;，记住后面的&amp;，使其在后台运行！</p>
+<p>安装phpredis 扩展的时候整死人，看了诸多文档，搞不定，现在把关键步骤记录一下！</p>
+<p>1.下载 phpredis扩展</p>
+<p>2.cd到相应的文件夹</p>
+<ol>
+<li><p>phpize    (以下几步要注意，如果不是root需要使用sodu)</p>
+</li>
+<li><p>./configure</p>
+</li>
+<li><p>make</p>
+</li>
+<li><p>make install （到这一步的时候扩展已经编译成功并显示所在目录，我这里是在/usr/lib/php5/20100525+lfs/）</p>
+</li>
+</ol>
+<p>7.到这里就非常重要了，看别人的文档上写的都是直接用php –ini查找到php的配置文件，然后加上  extensiton=redis.so  ，重启apache就OK，但是这里搞不定。注意这里和php.ini同层有一个目录conf.d，cd进去，这里是已经装好的扩展，直接cp一份，把extension改成redis，然后再重启apache，这样才可以….</p>
+<p>总算大功告成了！！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/03/redis编译安装杂记/" data-id="cidgqz24h002hm83n1mc0egoc" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/08/03/redis编译安装杂记/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-什么是资源类型变量" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -165,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/什么是资源类型变量/" data-id="cidebj9o2001ceids43xtnnee" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/什么是资源类型变量/" data-id="cidgqz23o001cm83nhzrmb9co" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/什么是资源类型变量/#ds-thread" class="article-comment-link">评论</a>
       
@@ -218,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/" data-id="cidebj9t6003geids94q0oiim" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/" data-id="cidgqz25g003gm83nmqk68g13" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/#ds-thread" class="article-comment-link">评论</a>
       
@@ -277,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/" data-id="cidebj9u7003xeids8pmuzyj8" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/" data-id="cidgqz25x003zm83nzeq20p81" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/#ds-thread" class="article-comment-link">评论</a>
       
@@ -338,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/XSS攻击相关/" data-id="cidebj9u0003seidssyg83g5t" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/XSS攻击相关/" data-id="cidgqz25u003um83nrgsgh7en" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/XSS攻击相关/#ds-thread" class="article-comment-link">评论</a>
       
@@ -398,64 +468,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/01/nginx平滑改变配置/" data-id="cidebj9qr002leids3mgtf9xa" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/01/nginx平滑改变配置/" data-id="cidgqz24u002lm83nokmlslt6" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/01/nginx平滑改变配置/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-memcache内存管理机制" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/memcache内存管理机制/">memcache内存管理机制</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/memcache内存管理机制/">
-      <time datetime="2015-07-31T10:02:35.000Z" itemprop="datePublished">2015-07-31</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Memcache使用了一个非常简单的内存管理机制——固定空间分配</p>
-<p>Memcache将内存空间分为一组slab，每个slab里又包含一组chunk，同一个slab里的每个chunk的大小是固定的，拥有相同大小chunk的slab被组织在一起，叫做slab_class。存储数据时根据数据的Size大小，寻找一个大于Size的最小chunk将数据写入。这种内存管理方式避免了内存碎片管理的问题，内存的分配和释放都是以chunk为单位的。</p>
-<p>Memcahce采用LRU算法释放最近最少使用的数据，释放的chunk会被标记为未用，等待下一个合适大小数据写入</p>
-<p>这种机制会存在内存浪费的问题，数据只能存入一个比它大的chunk里，而一个chunk只能存一个数据，其它的空间就被浪费了。所以应该注意启动参数的配置，否则浪费可能惊人…</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/memcache内存管理机制/" data-id="cidebj9s7002xeidsumg12hu2" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/07/31/memcache内存管理机制/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcache/">memcache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存管理/">内存管理</a></li></ul>
 
     </footer>
   </div>
@@ -486,6 +504,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a></p>
+              <p class="item-title"><a href="/2015/08/18/Xcode安装插件失败/" class="title">Xcode安装插件失败</a></p>
+              <p class="item-date"><time datetime="2015-08-18T02:34:50.000Z" itemprop="datePublished">2015-08-18</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -523,15 +550,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/杂谈/">杂谈</a></p>
-              <p class="item-title"><a href="/2015/08/07/总结一下/" class="title">总结一下</a></p>
-              <p class="item-date"><time datetime="2015-08-07T07:49:52.000Z" itemprop="datePublished">2015-08-07</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -541,7 +559,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 

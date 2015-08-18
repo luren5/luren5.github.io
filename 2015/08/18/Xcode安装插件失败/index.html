@@ -3,17 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 内存管理 | 路人-戊</title>
+  <title>Xcode安装插件失败 | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="this is a test">
-<meta property="og:type" content="website">
-<meta property="og:title" content="路人-戊">
-<meta property="og:url" content="http://minishine.com/tags/内存管理/index.html">
+  <meta name="description" content="今天尝试着安装VVDocumenter和KSImageNamed这两个插件，看教程上挺简单的，直接clone下来，然后Xcode打开，command + b，提示构建成功，OK！
+然后问题来了，插件并没有起作用
+症状和解决方案…
+再次打开之后在xcode的Window菜单栏下并没有显示已经安装的插件，但是切换到~/Library/Application Support/Developer/Shar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode安装插件失败">
+<meta property="og:url" content="http://minishine.com/2015/08/18/Xcode安装插件失败/index.html">
 <meta property="og:site_name" content="路人-戊">
-<meta property="og:description" content="this is a test">
+<meta property="og:description" content="今天尝试着安装VVDocumenter和KSImageNamed这两个插件，看教程上挺简单的，直接clone下来，然后Xcode打开，command + b，提示构建成功，OK！
+然后问题来了，插件并没有起作用
+症状和解决方案…
+再次打开之后在xcode的Window菜单栏下并没有显示已经安装的插件，但是切换到~/Library/Application Support/Developer/Shar">
+<meta property="og:updated_time" content="2015-08-18T02:46:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="路人-戊">
-<meta name="twitter:description" content="this is a test">
+<meta name="twitter:title" content="Xcode安装插件失败">
+<meta name="twitter:description" content="今天尝试着安装VVDocumenter和KSImageNamed这两个插件，看教程上挺简单的，直接clone下来，然后Xcode打开，command + b，提示构建成功，OK！
+然后问题来了，插件并没有起作用
+症状和解决方案…
+再次打开之后在xcode的Window菜单栏下并没有显示已经安装的插件，但是切换到~/Library/Application Support/Developer/Shar">
   
   
     <link rel="icon" href="favicon.png">
@@ -123,41 +133,80 @@
 </aside>
 
       
-      <section id="main">
-    <section class="archives-wrap">
-    <div class="archive-tag-wrap">
-      <span class="archive-tag">#内存管理</span>
-    </div>
-    <div class="archives">
+      <section id="main"><article id="post-Xcode安装插件失败" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <header class="archive-article-header">
-      
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/31/memcache内存管理机制/">memcache内存管理机制</a>
+    <h1 class="article-title" itemprop="name">
+      Xcode安装插件失败
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/memcache内存管理机制/">
-      <time datetime="2015-07-31T10:02:35.000Z" itemprop="datePublished">2015 7月 31</time>
+    <a href="/2015/08/18/Xcode安装插件失败/">
+      <time datetime="2015-08-18T02:34:50.000Z" itemprop="datePublished">2015-08-18</time>
     </a>
   </div>
 
 
-      
-    </header>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
   </div>
-</article>
+
+        </div>
+      </header>
     
-    </div></section>
-    </section>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天尝试着安装VVDocumenter和KSImageNamed这两个插件，看教程上挺简单的，直接clone下来，然后Xcode打开，command + b，提示构建成功，OK！</p>
+<p><em>然后问题来了，插件并没有起作用</em></p>
+<p><span style="color:red">症状和解决方案…</span></p>
+<p>再次打开之后在xcode的Window菜单栏下并没有显示已经安装的插件，但是切换到<code>~/Library/Application Support/Developer/Shared/Xcode/Plug-ins</code> 插件确实构建成功而且存在</p>
+<p>好吧，原因找到了，构建之后再次打开会有一个弹出框，有两个选项<code>Load bundle</code>、 <code>Skip Bundle</code> 很不幸的选择了第二个。</p>
+<p>把<code>~/Li    brary/Application Support/Developer/Shared/Xcode/Plug-ins</code> 下已经构建好的插件删除，然后再重新构建一下，comman + q退出，再重启，选择 <code>Load bundle</code> 解决！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-id="cidgqz25r003sm83ntt0r11lc" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/08/18/Xcode安装插件失败/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/16/ios开发之坐标、大小、动画/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ios开发之坐标、大小、动画</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-title="Xcode安装插件失败" data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
+      </div>
+  </section>
+
+</section>
       
         <aside id="sidebar">
   

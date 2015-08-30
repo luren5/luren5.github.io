@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/7 | 路人-戊</title>
+  <title>viewDidLoad方法中不能修改控件的size和origin | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="this is a test">
-<meta property="og:type" content="website">
-<meta property="og:title" content="路人-戊">
-<meta property="og:url" content="http://minishine.com/archives/2015/07/index.html">
+  <meta name="description" content="今天在做一个demo的时候，有这样的一个需要，就是页面展现的时候修改里面的一个UItableview控件和位置，这个uitableview是在storyboard里面已经拉好的
+直接在viewDidLoad里面修改它的frame，本来感觉没什么问题的，但是效果死活出不来
+好吧，记录一下，这里修改的逻辑一定要放在viewDidLayoutSubviews 方法里面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="viewDidLoad方法中不能修改控件的size和origin">
+<meta property="og:url" content="http://minishine.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/index.html">
 <meta property="og:site_name" content="路人-戊">
-<meta property="og:description" content="this is a test">
+<meta property="og:description" content="今天在做一个demo的时候，有这样的一个需要，就是页面展现的时候修改里面的一个UItableview控件和位置，这个uitableview是在storyboard里面已经拉好的
+直接在viewDidLoad里面修改它的frame，本来感觉没什么问题的，但是效果死活出不来
+好吧，记录一下，这里修改的逻辑一定要放在viewDidLayoutSubviews 方法里面">
+<meta property="og:updated_time" content="2015-08-29T03:29:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="路人-戊">
-<meta name="twitter:description" content="this is a test">
+<meta name="twitter:title" content="viewDidLoad方法中不能修改控件的size和origin">
+<meta name="twitter:description" content="今天在做一个demo的时候，有这样的一个需要，就是页面展现的时候修改里面的一个UItableview控件和位置，这个uitableview是在storyboard里面已经拉好的
+直接在viewDidLoad里面修改它的frame，本来感觉没什么问题的，但是效果死活出不来
+好吧，记录一下，这里修改的逻辑一定要放在viewDidLayoutSubviews 方法里面">
   
   
     <link rel="icon" href="favicon.png">
@@ -123,175 +130,77 @@
 </aside>
 
       
-      <section id="main">
-      <div class="archive-year-wrap">
-        <a href="/archives/2015" class="archive-year">2015</a>
+      <section id="main"><article id="post-viewDidLoad方法中不能修改控件的size和origin" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      viewDidLoad方法中不能修改控件的size和origin
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/">
+      <time datetime="2015-08-29T03:21:52.000Z" itemprop="datePublished">2015-08-29</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在做一个demo的时候，有这样的一个需要，就是页面展现的时候修改里面的一个UItableview控件和位置，这个uitableview是在storyboard里面已经拉好的</p>
+<p>直接在viewDidLoad里面修改它的frame，本来感觉没什么问题的，但是效果死活出不来</p>
+<p>好吧，记录一下，这里修改的逻辑一定要放在<code>viewDidLayoutSubviews</code> 方法里面</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/" data-id="cidxw9avr0024fj3nfckp1oue" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/19/ios开发RESideMenu实现侧滑功能/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ios开发RESideMenu实现侧滑功能</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://minishine.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/" data-title="viewDidLoad方法中不能修改控件的size和origin" data-url="http://minishine.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
       </div>
-      <section class="archives-wrap">
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/31/memcache内存管理机制/">memcache内存管理机制</a>
-    </h1>
-  
+  </section>
 
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/memcache内存管理机制/">
-      <time datetime="2015-07-31T10:02:35.000Z" itemprop="datePublished">7月 31</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/31/ubuntu下安装配置vsftp/">ubuntu下安装配置vsftp</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/ubuntu下安装配置vsftp/">
-      <time datetime="2015-07-31T09:58:07.000Z" itemprop="datePublished">7月 31</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/31/mac下把日历分享给其它用户/">mac下把日历分享给其它用户</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/mac下把日历分享给其它用户/">
-      <time datetime="2015-07-31T09:54:52.000Z" itemprop="datePublished">7月 31</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/31/Linux配置ssh免密码登录/">Linux配置ssh免密码登录</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/Linux配置ssh免密码登录/">
-      <time datetime="2015-07-31T09:49:33.000Z" itemprop="datePublished">7月 31</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/">什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI?</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/">
-      <time datetime="2015-07-31T09:23:52.000Z" itemprop="datePublished">7月 31</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/31/Linux给普通用户添加sudo权限/">Linux给普通用户添加sudo权限</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/Linux给普通用户添加sudo权限/">
-      <time datetime="2015-07-31T09:19:14.000Z" itemprop="datePublished">7月 31</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    </div></section>
-  
-      <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2015/07/page/2/">2</a><a class="page-number" href="/archives/2015/07/page/3/">3</a><a class="extend next" rel="next" href="/archives/2015/07/page/2/">下一页 &raquo;</a>
-      </nav>
-    </section>
+</section>
       
         <aside id="sidebar">
   

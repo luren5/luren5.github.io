@@ -93,7 +93,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        32
+        33
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -124,6 +124,58 @@
 
       
       <section id="main">
+      <article id="post-nginx-php-fpm-下php错误日志" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/31/nginx-php-fpm-下php错误日志/">nginx + php-fpm 下php错误日志</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/07/31/nginx-php-fpm-下php错误日志/">
+      <time datetime="2015-07-31T03:30:47.000Z" itemprop="datePublished">2015-07-31</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在lamp组合中php的错误日志位置是在当前的 vhost来定义的，很好找<br>现在使用nginx+php-fpm，调试过程中错误日志肯定少不了… 网上搜了下，都行不通</p>
+<p>好吧，记录下我解决的过程<br>编辑 <em>/etc/php-fpm.d/www.conf</em>  (别的环境或者不同的安装方法位置可能不同)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php_admin_value[error_<span class="built_in">log</span>]=<span class="string">"error_log_path"</span>      <span class="comment">#注意文件的写权限</span></span><br><span class="line">php_admin_flag[<span class="built_in">log</span>_errors] = on</span><br></pre></td></tr></table></figure></p>
+<p>重启下 php-fpm, OK了，记录什么级别的错误也是受php.ini里的 error_reporting 设置的影响</p>
+<p>有时候为了开发调试方便，希望错误信息直接显示在浏览器上，怎么破？<br>编辑php.ini 文件，设置 <em>display_errors = on</em> 即可<br>不要忘记重启php-fpm</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/07/31/nginx-php-fpm-下php错误日志/" data-id="cidxw9awm002sfj3ns44nj5i7" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/07/31/nginx-php-fpm-下php错误日志/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php-fpm/">php-fpm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误日志/">错误日志</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-centos-桌面安装与卸载" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -166,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/centos-桌面安装与卸载/" data-id="cidirdzgy003tca3nc6vfqi9f" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/centos-桌面安装与卸载/" data-id="cidxw9axd003vfj3nz50s30me" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/centos-桌面安装与卸载/#ds-thread" class="article-comment-link">评论</a>
       
@@ -220,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/30/路人-戊正式搬家到gitpage/" data-id="cidirdzcu0003ca3nqonlthrl" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/30/路人-戊正式搬家到gitpage/" data-id="cidxw9atr0003fj3n7irkufjz" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/30/路人-戊正式搬家到gitpage/#ds-thread" class="article-comment-link">评论</a>
       
@@ -269,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/30/湖工大在线/" data-id="cidirdzdi000bca3n7zb8y6s6" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/30/湖工大在线/" data-id="cidxw9aub000bfj3ngwuropqj" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/30/湖工大在线/#ds-thread" class="article-comment-link">评论</a>
       
@@ -325,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/29/回写机制造成session-无法被删除/" data-id="cidirdzee0014ca3n0hmhobeu" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/29/回写机制造成session-无法被删除/" data-id="cidxw9av40014fj3nf1zhr5p0" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/29/回写机制造成session-无法被删除/#ds-thread" class="article-comment-link">评论</a>
       
@@ -385,73 +437,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/29/session存储到redis/" data-id="cidirdzf60029ca3nm7v7rr6h" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/29/session存储到redis/" data-id="cidxw9avx002bfj3no2ht1u58" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/29/session存储到redis/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/session/">session</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/session-set-save-handler/">session_set_save_handler</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-vim下NERDTree配置及快捷键" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/29/vim下NERDTree配置及快捷键/">vim下NERDTree配置及快捷键</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/29/vim下NERDTree配置及快捷键/">
-      <time datetime="2015-07-29T01:37:59.000Z" itemprop="datePublished">2015-07-29</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Tech-Doc/">Tech Doc</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="配置NERDTree">配置NERDTree</h3><p>NERDTree是vim下的一个很好用的插件，它可以把所有文件以树形菜单的形式展现出来，类似于IDE那样</p>
-<p>1、<a href="http://www.vim.org/scripts/script.php?script_id=1658">下载插件</a>,解压后把 <em>plugin/NERD_tree.vim</em> 和 <em>doc/NERD_tree.txt</em> 分别拷贝到 <em>~/.vim/plugin</em> 和 <em>~/.vim/doc</em> 目录下。</p>
-<p>2、安装已经完成，进入需要编辑的目录后输入vim，然后再 <em>shift + :</em>   输入NERDTree就可以看到树形菜单了。不过每次都是要输入NERDTree非常麻烦, 改可以简化一下。</p>
-<p>3、编辑 ~/.vimrc文件(如果没有自己新建一个)，在最后一行添加一句<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/07/29/vim下NERDTree配置及快捷键/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/29/vim下NERDTree配置及快捷键/" data-id="cidirdzey001wca3n3lvf3q02" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/07/29/vim下NERDTree配置及快捷键/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NERDTree/">NERDTree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/快捷键/">快捷键</a></li></ul>
 
     </footer>
   </div>
@@ -482,6 +473,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a></p>
+              <p class="item-title"><a href="/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/" class="title">viewDidLoad方法中不能修改控件的size和origin</a></p>
+              <p class="item-date"><time datetime="2015-08-29T03:21:52.000Z" itemprop="datePublished">2015-08-29</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -519,15 +519,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a></p>
-              <p class="item-title"><a href="/2015/08/15/ios学习笔记——散记/" class="title">ios学习笔记——散记</a></p>
-              <p class="item-date"><time datetime="2015-08-15T03:31:00.000Z" itemprop="datePublished">2015-08-15</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -537,7 +528,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 

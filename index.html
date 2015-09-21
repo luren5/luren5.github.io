@@ -93,7 +93,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        34
+        35
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -124,6 +124,56 @@
 
       
       <section id="main">
+      <article id="post-Changes-not-staged-for-commit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/21/Changes-not-staged-for-commit/">Changes not staged for commit:</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/09/21/Changes-not-staged-for-commit/">
+      <time datetime="2015-09-21T04:18:43.000Z" itemprop="datePublished">2015-09-21</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天从github上拉取了一个插件，然后加到我自己的项目里面（中途对插件目录里面的内容有做修改）<br>再在项目的根目录提交的时候，发现总会Changes not staged for commit: 的提醒，如下截图<br><img src="/pics/git-bug.png" alt="Changes not staged for commit"><br>然后不管怎么<code>add</code>或者<code>commit</code>，再执行<code>git status</code>问题依然存在<br>最后去那个目录下面一看，才发想起来，插件目录下也有一个git版本，它优先级会更高</p>
+<p>解决办法：删除插件目录下的git库 <code>rm -rf .git/</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/09/21/Changes-not-staged-for-commit/" data-id="cietfnhhu004vh03nhglz629w" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/09/21/Changes-not-staged-for-commit/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-xcode使用技巧记录" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -163,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/09/17/xcode使用技巧记录/" data-id="cieo2ohc5001wrj3nr3vylnlm" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/09/17/xcode使用技巧记录/" data-id="cietfnhf8001wh03nbsgjx2r5" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/09/17/xcode使用技巧记录/#ds-thread" class="article-comment-link">评论</a>
       
@@ -219,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/" data-id="cieo2ohcg0029rj3nmw0vj77v" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/" data-id="cietfnhfk0029h03nc0x6w6xg" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/#ds-thread" class="article-comment-link">评论</a>
       
@@ -273,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/19/ios开发RESideMenu实现侧滑功能/" data-id="cieo2ohea003prj3nkizmf8ce" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/19/ios开发RESideMenu实现侧滑功能/" data-id="cietfnhgy003ph03nxn87y7aw" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/19/ios开发RESideMenu实现侧滑功能/#ds-thread" class="article-comment-link">评论</a>
       
@@ -331,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/" data-id="cieo2ohdl0034rj3nral9yvqd" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/" data-id="cietfnhgh0034h03ni1zhhou3" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/#ds-thread" class="article-comment-link">评论</a>
       
@@ -390,65 +440,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-id="cieo2oheu0048rj3nh5ee3i6e" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-id="cietfnhhe0048h03nohngzsag" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/18/Xcode安装插件失败/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-ios开发之坐标、大小、动画" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/16/ios开发之坐标、大小、动画/">ios开发之坐标、大小、动画</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/16/ios开发之坐标、大小、动画/">
-      <time datetime="2015-08-16T05:08:44.000Z" itemprop="datePublished">2015-08-16</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="改变控件的大小">改变控件的大小</h4><p>1、frame，可改变大小和位置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGRect</span> originFrame = <span class="keyword">self</span><span class="variable">.img</span><span class="variable">.frame</span>;</span><br><span class="line"><span class="comment">// origin 改变位置</span></span><br><span class="line">originFrame<span class="variable">.origin</span><span class="variable">.x</span> += <span class="number">10</span>;</span><br><span class="line">originFrame<span class="variable">.origin</span><span class="variable">.y</span> -=<span class="number">10</span>;</span><br><span class="line"><span class="comment">// size改变大小</span></span><br><span class="line">originFrame<span class="variable">.size</span><span class="variable">.width</span> +=<span class="number">10</span>;</span><br><span class="line">originFrame<span class="variable">.size</span><span class="variable">.height</span> +=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.img</span><span class="variable">.frame</span> = originFrame;</span><br></pre></td></tr></table></figure></p>
-<p>2、center,只能改变控件的位置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGPoint</span> centerPoint = <span class="keyword">self</span><span class="variable">.img</span><span class="variable">.center</span>;</span><br><span class="line">centerPoint<span class="variable">.x</span> += <span class="number">10</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.img</span><span class="variable">.center</span> = centerPoint;</span><br></pre></td></tr></table></figure></p>
-<p>3、bounds,只能改变控件的大小<br>使用方法和frame类似，虽然都可以改变大小，但是注意<code>bounds改变控件大小其中心坐标位置不变</code>，而<code>frame则是左上角的坐标不变</code></p>
-<p>4、transform，既能改变大小坐标，又能旋转</p>
-<h4 id="动画效果">动画效果</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开始动画</span></span><br><span class="line">[<span class="built_in">UIView</span> beginAnimations:<span class="literal">nil</span> context:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">// 设置动画时间</span></span><br><span class="line">[<span class="built_in">UIView</span> setAnimationDuration:<span class="number">5</span>];</span><br><span class="line"><span class="comment">//以下可以是各种动画的动作</span></span><br><span class="line">				    </span><br><span class="line"><span class="comment">// 提交动画</span></span><br><span class="line">[<span class="built_in">UIView</span> commitAnimations];</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cieo2ohe3003irj3nk3ql5xea" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/#ds-thread" class="article-comment-link">评论</a>
       
       
     </footer>
@@ -470,7 +464,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/ios/" style="font-size: 20px;">ios</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/ios/" style="font-size: 20px;">ios</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 
@@ -480,6 +474,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/09/21/Changes-not-staged-for-commit/" class="title">Changes not staged for commit:</a></p>
+              <p class="item-date"><time datetime="2015-09-21T04:18:43.000Z" itemprop="datePublished">2015-09-21</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -514,15 +517,6 @@
               <p class="item-category"><a class="article-category-link" href="/categories/Mysql/">Mysql</a></p>
               <p class="item-title"><a href="/2015/08/18/mysql-exists、any、all、union、union-all关键字/" class="title">mysql exists、any、all、union、union all关键字</a></p>
               <p class="item-date"><time datetime="2015-08-18T07:48:01.000Z" itemprop="datePublished">2015-08-18</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a></p>
-              <p class="item-title"><a href="/2015/08/18/Xcode安装插件失败/" class="title">Xcode安装插件失败</a></p>
-              <p class="item-date"><time datetime="2015-08-18T02:34:50.000Z" itemprop="datePublished">2015-08-18</time></p>
             </div>
           </li>
         

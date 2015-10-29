@@ -93,11 +93,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        35
+        37
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        47
+        48
         <span>标签</span>
       </div>
     </div>
@@ -124,6 +124,121 @@
 
       
       <section id="main">
+      <article id="post-mysql-exists、any、all、union、union-all关键字" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/18/mysql-exists、any、all、union、union-all关键字/">mysql exists、any、all、union、union all关键字</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/18/mysql-exists、any、all、union、union-all关键字/">
+      <time datetime="2015-08-18T07:48:01.000Z" itemprop="datePublished">2015-08-18</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Mysql/">Mysql</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>exists</code> 内层查询只返回布尔型，如果为真，则执行外层select 操作，否则不执行！<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> …  <span class="keyword">where</span> (<span class="keyword">not</span>) <span class="keyword">exists</span> ( sub <span class="keyword">select</span> )</span></span><br></pre></td></tr></table></figure></p>
+<p><code>any</code> 内层查询只要有一条满足，则执行上层查询,eg:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> score &gt;= <span class="keyword">ANY</span> (<span class="keyword">select</span> score <span class="keyword">from</span> scholarship);</span></span><br></pre></td></tr></table></figure></p>
+<p><code>all</code> 只有满足内层查询语句返回的所有结果，才执行外层查询, eg:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> socre &gt;= <span class="keyword">All</span> (<span class="keyword">select</span> score <span class="keyword">from</span> scholarship);</span></span><br></pre></td></tr></table></figure></p>
+<p><code>union</code> 合并查询结果，并消除重复的记录, eg:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select1  union  select2;</span><br></pre></td></tr></table></figure></p>
+<p><code>union all</code>  只是简单的合并查询结果，并不去重</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/" data-id="cigbwh4610036an3nxq3a7rqi" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-Xcode安装插件失败" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/18/Xcode安装插件失败/">Xcode安装插件失败</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/18/Xcode安装插件失败/">
+      <time datetime="2015-08-18T02:34:50.000Z" itemprop="datePublished">2015-08-18</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天尝试着安装VVDocumenter和KSImageNamed这两个插件，看教程上挺简单的，直接clone下来，然后Xcode打开，command + b，提示构建成功，OK！</p>
+<p><em>然后问题来了，插件并没有起作用</em></p>
+<p><span style="color:red">症状和解决方案…</span></p>
+<p>再次打开之后在xcode的Window菜单栏下并没有显示已经安装的插件，但是切换到<code>~/Library/Application Support/Developer/Shared/Xcode/Plug-ins</code> 插件确实构建成功而且存在</p>
+<p>好吧，原因找到了，构建之后再次打开会有一个弹出框，有两个选项<code>Load bundle</code>、 <code>Skip Bundle</code> 很不幸的选择了第二个。</p>
+<p>把<code>~/Li    brary/Application Support/Developer/Shared/Xcode/Plug-ins</code> 下已经构建好的插件删除，然后再重新构建一下，comman + q退出，再重启，选择 <code>Load bundle</code> 解决！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-id="cigbwh473004aan3n3zpzgsom" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/08/18/Xcode安装插件失败/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-ios开发之坐标、大小、动画" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -167,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cietfnhgq003ih03ngp7ek327" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cigbwh469003kan3n5l9doo7m" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/#ds-thread" class="article-comment-link">评论</a>
       
@@ -223,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/15/ios学习笔记——散记/" data-id="cietfnhh1003uh03nkxvabchs" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/15/ios学习笔记——散记/" data-id="cigbwh46o003wan3nlxr3d479" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/15/ios学习笔记——散记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -282,7 +397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/12/ios开发之table-view的使用/" data-id="cietfnhgs003kh03nj79hgf1m" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/12/ios开发之table-view的使用/" data-id="cigbwh46d003man3n1qywtvze" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
       
@@ -338,7 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/10/怎么使用NSTimer/" data-id="cietfnhe5000kh03nvxw4u231" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/10/怎么使用NSTimer/" data-id="cigbwh43p000kan3njg5yyy5p" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/10/怎么使用NSTimer/#ds-thread" class="article-comment-link">评论</a>
       
@@ -353,133 +468,8 @@
 
 
     
-      <article id="post-总结一下" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/07/总结一下/">总结一下</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/07/总结一下/">
-      <time datetime="2015-08-07T07:49:52.000Z" itemprop="datePublished">2015-08-07</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近总是这么多事，想闲下来思考一下都不得空…<br>不管了，拿出一个番茄的时间写个博客总结一下吧！</p>
-<h5 id="何去何从">何去何从</h5><p>&emsp;&emsp;之前去新三板的机会已经推掉了，我们得面临转是否转java，但是实际上这是一个很漫长的过程…整个项目百分之90的代码都是php的，新的开发需求还一波接一波！<br>&emsp;&emsp;选择多了心就乱了，之前本来已经想好转java了，近来再细想一下，这对我的职业发展等各方面可能并不是一个好的选择，然后我也必须要开始学习一个新的技能了，让自己忙起来，安逸享受是留给死人的！</p>
-<h5 id="要做的事">要做的事</h5><p>想太多却不做也没什么卵用，不如把接下来要做的事列一下<br>1、业务时间把phpredis的中文文档翻译完<br>2、证书，还没有自己配过，一定得实现下<br>3、php unit，你得会折腾<br>4、php异常抛出，用的不多，也弄一下吧<br>5、坚持学IOS开发吧，这是接下来半年的最大的战略部署</p>
-<p>把每一步都走好，结果总不会太差吧，加油！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/07/总结一下/" data-id="cietfnhe1000ih03nu322cj6c" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/08/07/总结一下/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-redis编译安装杂记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/03/redis编译安装杂记/">redis编译安装杂记</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/03/redis编译安装杂记/">
-      <time datetime="2015-08-03T05:52:19.000Z" itemprop="datePublished">2015-08-03</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/reids/">reids</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装可以参考这里  <a href="http://871421448.iteye.com/blog/1921701" target="_blank" rel="external">http://871421448.iteye.com/blog/1921701</a></p>
-<p>启动用如下命令：redis-server /etc/redis/redis.conf&amp;，记住后面的&amp;，使其在后台运行！</p>
-<p>安装phpredis 扩展的时候整死人，看了诸多文档，搞不定，现在把关键步骤记录一下！</p>
-<p>1.下载 phpredis扩展</p>
-<p>2.cd到相应的文件夹</p>
-<ol>
-<li><p>phpize    (以下几步要注意，如果不是root需要使用sodu)</p>
-</li>
-<li><p>./configure</p>
-</li>
-<li><p>make</p>
-</li>
-<li><p>make install （到这一步的时候扩展已经编译成功并显示所在目录，我这里是在/usr/lib/php5/20100525+lfs/）</p>
-</li>
-</ol>
-<p>7.到这里就非常重要了，看别人的文档上写的都是直接用php –ini查找到php的配置文件，然后加上  extensiton=redis.so  ，重启apache就OK，但是这里搞不定。注意这里和php.ini同层有一个目录conf.d，cd进去，这里是已经装好的扩展，直接cp一份，把extension改成redis，然后再重启apache，这样才可以….</p>
-<p>总算大功告成了！！！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/redis编译安装杂记/" data-id="cietfnhg3002oh03nhc3ilf7c" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/08/03/redis编译安装杂记/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
       </nav>
     </section>
       
@@ -489,7 +479,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/ios/" style="font-size: 20px;">ios</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/ios/" style="font-size: 20px;">ios</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/php-fpm/" style="font-size: 10px;">php-fpm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 
@@ -499,6 +489,24 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/Tech-Doc/">Tech Doc</a></p>
+              <p class="item-title"><a href="/2015/10/29/10-26正则表达式分享会/" class="title">10.26正则表达式分享会</a></p>
+              <p class="item-date"><time datetime="2015-10-29T01:59:57.000Z" itemprop="datePublished">2015-10-29</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/杂谈/">杂谈</a></p>
+              <p class="item-title"><a href="/2015/10/17/叫醒睡梦中的自己/" class="title">叫醒睡梦中的自己</a></p>
+              <p class="item-date"><time datetime="2015-10-17T03:39:25.000Z" itemprop="datePublished">2015-10-17</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -527,24 +535,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a></p>
-              <p class="item-title"><a href="/2015/08/19/ios开发RESideMenu实现侧滑功能/" class="title">ios开发RESideMenu实现侧滑功能</a></p>
-              <p class="item-date"><time datetime="2015-08-19T12:19:11.000Z" itemprop="datePublished">2015-08-19</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Mysql/">Mysql</a></p>
-              <p class="item-title"><a href="/2015/08/18/mysql-exists、any、all、union、union-all关键字/" class="title">mysql exists、any、all、union、union all关键字</a></p>
-              <p class="item-date"><time datetime="2015-08-18T07:48:01.000Z" itemprop="datePublished">2015-08-18</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -554,7 +544,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS学习笔记/">IOS学习笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS学习笔记/">IOS学习笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 

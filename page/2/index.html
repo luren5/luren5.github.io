@@ -93,7 +93,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -124,6 +124,60 @@
 
       
       <section id="main">
+      <article id="post-viewDidLoad方法中不能修改控件的size和origin" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/">viewDidLoad方法中不能修改控件的size和origin</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/">
+      <time datetime="2015-08-29T03:21:52.000Z" itemprop="datePublished">2015-08-29</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在做一个demo的时候，有这样的一个需要，就是页面展现的时候修改里面的一个UItableview控件和位置，这个uitableview是在storyboard里面已经拉好的</p>
+<p>直接在viewDidLoad里面修改它的frame，本来感觉没什么问题的，但是效果死活出不来</p>
+<p>好吧，记录一下，这里修改的逻辑一定要放在<code>viewDidLayoutSubviews</code> 方法里面</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/" data-id="cijpmudet0029x03nnzvk7b8z" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-ios开发RESideMenu实现侧滑功能" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -165,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/19/ios开发RESideMenu实现侧滑功能/" data-id="cij2pngzj003qus3nu13jqwxw" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/19/ios开发RESideMenu实现侧滑功能/" data-id="cijpmudgd003qx03n4ccsnbor" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/19/ios开发RESideMenu实现侧滑功能/#ds-thread" class="article-comment-link">评论</a>
       
@@ -223,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/" data-id="cij2pngz20035us3nswwp6p1k" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/" data-id="cijpmudfs0035x03neyq8thhh" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/#ds-thread" class="article-comment-link">评论</a>
       
@@ -282,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-id="cij2pnh000049us3nvvffay8o" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-id="cijpmudh1004ax03n4bywc5fr" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/18/Xcode安装插件失败/#ds-thread" class="article-comment-link">评论</a>
       
@@ -338,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cij2pngz9003jus3ndgavlxy6" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cijpmudg1003jx03nhawuy4hz" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/#ds-thread" class="article-comment-link">评论</a>
       
@@ -394,72 +448,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/15/ios学习笔记——散记/" data-id="cij2pngzn003vus3nesh8pbrz" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/15/ios学习笔记——散记/" data-id="cijpmudgi003vx03ntd90pl1c" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/15/ios学习笔记——散记/#ds-thread" class="article-comment-link">评论</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-ios开发之table-view的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/12/ios开发之table-view的使用/">ios开发之table view的使用</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/12/ios开发之table-view的使用/">
-      <time datetime="2015-08-12T12:51:52.000Z" itemprop="datePublished">2015-08-12</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>每次都忘记…好记性不好烂笔头<br>1、拉一个table view控件到storyboard,然后选中table view右击，将选项中的delegate和dataSource连接到controller,如下截图<br><img src="/pics/table-pic1.png" alt="pic1"></p>
-<p>2、拉一个table view cell控件到上述table view中，然后正常结构应该是这样的</p>
-<p><img src="/pics/table-pic2.png" alt="pic2"></p>
-<p>3、让controller的声明文件添加协议和Property,如下代码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span>  : <span class="title">UIViewController</span> &lt;<span class="title">UITableViewDelegate</span>, <span class="title">UITableViewDataSource</span>, <span class="title">UIActionSheetDelegate</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            <a href="/2015/08/12/ios开发之table-view的使用/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/12/ios开发之table-view的使用/" data-id="cij2pngze003lus3nfnpbw6az" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/table-view/">table view</a></li></ul>
-
     </footer>
   </div>
   
@@ -494,6 +487,15 @@
             
             <div class="item-inner">
               <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/01/22/iOS添加tabbar高亮图片/" class="title">iOS添加tabbar高亮图片</a></p>
+              <p class="item-date"><time datetime="2016-01-22T11:48:43.000Z" itemprop="datePublished">2016-01-22</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
               <p class="item-title"><a href="/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" class="title">nginx php-fpm访问php文件，File not found.</a></p>
               <p class="item-date"><time datetime="2016-01-06T10:54:08.000Z" itemprop="datePublished">2016-01-06</time></p>
             </div>
@@ -523,15 +525,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2015/09/21/Changes-not-staged-for-commit/" class="title">Changes not staged for commit:</a></p>
               <p class="item-date"><time datetime="2015-09-21T04:18:43.000Z" itemprop="datePublished">2015-09-21</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/IOS学习笔记/">IOS学习笔记</a></p>
-              <p class="item-title"><a href="/2015/09/17/xcode使用技巧记录/" class="title">xcode使用技巧记录</a></p>
-              <p class="item-date"><time datetime="2015-09-17T10:15:51.000Z" itemprop="datePublished">2015-09-17</time></p>
             </div>
           </li>
         

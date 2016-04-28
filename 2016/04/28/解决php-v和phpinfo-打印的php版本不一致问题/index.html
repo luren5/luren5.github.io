@@ -5,22 +5,25 @@
   
   <title>解决php -v和phpinfo()打印的php版本不一致问题 | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="环境：    centos 6.5 + nginx + php-fpm
-问题描述：    源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行php -v打印的php版本为5.6。但是在浏览器上访问phpinfo()打印的页面，一直显示php5.3，神烦…
-解决步骤    初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候php-fpm会调用php">
+  <meta name="description" content="环境:centos 6.5 + nginx + php-fpm
+问题描述:源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行php -v打印的php版本为5.6。但是在浏览器上访问phpinfo()打印的页面，一直显示php5.3，神烦…
+解决步骤:初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候php-fpm会调用php5.3；
+所以，卸载p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决php -v和phpinfo()打印的php版本不一致问题">
 <meta property="og:url" content="http://minishine.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/index.html">
 <meta property="og:site_name" content="路人-戊">
-<meta property="og:description" content="环境：    centos 6.5 + nginx + php-fpm
-问题描述：    源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行php -v打印的php版本为5.6。但是在浏览器上访问phpinfo()打印的页面，一直显示php5.3，神烦…
-解决步骤    初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候php-fpm会调用php">
-<meta property="og:updated_time" content="2016-04-28T08:44:31.000Z">
+<meta property="og:description" content="环境:centos 6.5 + nginx + php-fpm
+问题描述:源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行php -v打印的php版本为5.6。但是在浏览器上访问phpinfo()打印的页面，一直显示php5.3，神烦…
+解决步骤:初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候php-fpm会调用php5.3；
+所以，卸载p">
+<meta property="og:updated_time" content="2016-04-28T08:47:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决php -v和phpinfo()打印的php版本不一致问题">
-<meta name="twitter:description" content="环境：    centos 6.5 + nginx + php-fpm
-问题描述：    源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行php -v打印的php版本为5.6。但是在浏览器上访问phpinfo()打印的页面，一直显示php5.3，神烦…
-解决步骤    初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候php-fpm会调用php">
+<meta name="twitter:description" content="环境:centos 6.5 + nginx + php-fpm
+问题描述:源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行php -v打印的php版本为5.6。但是在浏览器上访问phpinfo()打印的页面，一直显示php5.3，神烦…
+解决步骤:初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候php-fpm会调用php5.3；
+所以，卸载p">
   
   
     <link rel="icon" href="favicon.png">
@@ -159,14 +162,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>环境：<br>    centos 6.5 + nginx + php-fpm</p>
-<p>问题描述：<br>    源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行<code>php -v</code>打印的php版本为5.6。但是在浏览器上访问<code>phpinfo()</code>打印的页面，一直显示php5.3，神烦…</p>
-<p>解决步骤<br>    初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候<code>php-fpm</code>会调用php5.3；<br>    所以，卸载php5.3（此步骤不是必须），重要的是发请求的时候要让<code>php-fpm</code>调起php5.6。卸载老的<code>php-fpm</code>，或者<code>stop</code>掉,不然它会占着9000端口<br>    因为php5.6是源码编译安装的，5.3以上<code>php-fpm</code>已经默认在源码包里面，编译的时候也已经enable了。cd到php5.6安装目录下的sbin，里面果然有个php-fpm执行文件，./php-fpm，报错了 <code>failed to load configuration file</code>。去<em>源码目录</em>(执行./configure的目录),把php-fpm.conf拷一份到php5.6的安装目录下的<code>/etc</code>下面。<br>    再执行./php-fpm。OK，打完收工！</p>
+        <h4 id="环境:">环境:</h4><p>centos 6.5 + nginx + php-fpm</p>
+<h4 id="问题描述:">问题描述:</h4><p>源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行<code>php -v</code>打印的php版本为5.6。但是在浏览器上访问<code>phpinfo()</code>打印的页面，一直显示php5.3，神烦…</p>
+<h4 id="解决步骤:">解决步骤:</h4><p>初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候<code>php-fpm</code>会调用php5.3；</p>
+<p>所以，卸载php5.3（此步骤不是必须），重要的是发请求的时候要让<code>php-fpm</code>调起php5.6。卸载老的<code>php-fpm</code>，或者<code>stop</code>掉,不然它会占着9000端口</p>
+<p>因为php5.6是源码编译安装的，5.3以上<code>php-fpm</code>已经默认在源码包里面，编译的时候也已经enable了。cd到php5.6安装目录下的sbin，里面果然有个php-fpm执行文件，./php-fpm，报错了 <code>failed to load configuration file</code>。去<em>源码目录</em>(执行./configure的目录),把php-fpm.conf拷一份到php5.6的安装目录下的<code>/etc</code>下面。</p>
+<p>再执行./php-fpm。OK，打完收工！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" data-id="cink1o7av000be73npugb36oo" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" data-id="cink2hya4000bjp3n10fkqs74" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/#ds-thread" class="article-comment-link">评论</a>
       

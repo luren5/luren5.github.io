@@ -3,35 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>11.27组内分享--http协议 | 路人-戊</title>
+  <title>解决php -v和phpinfo()打印的php版本不一致问题 | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、HTTP,超文本传输协议2、模拟用户登录3、使用fiddler抓包
-http，超文本传输协议a、http是一个基于应用层的通信规范，即通信双方共同遵守的一个协议
-b、承载于TCP协议之上，htts承载于TLS或SSL协议之上
-c、TCP的三次握手(约么-&amp;gt; 约-&amp;gt; 好，我出发了)和HTTP的复用TCP三次握手详解，戳这里
-d、一问一答模式，无状态(cookie/session)
-e">
+  <meta name="description" content="环境：    centos 6.5 + nginx + php-fpm
+问题描述：    源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行php -v打印的php版本为5.6。但是在浏览器上访问phpinfo()打印的页面，一直显示php5.3，神烦…
+解决步骤    初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候php-fpm会调用php">
 <meta property="og:type" content="article">
-<meta property="og:title" content="11.27组内分享--http协议">
-<meta property="og:url" content="http://minishine.com/2015/11/27/11-27组内分享-http协议/index.html">
+<meta property="og:title" content="解决php -v和phpinfo()打印的php版本不一致问题">
+<meta property="og:url" content="http://minishine.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/index.html">
 <meta property="og:site_name" content="路人-戊">
-<meta property="og:description" content="1、HTTP,超文本传输协议2、模拟用户登录3、使用fiddler抓包
-http，超文本传输协议a、http是一个基于应用层的通信规范，即通信双方共同遵守的一个协议
-b、承载于TCP协议之上，htts承载于TLS或SSL协议之上
-c、TCP的三次握手(约么-&amp;gt; 约-&amp;gt; 好，我出发了)和HTTP的复用TCP三次握手详解，戳这里
-d、一问一答模式，无状态(cookie/session)
-e">
-<meta property="og:image" content="http://minishine.com/pics/11-27-0.jpg">
-<meta property="og:image" content="http://minishine.com/pics/11-27-1.png">
-<meta property="og:updated_time" content="2015-11-27T04:09:55.000Z">
+<meta property="og:description" content="环境：    centos 6.5 + nginx + php-fpm
+问题描述：    源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行php -v打印的php版本为5.6。但是在浏览器上访问phpinfo()打印的页面，一直显示php5.3，神烦…
+解决步骤    初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候php-fpm会调用php">
+<meta property="og:updated_time" content="2016-04-28T08:44:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="11.27组内分享--http协议">
-<meta name="twitter:description" content="1、HTTP,超文本传输协议2、模拟用户登录3、使用fiddler抓包
-http，超文本传输协议a、http是一个基于应用层的通信规范，即通信双方共同遵守的一个协议
-b、承载于TCP协议之上，htts承载于TLS或SSL协议之上
-c、TCP的三次握手(约么-&amp;gt; 约-&amp;gt; 好，我出发了)和HTTP的复用TCP三次握手详解，戳这里
-d、一问一答模式，无状态(cookie/session)
-e">
+<meta name="twitter:title" content="解决php -v和phpinfo()打印的php版本不一致问题">
+<meta name="twitter:description" content="环境：    centos 6.5 + nginx + php-fpm
+问题描述：    源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行php -v打印的php版本为5.6。但是在浏览器上访问phpinfo()打印的页面，一直显示php5.3，神烦…
+解决步骤    初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候php-fpm会调用php">
   
   
     <link rel="icon" href="favicon.png">
@@ -141,7 +130,7 @@ e">
 </aside>
 
       
-      <section id="main"><article id="post-11-27组内分享-http协议" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-解决php-v和phpinfo-打印的php版本不一致问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -150,7 +139,7 @@ e">
         
   
     <h1 class="article-title" itemprop="name">
-      11.27组内分享--http协议
+      解决php -v和phpinfo()打印的php版本不一致问题
     </h1>
   
 
@@ -158,41 +147,31 @@ e">
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/11/27/11-27组内分享-http协议/">
-      <time datetime="2015-11-27T03:00:58.000Z" itemprop="datePublished">2015-11-27</time>
+    <a href="/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/">
+      <time datetime="2016-04-28T08:28:36.000Z" itemprop="datePublished">2016-04-28</time>
     </a>
   </div>
 
 
           
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/TECH-DOC/">TECH DOC</a>
-  </div>
-
         </div>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、HTTP,超文本传输协议">1、HTTP,超文本传输协议</h3><h3 id="2、模拟用户登录">2、模拟用户登录</h3><h3 id="3、使用fiddler抓包">3、使用fiddler抓包</h3><hr>
-<h2 id="http，超文本传输协议">http，超文本传输协议</h2><p>a、http是一个基于应用层的通信规范，即通信双方共同遵守的一个协议<br><img src="/pics/11-27-0.jpg" alt="OSI模型"></p>
-<p>b、承载于TCP协议之上，htts承载于TLS或SSL协议之上<br><img src="/pics/11-27-1.png" alt="HTTP协议在OSI模型中的位置"></p>
-<p>c、TCP的三次握手(约么-&gt; 约-&gt; 好，我出发了)和HTTP的复用<br>TCP三次握手详解，<a href="http://blog.csdn.net/oney139/article/details/8103223" target="_blank" rel="external">戳这里</a></p>
-<p>d、一问一答模式，无状态(cookie/session)</p>
-<p>e、请求头 Method  Request-URI HTTP-Version CRLF(结尾符，回车或换行)<br>请求的方法：GET POST HEAD PUT DELETE TRACE CONNECT OPTIONS 共8种</p>
-<p>f、响应头 HTTP-Version Status-Code Reason-Phrase CRLF<br>常见状态码  404 500 403 200</p>
-<p>g、几个重要的报头讲解<br>host<br>user-agent<br>scheme 指定底层使用的协议，如http、https、ftp等<br>referer<br>content-range 响应资源范围，可实现分段下载<br>cookie<br>也可自定义报头</p>
+        <p>环境：<br>    centos 6.5 + nginx + php-fpm</p>
+<p>问题描述：<br>    源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行<code>php -v</code>打印的php版本为5.6。但是在浏览器上访问<code>phpinfo()</code>打印的页面，一直显示php5.3，神烦…</p>
+<p>解决步骤<br>    初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候<code>php-fpm</code>会调用php5.3；<br>    所以，卸载php5.3（此步骤不是必须），重要的是发请求的时候要让<code>php-fpm</code>调起php5.6。卸载老的<code>php-fpm</code>，或者<code>stop</code>掉,不然它会占着9000端口<br>    因为php5.6是源码编译安装的，5.3以上<code>php-fpm</code>已经默认在源码包里面，编译的时候也已经enable了。cd到php5.6安装目录下的sbin，里面果然有个php-fpm执行文件，./php-fpm，报错了 <code>failed to load configuration file</code>。去<em>源码目录</em>(执行./configure的目录),把php-fpm.conf拷一份到php5.6的安装目录下的<code>/etc</code>下面。<br>    再执行./php-fpm。OK，打完收工！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/11/27/11-27组内分享-http协议/" data-id="cink1o7g50057e73nfoefs719" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" data-id="cink1o7av000be73npugb36oo" class="article-share-link">分享到</a>
       
-        <a href="http://minishine.com/2015/11/27/11-27组内分享-http协议/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://minishine.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/#ds-thread" class="article-comment-link">评论</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分享/">分享</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php-fpm/">php-fpm</a></li></ul>
 
     </footer>
   </div>
@@ -200,19 +179,10 @@ e">
     
 <nav id="article-nav">
   
-    <a href="/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          nginx php-fpm访问php文件，File not found.
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/10/29/10-26正则表达式分享会/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/27/phpstorm切换上载sftp/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">10.26正则表达式分享会</div>
+      <div class="article-nav-title">phpstorm切换上载sftp</div>
     </a>
   
 </nav>
@@ -222,7 +192,7 @@ e">
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="http://minishine.com/2015/11/27/11-27组内分享-http协议/" data-title="11.27组内分享--http协议" data-url="http://minishine.com/2015/11/27/11-27组内分享-http协议/">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://minishine.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" data-title="解决php -v和phpinfo()打印的php版本不一致问题" data-url="http://minishine.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/">
       <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
       </div>
   </section>

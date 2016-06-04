@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: vim | 路人-戊</title>
+  <title>git rebase相关 | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="this is a test">
-<meta property="og:type" content="website">
-<meta property="og:title" content="路人-戊">
-<meta property="og:url" content="http://minishine.com/tags/vim/index.html">
+  <meta name="description" content="在本地commit之后，需要push到远端，如果远端已经有人push过会出现下面的error12345error: failed to push some refs to &apos;/path/to/repo.git&apos;hint: Updates were rejected because the tip of your current branch is behindhint: its remote co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git rebase相关">
+<meta property="og:url" content="http://minishine.com/2016/06/04/git-rebase相关/index.html">
 <meta property="og:site_name" content="路人-戊">
-<meta property="og:description" content="this is a test">
+<meta property="og:description" content="在本地commit之后，需要push到远端，如果远端已经有人push过会出现下面的error12345error: failed to push some refs to &apos;/path/to/repo.git&apos;hint: Updates were rejected because the tip of your current branch is behindhint: its remote co">
+<meta property="og:updated_time" content="2016-06-04T03:25:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="路人-戊">
-<meta name="twitter:description" content="this is a test">
+<meta name="twitter:title" content="git rebase相关">
+<meta name="twitter:description" content="在本地commit之后，需要push到远端，如果远端已经有人push过会出现下面的error12345error: failed to push some refs to &apos;/path/to/repo.git&apos;hint: Updates were rejected because the tip of your current branch is behindhint: its remote co">
   
   
     <link rel="icon" href="favicon.png">
@@ -123,41 +124,77 @@
 </aside>
 
       
-      <section id="main">
-    <section class="archives-wrap">
-    <div class="archive-tag-wrap">
-      <span class="archive-tag">#vim</span>
-    </div>
-    <div class="archives">
+      <section id="main"><article id="post-git-rebase相关" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <header class="archive-article-header">
-      
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/29/vim下NERDTree配置及快捷键/">vim下NERDTree配置及快捷键</a>
+    <h1 class="article-title" itemprop="name">
+      git rebase相关
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/29/vim下NERDTree配置及快捷键/">
-      <time datetime="2015-07-29T01:37:59.000Z" itemprop="datePublished">2015 7月 29</time>
+    <a href="/2016/06/04/git-rebase相关/">
+      <time datetime="2016-06-04T03:13:58.000Z" itemprop="datePublished">2016-06-04</time>
     </a>
   </div>
 
 
-      
-    </header>
-  </div>
-</article>
+          
+        </div>
+      </header>
     
-    </div></section>
-    </section>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在本地commit之后，需要push到远端，如果远端已经有人push过会出现下面的error<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">error: failed to push some refs to <span class="string">'/path/to/repo.git'</span></span><br><span class="line">hint: Updates were rejected because the tip of your current branch is behind</span><br><span class="line">hint: its remote counterpart. Merge the remote changes (e.g. <span class="string">'git pull'</span>)</span><br><span class="line">hint: before pushing again.</span><br><span class="line">hint: See the <span class="string">'Note about fast-forwards'</span> <span class="keyword">in</span> <span class="string">'git push --help'</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure></p>
+<p>对，你需要pull，那么问题来了,如果只是<code>git pull origin branch_name</code>   pull操作要同步远端仓库中别人修改时，提交历史会以一个多余的『合并提交』结尾。 对于集中式工作流，最好是使用rebase而不是生成一个合并提交。<br>所以，使用  <code>git pull —rebase origin branch_name</code></p>
+<p>rebase操作过程是把本地提交一次一个地迁移到更新了的中央仓库master分支之上。 这意味着可能要解决在迁移某个提交时出现的合并冲突，而不是解决包含了所有提交的大型合并时所出现的冲突。 这样的方式让你尽可能保持每个提交的聚焦和项目历史的整洁。反过来，简化了哪里引入Bug的分析，如果有必要，回滚修改也可以做到对项目影响最小。</p>
+<p>如果A和B的功能是不相关的，不大可能在rebase过程中有冲突。如果有，Git在合并有冲突的提交处暂停rebase过程，输出下面的信息并带上相关的指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> &lt;some-file&gt;</span><br></pre></td></tr></table></figure></p>
+<p>此时需要解决冲突并添加这些文件到暂存区，然后让rebase完成剩下的事<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;some-file&gt; </span><br><span class="line">git rebase --continue</span><br></pre></td></tr></table></figure></p>
+<p>Git会继续一个一个地合并后面的提交，如其它的提交有冲突就重复这个过程。<br>如果你碰到了冲突，但发现搞不定，不要惊慌。只要执行下面这条命令，就可以回到你执行<code>git pull --rebase</code>命令前的样子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase --abort</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2016/06/04/git-rebase相关/" data-id="cip0ll2jx0046gh3n1qczea9l" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2016/06/04/git-rebase相关/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">解决php -v和phpinfo()打印的php版本不一致问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://minishine.com/2016/06/04/git-rebase相关/" data-title="git rebase相关" data-url="http://minishine.com/2016/06/04/git-rebase相关/">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
+      </div>
+  </section>
+
+</section>
       
         <aside id="sidebar">
   

@@ -93,7 +93,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        41
+        42
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -124,6 +124,76 @@
 
       
       <section id="main">
+      <article id="post-redis编译安装杂记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/03/redis编译安装杂记/">redis编译安装杂记</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/03/redis编译安装杂记/">
+      <time datetime="2015-08-03T05:52:19.000Z" itemprop="datePublished">2015-08-03</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/reids/">reids</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装可以参考这里  <a href="http://871421448.iteye.com/blog/1921701" target="_blank" rel="external">http://871421448.iteye.com/blog/1921701</a></p>
+<p>启动用如下命令：redis-server /etc/redis/redis.conf&amp;，记住后面的&amp;，使其在后台运行！</p>
+<p>安装phpredis 扩展的时候整死人，看了诸多文档，搞不定，现在把关键步骤记录一下！</p>
+<p>1.下载 phpredis扩展</p>
+<p>2.cd到相应的文件夹</p>
+<ol>
+<li><p>phpize    (以下几步要注意，如果不是root需要使用sodu)</p>
+</li>
+<li><p>./configure</p>
+</li>
+<li><p>make</p>
+</li>
+<li><p>make install （到这一步的时候扩展已经编译成功并显示所在目录，我这里是在/usr/lib/php5/20100525+lfs/）</p>
+</li>
+</ol>
+<p>7.到这里就非常重要了，看别人的文档上写的都是直接用php –ini查找到php的配置文件，然后加上  extensiton=redis.so  ，重启apache就OK，但是这里搞不定。注意这里和php.ini同层有一个目录conf.d，cd进去，这里是已经装好的扩展，直接cp一份，把extension改成redis，然后再重启apache，这样才可以….</p>
+<p>总算大功告成了！！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/03/redis编译安装杂记/" data-id="cip0ll2ip002sgh3ngzl1zxek" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/08/03/redis编译安装杂记/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-什么是资源类型变量" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -165,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/什么是资源类型变量/" data-id="cink2hyb5001hjp3nfk7gn6fg" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/什么是资源类型变量/" data-id="cip0ll2h6001hgh3ndznhazch" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/什么是资源类型变量/#ds-thread" class="article-comment-link">评论</a>
       
@@ -218,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/" data-id="cink2hydo0046jp3n1vf2ndd1" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/" data-id="cip0ll2k00048gh3nzawc2ii2" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/fiddler抓手机软件发的包/#ds-thread" class="article-comment-link">评论</a>
       
@@ -277,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/" data-id="cink2hye3004pjp3ncfvjvixn" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/" data-id="cip0ll2kf004rgh3n5le1bc8c" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/MySQL最佳实践培训后测试——参考答案/#ds-thread" class="article-comment-link">评论</a>
       
@@ -338,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/03/XSS攻击相关/" data-id="cink2hye0004kjp3nkmiyhy16" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/03/XSS攻击相关/" data-id="cip0ll2kb004mgh3nbfk6saah" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/03/XSS攻击相关/#ds-thread" class="article-comment-link">评论</a>
       
@@ -398,64 +468,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/01/nginx平滑改变配置/" data-id="cink2hycp0031jp3nyxi29pt6" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/01/nginx平滑改变配置/" data-id="cip0ll2ix0031gh3nmzut7n4v" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/01/nginx平滑改变配置/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-memcache内存管理机制" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/memcache内存管理机制/">memcache内存管理机制</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/memcache内存管理机制/">
-      <time datetime="2015-07-31T10:02:35.000Z" itemprop="datePublished">2015-07-31</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Memcache使用了一个非常简单的内存管理机制——固定空间分配</p>
-<p>Memcache将内存空间分为一组slab，每个slab里又包含一组chunk，同一个slab里的每个chunk的大小是固定的，拥有相同大小chunk的slab被组织在一起，叫做slab_class。存储数据时根据数据的Size大小，寻找一个大于Size的最小chunk将数据写入。这种内存管理方式避免了内存碎片管理的问题，内存的分配和释放都是以chunk为单位的。</p>
-<p>Memcahce采用LRU算法释放最近最少使用的数据，释放的chunk会被标记为未用，等待下一个合适大小数据写入</p>
-<p>这种机制会存在内存浪费的问题，数据只能存入一个比它大的chunk里，而一个chunk只能存一个数据，其它的空间就被浪费了。所以应该注意启动参数的配置，否则浪费可能惊人…</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/memcache内存管理机制/" data-id="cink2hyd1003hjp3nz8h805u6" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/07/31/memcache内存管理机制/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcache/">memcache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存管理/">内存管理</a></li></ul>
 
     </footer>
   </div>
@@ -476,7 +494,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 20px;">ios</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/php-fpm/" style="font-size: 15px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 20px;">ios</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/php-fpm/" style="font-size: 15px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 
@@ -486,6 +504,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/06/04/git-rebase相关/" class="title">git rebase相关</a></p>
+              <p class="item-date"><time datetime="2016-06-04T03:13:58.000Z" itemprop="datePublished">2016-06-04</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -520,15 +547,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" class="title">nginx php-fpm访问php文件，File not found.</a></p>
               <p class="item-date"><time datetime="2016-01-06T10:54:08.000Z" itemprop="datePublished">2016-01-06</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/TECH-DOC/">TECH DOC</a></p>
-              <p class="item-title"><a href="/2015/11/27/11-27组内分享-http协议/" class="title">11.27组内分享--http协议</a></p>
-              <p class="item-date"><time datetime="2015-11-27T03:00:58.000Z" itemprop="datePublished">2015-11-27</time></p>
             </div>
           </li>
         

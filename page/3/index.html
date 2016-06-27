@@ -93,7 +93,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        42
+        43
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -124,6 +124,64 @@
 
       
       <section id="main">
+      <article id="post-mysql-exists、any、all、union、union-all关键字" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/18/mysql-exists、any、all、union、union-all关键字/">mysql exists、any、all、union、union all关键字</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/18/mysql-exists、any、all、union、union-all关键字/">
+      <time datetime="2015-08-18T07:48:01.000Z" itemprop="datePublished">2015-08-18</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Mysql/">Mysql</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>exists</code> 内层查询只返回布尔型，如果为真，则执行外层select 操作，否则不执行！<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> …  <span class="keyword">where</span> (<span class="keyword">not</span>) <span class="keyword">exists</span> ( sub <span class="keyword">select</span> )</span></span><br></pre></td></tr></table></figure></p>
+<p><code>any</code> 内层查询只要有一条满足，则执行上层查询,eg:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> score &gt;= <span class="keyword">ANY</span> (<span class="keyword">select</span> score <span class="keyword">from</span> scholarship);</span></span><br></pre></td></tr></table></figure></p>
+<p><code>all</code> 只有满足内层查询语句返回的所有结果，才执行外层查询, eg:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> socre &gt;= <span class="keyword">All</span> (<span class="keyword">select</span> score <span class="keyword">from</span> scholarship);</span></span><br></pre></td></tr></table></figure></p>
+<p><code>union</code> 合并查询结果，并消除重复的记录, eg:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select1  union  select2;</span><br></pre></td></tr></table></figure></p>
+<p><code>union all</code>  只是简单的合并查询结果，并不去重</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/" data-id="cipxt8zw4003eh63nsvnwvh1t" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-Xcode安装插件失败" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -168,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-id="cip0ll2k9004kgh3nbnbtcg95" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/18/Xcode安装插件失败/" data-id="cipxt8zx6004lh63nyyou2t3e" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/18/Xcode安装插件失败/#ds-thread" class="article-comment-link">评论</a>
       
@@ -224,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cip0ll2jg003rgh3n2pym4g73" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cipxt8zwg003sh63n9vqbnqwx" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/16/ios开发之坐标、大小、动画/#ds-thread" class="article-comment-link">评论</a>
       
@@ -280,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/15/ios学习笔记——散记/" data-id="cip0ll2jq0043gh3nf1yd9b3o" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/15/ios学习笔记——散记/" data-id="cipxt8zwr0044h63n4uowywci" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/15/ios学习笔记——散记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -339,7 +397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/12/ios开发之table-view的使用/" data-id="cip0ll2jj003tgh3nmiomdklx" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/12/ios开发之table-view的使用/" data-id="cipxt8zwj003uh63nftoxixcn" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
       
@@ -395,7 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/10/怎么使用NSTimer/" data-id="cip0ll2gh000pgh3nkc9xlhp5" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/08/10/怎么使用NSTimer/" data-id="cipxt8ztx000qh63nzpnf5je4" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/08/10/怎么使用NSTimer/#ds-thread" class="article-comment-link">评论</a>
       
@@ -410,63 +468,8 @@
 
 
     
-      <article id="post-总结一下" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/07/总结一下/">总结一下</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/07/总结一下/">
-      <time datetime="2015-08-07T07:49:52.000Z" itemprop="datePublished">2015-08-07</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近总是这么多事，想闲下来思考一下都不得空…<br>不管了，拿出一个番茄的时间写个博客总结一下吧！</p>
-<h5 id="何去何从">何去何从</h5><p>&emsp;&emsp;之前去新三板的机会已经推掉了，我们得面临转是否转java，但是实际上这是一个很漫长的过程…整个项目百分之90的代码都是php的，新的开发需求还一波接一波！<br>&emsp;&emsp;选择多了心就乱了，之前本来已经想好转java了，近来再细想一下，这对我的职业发展等各方面可能并不是一个好的选择，然后我也必须要开始学习一个新的技能了，让自己忙起来，安逸享受是留给死人的！</p>
-<h5 id="要做的事">要做的事</h5><p>想太多却不做也没什么卵用，不如把接下来要做的事列一下<br>1、业务时间把phpredis的中文文档翻译完<br>2、证书，还没有自己配过，一定得实现下<br>3、php unit，你得会折腾<br>4、php异常抛出，用的不多，也弄一下吧<br>5、坚持学IOS开发吧，这是接下来半年的最大的战略部署</p>
-<p>把每一步都走好，结果总不会太差吧，加油！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/08/07/总结一下/" data-id="cip0ll2ge000ngh3nnlqius59" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/08/07/总结一下/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
       </nav>
     </section>
       
@@ -486,6 +489,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/06/27/这是一个测试/" class="title">这是一个测试</a></p>
+              <p class="item-date"><time datetime="2016-06-27T09:16:14.000Z" itemprop="datePublished">2016-06-27</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -520,15 +532,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/01/22/iOS添加tabbar高亮图片/" class="title">iOS添加tabbar高亮图片</a></p>
               <p class="item-date"><time datetime="2016-01-22T11:48:43.000Z" itemprop="datePublished">2016-01-22</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" class="title">nginx php-fpm访问php文件，File not found.</a></p>
-              <p class="item-date"><time datetime="2016-01-06T10:54:08.000Z" itemprop="datePublished">2016-01-06</time></p>
             </div>
           </li>
         

@@ -93,7 +93,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        42
+        43
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -124,6 +124,57 @@
 
       
       <section id="main">
+      <article id="post-Linux给普通用户添加sudo权限" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/31/Linux给普通用户添加sudo权限/">Linux给普通用户添加sudo权限</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/07/31/Linux给普通用户添加sudo权限/">
+      <time datetime="2015-07-31T09:19:14.000Z" itemprop="datePublished">2015-07-31</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记一下，免得每次都要google<br>修改/etc/sudoers文件，修改命令必须为visudo才行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visudo -f /etc/sudoers</span></span><br></pre></td></tr></table></figure></p>
+<p>或者直接输入 visudo 就可以<br>在root ALL=(ALL) ALL 之后增加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tom ALL=(ALL) ALL</span><br><span class="line">Defaults:tom timestamp_timeout=-<span class="number">1</span>,runaspw</span><br></pre></td></tr></table></figure></p>
+<p>timestamp_timeout=-1 只需验证一次密码，以后系统自动记忆<br>runaspw  需要root密码，如果不加默认是要输入普通账户的密码</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://minishine.com/2015/07/31/Linux给普通用户添加sudo权限/" data-id="cipxt8zxj0052h63nnqlhfahu" class="article-share-link">分享到</a>
+      
+        <a href="http://minishine.com/2015/07/31/Linux给普通用户添加sudo权限/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sudo/">sudo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/权限/">权限</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-基友们" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -163,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/基友们/" data-id="cip0ll2gy0015gh3ny6xtp1a4" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/基友们/" data-id="cipxt8zu80016h63n25d5yjp4" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/基友们/#ds-thread" class="article-comment-link">评论</a>
       
@@ -212,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/centos-使用yum-install安装nginx…/" data-id="cip0ll2k6004fgh3nutc7x4eq" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/centos-使用yum-install安装nginx…/" data-id="cipxt8zx3004gh63n53yqpe48" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/centos-使用yum-install安装nginx…/#ds-thread" class="article-comment-link">评论</a>
       
@@ -257,13 +308,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h5 id="经常要用到些命令，虽然知道就是它，奈何死活想不起来怎么用…好记性不如乱笔头">经常要用到些命令，虽然知道就是它，奈何死活想不起来怎么用…好记性不如乱笔头</h5><h2 id="Linux">Linux</h2><p>文件传输<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scp  ~/aaa.txt   user@ip:/var/www     <span class="comment">#下载正好相反</span></span><br><span class="line">ln <span class="operator">-s</span> 源文件名 链接文件名             <span class="comment">#新建软链接</span></span><br><span class="line">tar   -zxvf   xx.tar.gz               <span class="comment">#.tar.gz    </span></span><br><span class="line">tar   -jxvf   xx.tar.bz2              <span class="comment">#.tar.bz2	 </span></span><br><span class="line">du -sh /*                             <span class="comment">#查看磁盘空间</span></span><br><span class="line">find / -name filename                 <span class="comment">#以文件名查看</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="git">git</h2><p>git命令别名，在~/.gitconfig里面进行设置，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[alias]&#10;st = status&#10;ci = commit</span><br></pre></td></tr></table></figure></p>
+<h2 id="git">git</h2><p>git命令别名，在~/.gitconfig里面进行设置，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[alias]&#10;st = status&#10;ci = commit&#10;&#10;git&#25171;&#26631;&#31614;&#10;`git tag -a 0.1 -m &#34;Initial public release&#34; master`&#10;`git push --tags`</span><br></pre></td></tr></table></figure></p>
 <h2 id="mysql">mysql</h2><p>给新用户加权限<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to joe@localhost identified by &#39;password&#39;;&#10;flush privileges;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/常用命令速查/" data-id="cip0ll2gp000wgh3n0cyengh4" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/常用命令速查/" data-id="cipxt8zu3000xh63ndqiyt026" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/常用命令速查/#ds-thread" class="article-comment-link">评论</a>
       
@@ -315,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/nginx-php-fpm-下php错误日志/" data-id="cip0ll2j10037gh3nxhnf3pkk" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/nginx-php-fpm-下php错误日志/" data-id="cipxt8zvz0038h63nwp9r1l8k" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/nginx-php-fpm-下php错误日志/#ds-thread" class="article-comment-link">评论</a>
       
@@ -372,7 +423,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/31/centos-桌面安装与卸载/" data-id="cip0ll2k4004cgh3nru21glie" class="article-share-link">分享到</a>
+      <a data-url="http://minishine.com/2015/07/31/centos-桌面安装与卸载/" data-id="cipxt8zx0004dh63n0vhcmcje" class="article-share-link">分享到</a>
       
         <a href="http://minishine.com/2015/07/31/centos-桌面安装与卸载/#ds-thread" class="article-comment-link">评论</a>
       
@@ -387,60 +438,8 @@
 
 
     
-      <article id="post-路人-戊正式搬家到gitpage" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/30/路人-戊正式搬家到gitpage/">路人-戊正式搬家到git page</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/30/路人-戊正式搬家到gitpage/">
-      <time datetime="2015-07-30T11:00:39.000Z" itemprop="datePublished">2015-07-30</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>mark一下<br>折腾了大半天，终于把博客迁移到git page. 为了跟进时代我也是蛮拼的!<br><img src="/pics/suolue.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://minishine.com/2015/07/30/路人-戊正式搬家到gitpage/" data-id="cip0ll2fi0003gh3nphf978gt" class="article-share-link">分享到</a>
-      
-        <a href="http://minishine.com/2015/07/30/路人-戊正式搬家到gitpage/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/5/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/5/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">下一页 &raquo;</a>
       </nav>
     </section>
       
@@ -460,6 +459,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/06/27/这是一个测试/" class="title">这是一个测试</a></p>
+              <p class="item-date"><time datetime="2016-06-27T09:16:14.000Z" itemprop="datePublished">2016-06-27</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -494,15 +502,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/01/22/iOS添加tabbar高亮图片/" class="title">iOS添加tabbar高亮图片</a></p>
               <p class="item-date"><time datetime="2016-01-22T11:48:43.000Z" itemprop="datePublished">2016-01-22</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" class="title">nginx php-fpm访问php文件，File not found.</a></p>
-              <p class="item-date"><time datetime="2016-01-06T10:54:08.000Z" itemprop="datePublished">2016-01-06</time></p>
             </div>
           </li>
         

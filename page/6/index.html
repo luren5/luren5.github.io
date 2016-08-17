@@ -93,11 +93,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        44
+        45
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        53
+        54
         <span>标签</span>
       </div>
     </div>
@@ -124,6 +124,62 @@
 
       
       <section id="main">
+      <article id="post-Linux配置ssh免密码登录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/31/Linux配置ssh免密码登录/">Linux配置ssh免密码登录</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/07/31/Linux配置ssh免密码登录/">
+      <time datetime="2015-07-31T09:49:33.000Z" itemprop="datePublished">2015-07-31</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>经常需要登录vps或者开发机，然后每次都要  ssh xxx@ip , 然后再输入一堆密码…真麻烦<br>懒人统治世界，so  解决方案：<br>1、在自己的电脑上生成一对 ssh  key, 如果记不住命令戳这里  <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a> , 注意在生成的过程中，会提示输入密码，可输也可直接跳过</p>
+<p>2、完成步骤1之后，在你的home目录下会有个  .ssh目录，cd进去，把id_rsa.pub 里面的内容copy一份，保护好 id_rsa ,  这个是你的私钥，丢了的话就危险了</p>
+<p><em>注意这里的 文件名（id_rsa）和存储位置(~/.ssh/)在步骤1 生成的过程中是可以自己定义的, <span style="color:red;">如果需要生成多对密钥文件，可以修改文件名而不覆盖原来的</span></em></p>
+<p>3、登录到 开发机/vps ，cd 到你要用来登录的用户的home目录，比如  ssh  aaa@ip,  就cd   /home/aaa/ , 再切换到 /home/aaa/.ssh , 编辑 authorized_keys 文件，将步骤2中copy的内容追回到authorized_keys 末尾</p>
+<p>4、回到你自己的计算机上，在~/.bash_profile  文件里面添加一个自定义命令  alias logind=”ssh  aaa@ip”, 然后执行 source  ~/.bash_profile,   这样每次输入logind  就可以直接登录远程服务器了</p>
+<p>如果在步骤1生成key的过程中有输入密码，那logind后会提示输入密码，如果是在windows下连接远程服务器，就没这么多事了，安装secureCRT，它会帮你搞定一切！</p>
+<p>======<br>今天不小心把服务器的authorized_keys文件删除了，再添加之后死活登录不上，报如下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey,gssapi-keyex,gssapi-with-mic).</span><br></pre></td></tr></table></figure></p>
+<p>后来发现是authorized_keys权限过高问题，改下就好了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 authorized_keys</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2015/07/31/Linux配置ssh免密码登录/" data-id="ciryjxh6a00503d37ubmmm0py" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2015/07/31/Linux配置ssh免密码登录/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -188,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="cirxbqifq001nlc37d6w7typk" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="ciryjxh45001n3d37bfi5ruq1" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/#ds-thread" class="article-comment-link">评论</a>
       
@@ -239,7 +295,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/Linux给普通用户添加sudo权限/" data-id="cirxbqiht0054lc37glj1wnwg" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/Linux给普通用户添加sudo权限/" data-id="ciryjxh6c00543d37jynamcx9" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/Linux给普通用户添加sudo权限/#ds-thread" class="article-comment-link">评论</a>
       
@@ -293,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/基友们/" data-id="cirxbqifj0018lc3780xjrooj" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/基友们/" data-id="ciryjxh3w00183d37xsaf74kp" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/基友们/#ds-thread" class="article-comment-link">评论</a>
       
@@ -342,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/centos-使用yum-install安装nginx…/" data-id="cirxbqihj004ilc370ej4qqbc" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/centos-使用yum-install安装nginx…/" data-id="ciryjxh63004i3d37ud7xw8sa" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/centos-使用yum-install安装nginx…/#ds-thread" class="article-comment-link">评论</a>
       
@@ -395,64 +451,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/常用命令速查/" data-id="cirxbqifb000wlc37u25uwdf8" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/常用命令速查/" data-id="ciryjxh3o000w3d37fgnoth3v" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/常用命令速查/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-nginx-php-fpm-下php错误日志" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/nginx-php-fpm-下php错误日志/">nginx + php-fpm 下php错误日志</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/nginx-php-fpm-下php错误日志/">
-      <time datetime="2015-07-31T03:30:47.000Z" itemprop="datePublished">2015-07-31</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在lamp组合中php的错误日志位置是在当前的 vhost来定义的，很好找<br>现在使用nginx+php-fpm，调试过程中错误日志肯定少不了… 网上搜了下，都行不通</p>
-<p>好吧，记录下我解决的过程<br>编辑 <em>/etc/php-fpm.d/www.conf</em>  (别的环境或者不同的安装方法位置可能不同)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php_admin_value[error_<span class="built_in">log</span>]=<span class="string">"error_log_path"</span>      <span class="comment">#注意文件的写权限</span></span><br><span class="line">php_admin_flag[<span class="built_in">log</span>_errors] = on</span><br></pre></td></tr></table></figure></p>
-<p>重启下 php-fpm, OK了，记录什么级别的错误也是受php.ini里的 error_reporting 设置的影响</p>
-<p>有时候为了开发调试方便，希望错误信息直接显示在浏览器上，怎么破？<br>编辑php.ini 文件，设置 <em>display_errors = on</em> 即可<br>不要忘记重启php-fpm</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/nginx-php-fpm-下php错误日志/" data-id="cirxbqigw003alc378chjpsem" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/07/31/nginx-php-fpm-下php错误日志/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php-fpm/">php-fpm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误日志/">错误日志</a></li></ul>
 
     </footer>
   </div>
@@ -473,7 +477,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 16.67px;">ios</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/php-fpm/" style="font-size: 13.33px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/session/" style="font-size: 13.33px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/Linux-CentOS/" style="font-size: 10px;">-Linux -CentOS</a> <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 16.67px;">ios</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/php-fpm/" style="font-size: 13.33px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/session/" style="font-size: 13.33px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 
@@ -483,6 +487,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/08/17/CentOS7配置网卡/" class="title">CentOS7配置网卡</a></p>
+              <p class="item-date"><time datetime="2016-08-17T06:54:05.000Z" itemprop="datePublished">2016-08-17</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -517,15 +530,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" class="title">解决php -v和phpinfo()打印的php版本不一致问题</a></p>
               <p class="item-date"><time datetime="2016-04-28T08:28:36.000Z" itemprop="datePublished">2016-04-28</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/04/27/phpstorm切换上载sftp/" class="title">phpstorm切换上载sftp</a></p>
-              <p class="item-date"><time datetime="2016-04-27T03:22:36.000Z" itemprop="datePublished">2016-04-27</time></p>
             </div>
           </li>
         

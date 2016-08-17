@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 日历 | 路人-戊</title>
+  <title>CentOS7配置网卡 | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="this is a test">
-<meta property="og:type" content="website">
-<meta property="og:title" content="路人-戊">
-<meta property="og:url" content="http://luren5.com/tags/日历/index.html">
+  <meta name="description" content="今天在虚拟机里面装了个centos7,没网卡配置。简要记下吧vim /etc/sysconfig/network-scripts/ifcfg-eth0，eth0本来是没有的，这里顺便新建查看别的机器的eth0,写个类似的，如下12345678DEVICE=&quot;eth0&quot;BOOTPROTO=&quot;dhcp&quot;HWADDR=&quot;00:0C:29:84:B2:2E&quot;IPV6INIT=&quot;yes&quot;NM_CONTROL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7配置网卡">
+<meta property="og:url" content="http://luren5.com/2016/08/17/CentOS7配置网卡/index.html">
 <meta property="og:site_name" content="路人-戊">
-<meta property="og:description" content="this is a test">
+<meta property="og:description" content="今天在虚拟机里面装了个centos7,没网卡配置。简要记下吧vim /etc/sysconfig/network-scripts/ifcfg-eth0，eth0本来是没有的，这里顺便新建查看别的机器的eth0,写个类似的，如下12345678DEVICE=&quot;eth0&quot;BOOTPROTO=&quot;dhcp&quot;HWADDR=&quot;00:0C:29:84:B2:2E&quot;IPV6INIT=&quot;yes&quot;NM_CONTROL">
+<meta property="og:updated_time" content="2016-08-17T07:04:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="路人-戊">
-<meta name="twitter:description" content="this is a test">
+<meta name="twitter:title" content="CentOS7配置网卡">
+<meta name="twitter:description" content="今天在虚拟机里面装了个centos7,没网卡配置。简要记下吧vim /etc/sysconfig/network-scripts/ifcfg-eth0，eth0本来是没有的，这里顺便新建查看别的机器的eth0,写个类似的，如下12345678DEVICE=&quot;eth0&quot;BOOTPROTO=&quot;dhcp&quot;HWADDR=&quot;00:0C:29:84:B2:2E&quot;IPV6INIT=&quot;yes&quot;NM_CONTROL">
   
   
     <link rel="icon" href="favicon.png">
@@ -123,41 +124,73 @@
 </aside>
 
       
-      <section id="main">
-    <section class="archives-wrap">
-    <div class="archive-tag-wrap">
-      <span class="archive-tag">#日历</span>
-    </div>
-    <div class="archives">
+      <section id="main"><article id="post-CentOS7配置网卡" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <header class="archive-article-header">
-      
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/31/mac下把日历分享给其它用户/">mac下把日历分享给其它用户</a>
+    <h1 class="article-title" itemprop="name">
+      CentOS7配置网卡
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/mac下把日历分享给其它用户/">
-      <time datetime="2015-07-31T09:54:52.000Z" itemprop="datePublished">2015 7月 31</time>
+    <a href="/2016/08/17/CentOS7配置网卡/">
+      <time datetime="2016-08-17T06:54:05.000Z" itemprop="datePublished">2016-08-17</time>
     </a>
   </div>
 
 
-      
-    </header>
-  </div>
-</article>
+          
+        </div>
+      </header>
     
-    </div></section>
-    </section>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在虚拟机里面装了个centos7,没网卡配置。简要记下吧<br><code>vim /etc/sysconfig/network-scripts/ifcfg-eth0</code>，eth0本来是没有的，这里顺便新建<br>查看别的机器的eth0,写个类似的，如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=<span class="string">"eth0"</span></span><br><span class="line">BOOTPROTO=<span class="string">"dhcp"</span></span><br><span class="line">HWADDR=<span class="string">"00:0C:29:84:B2:2E"</span></span><br><span class="line">IPV6INIT=<span class="string">"yes"</span></span><br><span class="line">NM_CONTROLLED=<span class="string">"yes"</span></span><br><span class="line">ONBOOT=<span class="string">"yes"</span></span><br><span class="line">TYPE=<span class="string">"Ethernet"</span></span><br><span class="line">UUID=<span class="string">"06339c92-5251-4f12-ac14-b8065e662421"</span></span><br></pre></td></tr></table></figure></p>
+<p><code>HWADDR</code>表示网卡的物理地址，执行<code>dmesg | grep eth</code> 或者 <code>cat /etc/udev/rules.d/70-persistent-net.rules</code>可以查看到物理地址<br><code>UUID</code>可以生成一个，执行 <code>uuidgen eth0</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2016/08/17/CentOS7配置网卡/" data-id="ciryjyebf00003t37zvddp8vo" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2016/08/17/CentOS7配置网卡/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-CentOS/">-Linux -CentOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/08/实用shell脚本/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">实用shell脚本</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://luren5.com/2016/08/17/CentOS7配置网卡/" data-title="CentOS7配置网卡" data-url="http://luren5.com/2016/08/17/CentOS7配置网卡/">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
+      </div>
+  </section>
+
+</section>
       
         <aside id="sidebar">
   

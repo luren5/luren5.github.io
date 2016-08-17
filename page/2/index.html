@@ -93,11 +93,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        44
+        45
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        53
+        54
         <span>标签</span>
       </div>
     </div>
@@ -124,6 +124,56 @@
 
       
       <section id="main">
+      <article id="post-iOS添加tabbar高亮图片" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/22/iOS添加tabbar高亮图片/">iOS添加tabbar高亮图片</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/01/22/iOS添加tabbar高亮图片/">
+      <time datetime="2016-01-22T11:48:43.000Z" itemprop="datePublished">2016-01-22</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>添加高亮图片本息并不麻烦<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vc.tabBarItem.image = [UIImage imageNamed:[obj objectForKey:@<span class="string">"image"</span>]];</span><br><span class="line">vc.tabBarItem.selectedImage = [UIImage imageNamed:[obj objectForKey:@<span class="string">"image_h"</span>]];</span><br></pre></td></tr></table></figure></p>
+<p>添加完毕，但是坑来了。每次启动app的时候发现第一个（home）tab显示如下，切换几下又正常了<br><img src="/pics/0122-1.png" alt="pic"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vc.tabBarItem.selectedImage = [[UIImage imageNamed:[obj objectForKey:@<span class="string">"highlight_image"</span>]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];</span><br></pre></td></tr></table></figure>
+<p>问题解决，主要是改了下高亮图的渲染模式，UIImageRenderingModeAlwaysOriginal 始终绘制图片原始状态，不使用TintColor。renderingMode属性的默认值是UIImageRenderingModeAutomatic，即UIImage是否使用Tint Color取决于它显示的位置。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2016/01/22/iOS添加tabbar高亮图片/" data-id="ciryjxh5x00483d37i0yzak8r" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2016/01/22/iOS添加tabbar高亮图片/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-nginx-php-fpm访问php文件，File-not-found" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -158,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" data-id="cirxbqigv0039lc37btqxyfuu" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" data-id="ciryjxh5400393d375boxqk63" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/01/06/nginx-php-fpm访问php文件，File-not-found/#ds-thread" class="article-comment-link">评论</a>
       
@@ -217,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/11/27/11-27组内分享-http协议/" data-id="cirxbqihy005elc37nfd485vb" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/11/27/11-27组内分享-http协议/" data-id="ciryjxh6m005e3d372r802dzz" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/11/27/11-27组内分享-http协议/#ds-thread" class="article-comment-link">评论</a>
       
@@ -277,7 +327,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/10/29/10-26正则表达式分享会/" data-id="cirxbqii2005llc379wri4q5l" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/10/29/10-26正则表达式分享会/" data-id="ciryjxh6p005l3d37mirrhxzj" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/10/29/10-26正则表达式分享会/#ds-thread" class="article-comment-link">评论</a>
       
@@ -327,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/09/21/Changes-not-staged-for-commit/" data-id="cirxbqihw005clc375j8ewcoh" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/09/21/Changes-not-staged-for-commit/" data-id="ciryjxh6f005c3d37340pgu1a" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/09/21/Changes-not-staged-for-commit/#ds-thread" class="article-comment-link">评论</a>
       
@@ -381,67 +431,13 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/09/17/xcode使用技巧记录/" data-id="cirxbqifw0024lc374ic64n18" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/09/17/xcode使用技巧记录/" data-id="ciryjxh4c00243d37nec5ko6z" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/09/17/xcode使用技巧记录/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xcode/">xcode</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-viewDidLoad方法中不能修改控件的size和origin" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/">viewDidLoad方法中不能修改控件的size和origin</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/">
-      <time datetime="2015-08-29T03:21:52.000Z" itemprop="datePublished">2015-08-29</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天在做一个demo的时候，有这样的一个需要，就是页面展现的时候修改里面的一个UItableview控件和位置，这个uitableview是在storyboard里面已经拉好的</p>
-<p>直接在viewDidLoad里面修改它的frame，本来感觉没什么问题的，但是效果死活出不来</p>
-<p>好吧，记录一下，这里修改的逻辑一定要放在<code>viewDidLayoutSubviews</code> 方法里面</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/" data-id="cirxbqig1002hlc37v8a6r7mx" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/08/29/viewDidLoad方法中不能修改控件的size和origin/#ds-thread" class="article-comment-link">评论</a>
-      
-      
     </footer>
   </div>
   
@@ -461,7 +457,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 16.67px;">ios</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/php-fpm/" style="font-size: 13.33px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/session/" style="font-size: 13.33px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/Linux-CentOS/" style="font-size: 10px;">-Linux -CentOS</a> <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 16.67px;">ios</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/php-fpm/" style="font-size: 13.33px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/session/" style="font-size: 13.33px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 
@@ -471,6 +467,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/08/17/CentOS7配置网卡/" class="title">CentOS7配置网卡</a></p>
+              <p class="item-date"><time datetime="2016-08-17T06:54:05.000Z" itemprop="datePublished">2016-08-17</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -505,15 +510,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" class="title">解决php -v和phpinfo()打印的php版本不一致问题</a></p>
               <p class="item-date"><time datetime="2016-04-28T08:28:36.000Z" itemprop="datePublished">2016-04-28</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/04/27/phpstorm切换上载sftp/" class="title">phpstorm切换上载sftp</a></p>
-              <p class="item-date"><time datetime="2016-04-27T03:22:36.000Z" itemprop="datePublished">2016-04-27</time></p>
             </div>
           </li>
         

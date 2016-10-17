@@ -18,14 +18,17 @@
   
     <link rel="icon" href="favicon.png">
   
+  <!--
   <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
   <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  -->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
   
 
   
 </head>
+
 <body>
   <div id="container">
     <header id="header">
@@ -93,7 +96,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        45
+        46
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -124,6 +127,62 @@
 
       
       <section id="main">
+      <article id="post-ios学习笔记——散记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/15/ios学习笔记——散记/">ios学习笔记——散记</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/15/ios学习笔记——散记/">
+      <time datetime="2015-08-15T03:31:00.000Z" itemprop="datePublished">2015-08-15</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.字符串和数字互转<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[str1 intValue]</span><br><span class="line">str1<span class="variable">.intValue</span></span><br><span class="line"></span><br><span class="line">[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d"</span>, <span class="number">8</span>];</span><br></pre></td></tr></table></figure></p>
+<p>2、收回键盘<br>a)当页面内textField比较少的时候，比如有两个<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span><span class="variable">.tfield1</span> resignFirstResponder];</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.tfield2</span> resignFirstResponder];</span><br></pre></td></tr></table></figure></p>
+<p>给一个并不是第一响应者的UIView取消第一响应并不会有什么问题</p>
+<p>b)当页面内编辑框很多的时候，上述写法显然很繁琐，如下解决<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span><span class="variable">.view</span> endEditing:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure></p>
+<p>让控制器所管理的view停止编辑</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="ciudxc73q0047uues022va0pd" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2015/08/15/ios学习笔记——散记/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-ios开发之table-view的使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -170,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="ciryjzy06003w4b37kflur2vg" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="ciudxc73l003xuuesi2gx5u0a" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
       
@@ -226,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/10/怎么使用NSTimer/" data-id="ciryjzxy7000p4b37zfgmei3f" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/10/怎么使用NSTimer/" data-id="ciudxc71k000puuesdo5v7fly" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/10/怎么使用NSTimer/#ds-thread" class="article-comment-link">评论</a>
       
@@ -283,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/07/总结一下/" data-id="ciryjzxy5000n4b37jywo3ho8" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/07/总结一下/" data-id="ciudxc71h000nuuessc50jn2m" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/07/总结一下/#ds-thread" class="article-comment-link">评论</a>
       
@@ -351,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/03/redis编译安装杂记/" data-id="ciryjzxzn002v4b377a29r48c" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/03/redis编译安装杂记/" data-id="ciudxc732002wuueslw914rfu" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/03/redis编译安装杂记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -407,66 +466,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/03/什么是资源类型变量/" data-id="ciryjzxyr001k4b37qv0vmkle" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/03/什么是资源类型变量/" data-id="ciudxc726001luuesxu24vkcu" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/03/什么是资源类型变量/#ds-thread" class="article-comment-link">评论</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-fiddler抓手机软件发的包" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/03/fiddler抓手机软件发的包/">fiddler抓手机软件发的包</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/03/fiddler抓手机软件发的包/">
-      <time datetime="2015-08-03T05:48:22.000Z" itemprop="datePublished">2015-08-03</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Tech-Doc/">Tech Doc</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在折腾那个ios app,需要抓包，小费了点周折，好像网上教程还挺好找，把链接记下来，方便以后查看！顺便谢谢各位大神的无私奉献！</p>
-<p><a href="http://www.jb51.net/softjc/133721.html" target="_blank" rel="external">http://www.jb51.net/softjc/133721.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/03/fiddler抓手机软件发的包/" data-id="ciryjzy0m004b4b37uimm7tk0" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/08/03/fiddler抓手机软件发的包/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fiddler/">fiddler</a></li></ul>
-
     </footer>
   </div>
   
@@ -501,6 +505,15 @@
             
             <div class="item-inner">
               <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/10/17/全vim开发第一天，纪念一下/" class="title">全vim开发第一天，纪念一下</a></p>
+              <p class="item-date"><time datetime="2016-10-17T10:30:32.000Z" itemprop="datePublished">2016-10-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
               <p class="item-title"><a href="/2016/08/17/CentOS7配置网卡/" class="title">CentOS7配置网卡</a></p>
               <p class="item-date"><time datetime="2016-08-17T06:54:05.000Z" itemprop="datePublished">2016-08-17</time></p>
             </div>
@@ -530,15 +543,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/06/04/git-rebase相关/" class="title">git rebase相关</a></p>
               <p class="item-date"><time datetime="2016-06-04T03:13:58.000Z" itemprop="datePublished">2016-06-04</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" class="title">解决php -v和phpinfo()打印的php版本不一致问题</a></p>
-              <p class="item-date"><time datetime="2016-04-28T08:28:36.000Z" itemprop="datePublished">2016-04-28</time></p>
             </div>
           </li>
         

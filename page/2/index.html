@@ -96,7 +96,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        46
+        48
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -127,6 +127,114 @@
 
       
       <section id="main">
+      <article id="post-git-rebase相关" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/04/git-rebase相关/">git rebase相关</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/06/04/git-rebase相关/">
+      <time datetime="2016-06-04T03:13:58.000Z" itemprop="datePublished">2016-06-04</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在本地commit之后，需要push到远端，如果远端已经有人push过会出现下面的error<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">error: failed to push some refs to <span class="string">'/path/to/repo.git'</span></span><br><span class="line">hint: Updates were rejected because the tip of your current branch is behind</span><br><span class="line">hint: its remote counterpart. Merge the remote changes (e.g. <span class="string">'git pull'</span>)</span><br><span class="line">hint: before pushing again.</span><br><span class="line">hint: See the <span class="string">'Note about fast-forwards'</span> <span class="keyword">in</span> <span class="string">'git push --help'</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure></p>
+<p>对，你需要pull，那么问题来了,如果只是<code>git pull origin branch_name</code>   pull操作要同步远端仓库中别人修改时，提交历史会以一个多余的『合并提交』结尾。 对于集中式工作流，最好是使用rebase而不是生成一个合并提交。<br>所以，使用  <code>git pull —rebase origin branch_name</code></p>
+<p>rebase操作过程是把本地提交一次一个地迁移到更新了的中央仓库master分支之上。 这意味着可能要解决在迁移某个提交时出现的合并冲突，而不是解决包含了所有提交的大型合并时所出现的冲突。 这样的方式让你尽可能保持每个提交的聚焦和项目历史的整洁。反过来，简化了哪里引入Bug的分析，如果有必要，回滚修改也可以做到对项目影响最小。</p>
+<p>如果A和B的功能是不相关的，不大可能在rebase过程中有冲突。如果有，Git在合并有冲突的提交处暂停rebase过程，输出下面的信息并带上相关的指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> &lt;some-file&gt;</span><br></pre></td></tr></table></figure></p>
+<p>此时需要解决冲突并添加这些文件到暂存区，然后让rebase完成剩下的事<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;some-file&gt; </span><br><span class="line">git rebase --continue</span><br></pre></td></tr></table></figure></p>
+<p>Git会继续一个一个地合并后面的提交，如其它的提交有冲突就重复这个过程。<br>如果你碰到了冲突，但发现搞不定，不要惊慌。只要执行下面这条命令，就可以回到你执行<code>git pull --rebase</code>命令前的样子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase --abort</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2016/06/04/git-rebase相关/" data-id="civen9fnl004eo4es3nysqk2m" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2016/06/04/git-rebase相关/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-解决php-v和phpinfo-打印的php版本不一致问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/">解决php -v和phpinfo()打印的php版本不一致问题</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/">
+      <time datetime="2016-04-28T08:28:36.000Z" itemprop="datePublished">2016-04-28</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="环境:">环境:</h4><p>centos 6.5 + nginx + php-fpm</p>
+<h4 id="问题描述:">问题描述:</h4><p>源码编译安装php 5.6,并且在PATH里面添加了php执行文件目录。在终端下执行<code>php -v</code>打印的php版本为5.6。但是在浏览器上访问<code>phpinfo()</code>打印的页面，一直显示php5.3，神烦…</p>
+<h4 id="解决步骤:">解决步骤:</h4><p>初步分析应该是机器上之前已经装过一个php5.3，然后每次请求的时候<code>php-fpm</code>会调用php5.3；</p>
+<p>所以，卸载php5.3（此步骤不是必须），重要的是发请求的时候要让<code>php-fpm</code>调起php5.6。卸载老的<code>php-fpm</code>，或者<code>stop</code>掉,不然它会占着9000端口</p>
+<p>因为php5.6是源码编译安装的，5.3以上<code>php-fpm</code>已经默认在源码包里面，编译的时候也已经enable了。cd到php5.6安装目录下的sbin，里面果然有个php-fpm执行文件，./php-fpm，报错了 <code>failed to load configuration file</code>。去<em>源码目录</em>(执行./configure的目录),把php-fpm.conf拷一份到php5.6的安装目录下的<code>/etc</code>下面。</p>
+<p>再执行./php-fpm。OK，打完收工！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" data-id="civen9fko000bo4escwby0iq3" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php-fpm/">php-fpm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-phpstorm切换上载sftp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -162,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/04/27/phpstorm切换上载sftp/" data-id="cius4h7zw00308aes4s18ok5c" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/04/27/phpstorm切换上载sftp/" data-id="civen9fmi0034o4esmxdjeeg2" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/04/27/phpstorm切换上载sftp/#ds-thread" class="article-comment-link">评论</a>
       
@@ -214,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/01/22/iOS添加tabbar高亮图片/" data-id="cius4h80k00498aescev2ceto" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/01/22/iOS添加tabbar高亮图片/" data-id="civen9fnj004do4es7rjviv8z" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/01/22/iOS添加tabbar高亮图片/#ds-thread" class="article-comment-link">评论</a>
       
@@ -261,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" data-id="cius4h7zz003a8aesbr1nszt8" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" data-id="civen9fml003eo4eswjstr80p" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/01/06/nginx-php-fpm访问php文件，File-not-found/#ds-thread" class="article-comment-link">评论</a>
       
@@ -320,122 +428,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/11/27/11-27组内分享-http协议/" data-id="cius4h81b005i8aes786so4wq" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/11/27/11-27组内分享-http协议/" data-id="civen9foc005mo4esvzr84agp" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/11/27/11-27组内分享-http协议/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分享/">分享</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-10-26正则表达式分享会" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/29/10-26正则表达式分享会/">10.26正则表达式分享会</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/10/29/10-26正则表达式分享会/">
-      <time datetime="2015-10-29T01:59:57.000Z" itemprop="datePublished">2015-10-29</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Tech-Doc/">Tech Doc</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="正则表达式来的来源">正则表达式来的来源</h2><p>正则表达式起源于科学家对人类神经系统工作原理的早期研究。美国的两位神经生理方面的科学家研究了一种用数学方式来描述神经网络的新方法，他们创造性地将神经系统中的神经元描述成了小而简单的自动控制元，从而作出了一项伟大的工作革新。</p>
-<p>在1956 年,美国一位名叫Stephen Kleene的数学科学家，他在上述两位神经生理学家的早期工作的基础之上，发表了一篇题目是<span style="font-color:orange">《神经网事件的表示法》</span>的论文，利用称之为正则集合的数学符号来描述此模型，引入了正则表达式的概念。正则表达式被作为用来描述其称之为“正则集的代数”的一种表达式，因而采用了“正则表达式”这个术语。</p>
-<p>再后来这项研究成果被应用于其它的方面，包括Ken Thompson，它把这一成果应用于计算搜索算法，Ken Thompson就是Unix之父。</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/29/10-26正则表达式分享会/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/10/29/10-26正则表达式分享会/" data-id="cius4h81l005p8aeskv3v9fs1" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/10/29/10-26正则表达式分享会/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-Changes-not-staged-for-commit" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/21/Changes-not-staged-for-commit/">Changes not staged for commit:</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/09/21/Changes-not-staged-for-commit/">
-      <time datetime="2015-09-21T04:18:43.000Z" itemprop="datePublished">2015-09-21</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天从github上拉取了一个插件，然后加到我自己的项目里面（中途对插件目录里面的内容有做修改）<br>再在项目的根目录提交的时候，发现总会Changes not staged for commit: 的提醒，如下截图<br><img src="/pics/git-bug.png" alt="Changes not staged for commit"><br>然后不管怎么<code>add</code>或者<code>commit</code>，再执行<code>git status</code>问题依然存在<br>最后去那个目录下面一看，才发想起来，插件目录下也有一个git版本，它优先级会更高</p>
-<p>解决办法：删除插件目录下的git库 <code>rm -rf .git/</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/09/21/Changes-not-staged-for-commit/" data-id="cius4h817005d8aesu14gh8ep" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/09/21/Changes-not-staged-for-commit/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
     </footer>
   </div>
@@ -456,7 +454,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 16.67px;">ios</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/linux-CentOS/" style="font-size: 10px;">linux CentOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/php-fpm/" style="font-size: 13.33px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/session/" style="font-size: 13.33px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 12.5px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 17.5px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/linux-CentOS/" style="font-size: 10px;">linux CentOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/php-fpm/" style="font-size: 12.5px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/session/" style="font-size: 12.5px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 
@@ -466,6 +464,24 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/12/图解php变量内核实现/" class="title">图解php变量内核实现</a></p>
+              <p class="item-date"><time datetime="2016-11-12T03:17:31.000Z" itemprop="datePublished">2016-11-12</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/11/php运行模式/" class="title">php运行模式</a></p>
+              <p class="item-date"><time datetime="2016-11-11T10:17:10.000Z" itemprop="datePublished">2016-11-11</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -491,24 +507,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/08/08/实用shell脚本/" class="title">实用shell脚本收藏</a></p>
               <p class="item-date"><time datetime="2016-08-08T09:36:28.000Z" itemprop="datePublished">2016-08-08</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/07/20/Git-忽略-gitignore文件自身/" class="title">Git 忽略.gitignore文件自身</a></p>
-              <p class="item-date"><time datetime="2016-07-20T02:47:44.000Z" itemprop="datePublished">2016-07-20</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/06/04/git-rebase相关/" class="title">git rebase相关</a></p>
-              <p class="item-date"><time datetime="2016-06-04T03:13:58.000Z" itemprop="datePublished">2016-06-04</time></p>
             </div>
           </li>
         

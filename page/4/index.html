@@ -96,7 +96,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        46
+        48
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -127,6 +127,119 @@
 
       
       <section id="main">
+      <article id="post-Xcode安装插件失败" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/18/Xcode安装插件失败/">Xcode安装插件失败</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/18/Xcode安装插件失败/">
+      <time datetime="2015-08-18T02:34:50.000Z" itemprop="datePublished">2015-08-18</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天尝试着安装VVDocumenter和KSImageNamed这两个插件，看教程上挺简单的，直接clone下来，然后Xcode打开，command + b，提示构建成功，OK！</p>
+<p><em>然后问题来了，插件并没有起作用</em></p>
+<p><span style="color:red">症状和解决方案…</span></p>
+<p>再次打开之后在xcode的Window菜单栏下并没有显示已经安装的插件，但是切换到<code>~/Library/Application Support/Developer/Shared/Xcode/Plug-ins</code> 插件确实构建成功而且存在</p>
+<p>好吧，原因找到了，构建之后再次打开会有一个弹出框，有两个选项<code>Load bundle</code>、 <code>Skip Bundle</code> 很不幸的选择了第二个。</p>
+<p>把<code>~/Li    brary/Application Support/Developer/Shared/Xcode/Plug-ins</code> 下已经构建好的插件删除，然后再重新构建一下，comman + q退出，再重启，选择 <code>Load bundle</code> 解决！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2015/08/18/Xcode安装插件失败/" data-id="civen9fnt004so4esenmrawyb" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2015/08/18/Xcode安装插件失败/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-ios开发之坐标、大小、动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/16/ios开发之坐标、大小、动画/">ios开发之坐标、大小、动画</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/16/ios开发之坐标、大小、动画/">
+      <time datetime="2015-08-16T05:08:44.000Z" itemprop="datePublished">2015-08-16</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="改变控件的大小">改变控件的大小</h4><p>1、frame，可改变大小和位置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGRect</span> originFrame = <span class="keyword">self</span><span class="variable">.img</span><span class="variable">.frame</span>;</span><br><span class="line"><span class="comment">// origin 改变位置</span></span><br><span class="line">originFrame<span class="variable">.origin</span><span class="variable">.x</span> += <span class="number">10</span>;</span><br><span class="line">originFrame<span class="variable">.origin</span><span class="variable">.y</span> -=<span class="number">10</span>;</span><br><span class="line"><span class="comment">// size改变大小</span></span><br><span class="line">originFrame<span class="variable">.size</span><span class="variable">.width</span> +=<span class="number">10</span>;</span><br><span class="line">originFrame<span class="variable">.size</span><span class="variable">.height</span> +=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.img</span><span class="variable">.frame</span> = originFrame;</span><br></pre></td></tr></table></figure></p>
+<p>2、center,只能改变控件的位置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGPoint</span> centerPoint = <span class="keyword">self</span><span class="variable">.img</span><span class="variable">.center</span>;</span><br><span class="line">centerPoint<span class="variable">.x</span> += <span class="number">10</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.img</span><span class="variable">.center</span> = centerPoint;</span><br></pre></td></tr></table></figure></p>
+<p>3、bounds,只能改变控件的大小<br>使用方法和frame类似，虽然都可以改变大小，但是注意<code>bounds改变控件大小其中心坐标位置不变</code>，而<code>frame则是左上角的坐标不变</code></p>
+<p>4、transform，既能改变大小坐标，又能旋转</p>
+<h4 id="动画效果">动画效果</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开始动画</span></span><br><span class="line">[<span class="built_in">UIView</span> beginAnimations:<span class="literal">nil</span> context:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">// 设置动画时间</span></span><br><span class="line">[<span class="built_in">UIView</span> setAnimationDuration:<span class="number">5</span>];</span><br><span class="line"><span class="comment">//以下可以是各种动画的动作</span></span><br><span class="line">				    </span><br><span class="line"><span class="comment">// 提交动画</span></span><br><span class="line">[<span class="built_in">UIView</span> commitAnimations];</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="civen9fn9003zo4esnbzobna7" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-ios学习笔记——散记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -170,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="cius4h80i00478aesy9tzmm91" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="civen9fnh004bo4es3tjc5omw" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/15/ios学习笔记——散记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -229,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="cius4h80d003x8aesff0ujyl2" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="civen9fnb0041o4esvqjkdbu9" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
       
@@ -285,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/10/怎么使用NSTimer/" data-id="cius4h7yh000p8aesmo7ta3wu" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/10/怎么使用NSTimer/" data-id="civen9fkx000po4esppdqb4yz" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/10/怎么使用NSTimer/#ds-thread" class="article-comment-link">评论</a>
       
@@ -342,133 +455,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/07/总结一下/" data-id="cius4h7yf000n8aeshzqwy0l2" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/07/总结一下/" data-id="civen9fkt000no4esagr24qvm" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/07/总结一下/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-redis编译安装杂记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/03/redis编译安装杂记/">redis编译安装杂记</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/03/redis编译安装杂记/">
-      <time datetime="2015-08-03T05:52:19.000Z" itemprop="datePublished">2015-08-03</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/reids/">reids</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装可以参考这里  <a href="http://871421448.iteye.com/blog/1921701" target="_blank" rel="external">http://871421448.iteye.com/blog/1921701</a></p>
-<p>启动用如下命令：redis-server /etc/redis/redis.conf&amp;，记住后面的&amp;，使其在后台运行！</p>
-<p>安装phpredis 扩展的时候整死人，看了诸多文档，搞不定，现在把关键步骤记录一下！</p>
-<p>1.下载 phpredis扩展</p>
-<p>2.cd到相应的文件夹</p>
-<ol>
-<li><p>phpize    (以下几步要注意，如果不是root需要使用sodu)</p>
-</li>
-<li><p>./configure</p>
-</li>
-<li><p>make</p>
-</li>
-<li><p>make install （到这一步的时候扩展已经编译成功并显示所在目录，我这里是在/usr/lib/php5/20100525+lfs/）</p>
-</li>
-</ol>
-<p>7.到这里就非常重要了，看别人的文档上写的都是直接用php –ini查找到php的配置文件，然后加上  extensiton=redis.so  ，重启apache就OK，但是这里搞不定。注意这里和php.ini同层有一个目录conf.d，cd进去，这里是已经装好的扩展，直接cp一份，把extension改成redis，然后再重启apache，这样才可以….</p>
-<p>总算大功告成了！！！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/03/redis编译安装杂记/" data-id="cius4h7zv002w8aescqdbsh0q" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/08/03/redis编译安装杂记/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-什么是资源类型变量" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/03/什么是资源类型变量/">什么是资源类型变量</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/03/什么是资源类型变量/">
-      <time datetime="2015-08-03T05:50:43.000Z" itemprop="datePublished">2015-08-03</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/PHP/">PHP</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>资源是一个能容纳任何信息的抽象数据结构。使用资源的主要原因是因为：资源被一个集中的队列所管理，该队列可以在PHP开发人员没有在脚本里面显式地释放时可以自动地被释放。</p>
-<p>举个例子，考虑到编写一个脚本，在脚本里调用mysql_connect()打开一个MySQL连接，可是当该数据库连接资源不再使用时却没有调用mysql_close()。在PHP里，资源机制能够检测什么时候这个资源应当被释放，然后在当前请求的结尾或通常情况下更早地释放资源。这就为减少内存泄漏赋予了一个“防弹”机制。如果没有这样一个机制，经过几次web请求后，web服务器也许会潜在地泄漏许多内存资源，从而导致服务器当机或出错。</p>
-<p>摘自：<a href="http://www.laruence.com/2009/04/28/719.html" target="_blank" rel="external">http://www.laruence.com/2009/04/28/719.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/03/什么是资源类型变量/" data-id="cius4h7yz001l8aes5gnvmkhp" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/08/03/什么是资源类型变量/#ds-thread" class="article-comment-link">评论</a>
       
       
     </footer>
@@ -490,7 +479,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 16.67px;">ios</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/linux-CentOS/" style="font-size: 10px;">linux CentOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/php-fpm/" style="font-size: 13.33px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/session/" style="font-size: 13.33px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 12.5px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 17.5px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/linux-CentOS/" style="font-size: 10px;">linux CentOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/php-fpm/" style="font-size: 12.5px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/session/" style="font-size: 12.5px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 
@@ -500,6 +489,24 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/12/图解php变量内核实现/" class="title">图解php变量内核实现</a></p>
+              <p class="item-date"><time datetime="2016-11-12T03:17:31.000Z" itemprop="datePublished">2016-11-12</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/11/php运行模式/" class="title">php运行模式</a></p>
+              <p class="item-date"><time datetime="2016-11-11T10:17:10.000Z" itemprop="datePublished">2016-11-11</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -525,24 +532,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/08/08/实用shell脚本/" class="title">实用shell脚本收藏</a></p>
               <p class="item-date"><time datetime="2016-08-08T09:36:28.000Z" itemprop="datePublished">2016-08-08</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/07/20/Git-忽略-gitignore文件自身/" class="title">Git 忽略.gitignore文件自身</a></p>
-              <p class="item-date"><time datetime="2016-07-20T02:47:44.000Z" itemprop="datePublished">2016-07-20</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/06/04/git-rebase相关/" class="title">git rebase相关</a></p>
-              <p class="item-date"><time datetime="2016-06-04T03:13:58.000Z" itemprop="datePublished">2016-06-04</time></p>
             </div>
           </li>
         

@@ -22,8 +22,8 @@
   <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
   <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   -->
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -162,13 +162,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今天在项目开发中遇到一个“天坑”，没错，一个耗了大半天也没解决的bug，最好幸好 <em>@破鱼缸</em> 的点拨，茅塞顿开。记录一下</p>
-<h4 id="具体业务就不说了，问题重现步骤抽象如下：">具体业务就不说了，问题重现步骤抽象如下：</h4><p>新建一个php文件，test.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">	<span class="comment">// 把session的类引进来，看这里[RedisSessionHandler]("http://minishine.github.io/2015/07/29/session存储到redis/", "Title")。把文件下面的测试部分的代码去掉</span></span><br><span class="line"></span><br><span class="line">	session_start();  				<span class="comment">// 开启一个会话</span></span><br><span class="line">	<span class="variable">$_SESSION</span>[<span class="string">'name'</span>] = <span class="string">"luren5"</span>;	<span class="comment">// 在session里面加点内容</span></span><br><span class="line"></span><br><span class="line">	<span class="variable">$redis</span> = <span class="keyword">new</span> Redis();</span><br><span class="line">	<span class="variable">$redis</span>-&gt;connect(<span class="string">"172.32.1.201"</span>, <span class="number">6379</span>);</span><br><span class="line">	<span class="variable">$key</span> = session_id();</span><br><span class="line">	<span class="variable">$redis</span>-&gt;del(<span class="variable">$key</span>);              <span class="comment">//显式的删除这个session</span></span><br><span class="line"></span><br><span class="line">	print_r(<span class="variable">$_SESSION</span>); 			<span class="comment">//还是可以正常打印出数据，去库里查看这条数据还在</span></span><br></pre></td></tr></table></figure></p>
+<p>####具体业务就不说了，问题重现步骤抽象如下：</p>
+<p>新建一个php文件，test.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">	<span class="comment">// 把session的类引进来，看这里[RedisSessionHandler]("http://minishine.github.io/2015/07/29/session存储到redis/", "Title")。把文件下面的测试部分的代码去掉</span></div><div class="line"></div><div class="line">	session_start();  				<span class="comment">// 开启一个会话</span></div><div class="line">	$_SESSION[<span class="string">'name'</span>] = <span class="string">"luren5"</span>;	<span class="comment">// 在session里面加点内容</span></div><div class="line"></div><div class="line">	$redis = <span class="keyword">new</span> Redis();</div><div class="line">	$redis-&gt;connect(<span class="string">"172.32.1.201"</span>, <span class="number">6379</span>);</div><div class="line">	$key = session_id();</div><div class="line">	$redis-&gt;del($key);              <span class="comment">//显式的删除这个session</span></div><div class="line"></div><div class="line">	print_r($_SESSION); 			<span class="comment">//还是可以正常打印出数据，去库里查看这条数据还在</span></div></pre></td></tr></table></figure></p>
 <p>要达到目的可以直接把session_id 对应的内容置为空即可</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/29/回写机制造成session-无法被删除/" data-id="civenujdw001er6es9ta24bwv" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/29/回写机制造成session-无法被删除/" data-id="civrvwf9s002tvkes4x010523" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/29/回写机制造成session-无法被删除/#ds-thread" class="article-comment-link">评论</a>
       
@@ -228,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/29/session存储到redis/" data-id="civenujeu002rr6ess2b2yypd" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/29/session存储到redis/" data-id="civrvwf9g0027vkesi2o3ex7l" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/29/session存储到redis/#ds-thread" class="article-comment-link">评论</a>
       
@@ -277,7 +278,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="配置NERDTree">配置NERDTree</h3><p>NERDTree是vim下的一个很好用的插件，它可以把所有文件以树形菜单的形式展现出来，类似于IDE那样</p>
+        <p>###配置NERDTree<br>NERDTree是vim下的一个很好用的插件，它可以把所有文件以树形菜单的形式展现出来，类似于IDE那样</p>
 <p>1、<a href="http://www.vim.org/scripts/script.php?script_id=1658">下载插件</a>,解压后把 <em>plugin/NERD_tree.vim</em> 和 <em>doc/NERD_tree.txt</em> 分别拷贝到 <em>~/.vim/plugin</em> 和 <em>~/.vim/doc</em> 目录下。</p>
 <p>2、安装已经完成，进入需要编辑的目录后输入vim，然后再 <em>shift + :</em>   输入NERDTree就可以看到树形菜单了。不过每次都是要输入NERDTree非常麻烦, 改可以简化一下。</p>
 <p>3、编辑 ~/.vimrc文件(如果没有自己新建一个)，在最后一行添加一句<br>
@@ -289,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/29/vim下NERDTree配置及快捷键/" data-id="civenujen002cr6esbtfvfixf" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/29/vim下NERDTree配置及快捷键/" data-id="civrvwf9k002bvkesrr1n46z7" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/29/vim下NERDTree配置及快捷键/#ds-thread" class="article-comment-link">评论</a>
       
@@ -347,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/28/人生之艰难如洪水猛兽/" data-id="civenujei0021r6esprgs3n4m" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/28/人生之艰难如洪水猛兽/" data-id="civrvwf9o002ivkesxnu7gsmp" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/28/人生之艰难如洪水猛兽/#ds-thread" class="article-comment-link">评论</a>
       
@@ -397,16 +398,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>mark~在新浪的时候，一个小组技术分享会</p>
-<h3 id="什么是设计模式？">什么是设计模式？</h3><p>设计模式是一套代码设计经验的总结</p>
-<h3 id="为什么要提倡“Design_Pattern“">为什么要提倡“Design Pattern“</h3><p>根本原因是为了代码复用，增加可维护性</p>
-<h3 id="几个误区">几个误区</h3><p>设计模式并非起源于计算机科学，而是建筑学</p>
-<h3 id="设计模式并非只有23种">设计模式并非只有23种</h3><p>设计模式并不只适用于面向对象</p>
-<h3 id="面向对象设计的5大原则">面向对象设计的5大原则</h3><h4 id="1）单一职责原则">1）单一职责原则</h4><p> 避免相同的职责分散到不同的类中；避免一个类承担太多的职责<br> eg:活字印刷术，拆分成词？<br> 工厂模式，只负责生产对象，但是不负责对象的具体实现</p>
-<h4 id="2）接口隔离原则">2）接口隔离原则</h4><p> 一个类对另一个类的依赖性应当是建立在最小的接口上的；客户端程序不应该依赖它不需要的接口方法<br> eg: 缓存基类，（连接、关闭，get、set操作）但是不应该有（zset、zget）此类操作<br> 多继承防止胖接口， 或者考虑组合</p>
-<h4 id="3）开放封闭原则">3）开放封闭原则</h4><p> 一个模块在可扩展性方面应该是开放的，在可更改方面应该是封闭的<br> eg: 电脑组装的案例</p>
-<h4 id="4）里氏替换原则">4）里氏替换原则</h4><p> 子类必须能够替换掉它们的父类型、并出现在父类能够出现的任何地方<br> eg: 手机 到  智能机    （最基本的电话短信功能，可以添加任何其它功能  mp3，导航等，它依然是手机，但是如果它不能打电话发短信呢？最多是个pad）</p>
-<h4 id="5）依赖倒置原则">5）依赖倒置原则</h4><p> 上层模块不应该依赖于下层模块 ，它们共同依赖于一个抽象（父类不能依赖于子类，它们都要依赖抽象类），抽象不应该依赖于具体，具体应该依赖于抽象<br> 因为抽象是相对稳定，不易变化的<br> eg: 给前端同事提供接口，基类两个抽象方法 （接收并检查参数，返回约定格式的结果）  那么不管你是怎么具体来实现的，谁来实现，都应该依赖于这个抽象</p>
-<h3 id="设计模式的分类，总体来说设计模式分为三大类：">设计模式的分类，总体来说设计模式分为三大类：</h3><p>  创建型模式，共五种</p>
+<p>###什么是设计模式？<br>设计模式是一套代码设计经验的总结</p>
+<p>###为什么要提倡“Design Pattern“<br>根本原因是为了代码复用，增加可维护性</p>
+<p>###几个误区<br>设计模式并非起源于计算机科学，而是建筑学</p>
+<p>###设计模式并非只有23种<br>设计模式并不只适用于面向对象</p>
+<p>###面向对象设计的5大原则</p>
+<p> ####1）单一职责原则<br> 避免相同的职责分散到不同的类中；避免一个类承担太多的职责<br> eg:活字印刷术，拆分成词？<br> 工厂模式，只负责生产对象，但是不负责对象的具体实现</p>
+<p> ####2）接口隔离原则<br> 一个类对另一个类的依赖性应当是建立在最小的接口上的；客户端程序不应该依赖它不需要的接口方法<br> eg: 缓存基类，（连接、关闭，get、set操作）但是不应该有（zset、zget）此类操作<br> 多继承防止胖接口， 或者考虑组合</p>
+<p> ####3）开放封闭原则<br> 一个模块在可扩展性方面应该是开放的，在可更改方面应该是封闭的<br> eg: 电脑组装的案例</p>
+<h4 id="4）里氏替换原则"><a href="#4）里氏替换原则" class="headerlink" title="4）里氏替换原则"></a>4）里氏替换原则</h4><p> 子类必须能够替换掉它们的父类型、并出现在父类能够出现的任何地方<br> eg: 手机 到  智能机    （最基本的电话短信功能，可以添加任何其它功能  mp3，导航等，它依然是手机，但是如果它不能打电话发短信呢？最多是个pad）</p>
+<p>####5）依赖倒置原则<br> 上层模块不应该依赖于下层模块 ，它们共同依赖于一个抽象（父类不能依赖于子类，它们都要依赖抽象类），抽象不应该依赖于具体，具体应该依赖于抽象<br> 因为抽象是相对稳定，不易变化的<br> eg: 给前端同事提供接口，基类两个抽象方法 （接收并检查参数，返回约定格式的结果）  那么不管你是怎么具体来实现的，谁来实现，都应该依赖于这个抽象</p>
+<p>###设计模式的分类，总体来说设计模式分为三大类：</p>
+<p>  创建型模式，共五种</p>
 <p>  工厂模式、抽象工厂模式、单例模式、建造者模式、原型模式。</p>
 <p>  结构型模式，共七种</p>
 <p>  适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式。</p>
@@ -476,19 +479,19 @@
 <p>   }</p>
 <p>   //车轮</p>
 <p>   abstract class Wheel{</p>
-<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">()</span></span>{}
+<pre><code>public function get(){}
 </code></pre><p> }</p>
 <p> //轿车车轮</p>
 <p> class CarWheel extends Wheel{</p>
 <p>   public function get(){</p>
-<pre><code>  <span class="built_in">echo</span> <span class="string">'get car wheel'</span>;
+<pre><code>  echo &apos;get car wheel&apos;;
 
 }
 </code></pre><p>}</p>
 <p>//巴士车轮</p>
 <p>class BusWheel extends Wheel{</p>
 <p>   public function get(){</p>
-<pre><code> <span class="built_in">echo</span> <span class="string">'get bus wheel'</span>;
+<pre><code> echo &apos;get bus wheel&apos;;
 
 }
 </code></pre><p> }</p>
@@ -795,7 +798,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/03/03/设计模式分享/" data-id="civenujd10006r6esflddz9o6" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/03/03/设计模式分享/" data-id="civrvwfa3003jvkeso5ni4qhg" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/03/03/设计模式分享/#ds-thread" class="article-comment-link">评论</a>
       
@@ -849,7 +852,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/03/01/路人-戊正式搬家到gitpage/" data-id="civenujct0003r6esruu6hdec" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/03/01/路人-戊正式搬家到gitpage/" data-id="civrvwfa2003hvkeso1v26lk7" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/03/01/路人-戊正式搬家到gitpage/#ds-thread" class="article-comment-link">评论</a>
       
@@ -975,7 +978,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; Tue Jul 28 2015 08:00:00 GMT+0800 (CST) - 2016 路人-戊<br>
+      &copy; 2015-7-28 - 2016 路人-戊<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
@@ -1003,11 +1006,11 @@
 <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

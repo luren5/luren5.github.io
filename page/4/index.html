@@ -22,8 +22,8 @@
   <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
   <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   -->
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -171,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/18/Xcode安装插件失败/" data-id="civenujfy004sr6es81g1wlly" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/18/Xcode安装插件失败/" data-id="civrvwf8a000qvkesh0wkc9xj" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/18/Xcode安装插件失败/#ds-thread" class="article-comment-link">评论</a>
       
@@ -218,16 +218,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="改变控件的大小">改变控件的大小</h4><p>1、frame，可改变大小和位置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGRect</span> originFrame = <span class="keyword">self</span><span class="variable">.img</span><span class="variable">.frame</span>;</span><br><span class="line"><span class="comment">// origin 改变位置</span></span><br><span class="line">originFrame<span class="variable">.origin</span><span class="variable">.x</span> += <span class="number">10</span>;</span><br><span class="line">originFrame<span class="variable">.origin</span><span class="variable">.y</span> -=<span class="number">10</span>;</span><br><span class="line"><span class="comment">// size改变大小</span></span><br><span class="line">originFrame<span class="variable">.size</span><span class="variable">.width</span> +=<span class="number">10</span>;</span><br><span class="line">originFrame<span class="variable">.size</span><span class="variable">.height</span> +=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.img</span><span class="variable">.frame</span> = originFrame;</span><br></pre></td></tr></table></figure></p>
-<p>2、center,只能改变控件的位置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGPoint</span> centerPoint = <span class="keyword">self</span><span class="variable">.img</span><span class="variable">.center</span>;</span><br><span class="line">centerPoint<span class="variable">.x</span> += <span class="number">10</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.img</span><span class="variable">.center</span> = centerPoint;</span><br></pre></td></tr></table></figure></p>
+        <p>####改变控件的大小<br>1、frame，可改变大小和位置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGRect</span> originFrame = <span class="keyword">self</span>.img.frame;</div><div class="line"><span class="comment">// origin 改变位置</span></div><div class="line">originFrame.origin.x += <span class="number">10</span>;</div><div class="line">originFrame.origin.y -=<span class="number">10</span>;</div><div class="line"><span class="comment">// size改变大小</span></div><div class="line">originFrame.size.width +=<span class="number">10</span>;</div><div class="line">originFrame.size.height +=<span class="number">10</span>;</div><div class="line"><span class="keyword">self</span>.img.frame = originFrame;</div></pre></td></tr></table></figure></p>
+<p>2、center,只能改变控件的位置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGPoint</span> centerPoint = <span class="keyword">self</span>.img.center;</div><div class="line">centerPoint.x += <span class="number">10</span>;</div><div class="line"><span class="keyword">self</span>.img.center = centerPoint;</div></pre></td></tr></table></figure></p>
 <p>3、bounds,只能改变控件的大小<br>使用方法和frame类似，虽然都可以改变大小，但是注意<code>bounds改变控件大小其中心坐标位置不变</code>，而<code>frame则是左上角的坐标不变</code></p>
 <p>4、transform，既能改变大小坐标，又能旋转</p>
-<h4 id="动画效果">动画效果</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开始动画</span></span><br><span class="line">[<span class="built_in">UIView</span> beginAnimations:<span class="literal">nil</span> context:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">// 设置动画时间</span></span><br><span class="line">[<span class="built_in">UIView</span> setAnimationDuration:<span class="number">5</span>];</span><br><span class="line"><span class="comment">//以下可以是各种动画的动作</span></span><br><span class="line">				    </span><br><span class="line"><span class="comment">// 提交动画</span></span><br><span class="line">[<span class="built_in">UIView</span> commitAnimations];</span><br></pre></td></tr></table></figure>
+<p>####动画效果<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 开始动画</span></div><div class="line">[<span class="built_in">UIView</span> beginAnimations:<span class="literal">nil</span> context:<span class="literal">nil</span>];</div><div class="line"><span class="comment">// 设置动画时间</span></div><div class="line">[<span class="built_in">UIView</span> setAnimationDuration:<span class="number">5</span>];</div><div class="line"><span class="comment">//以下可以是各种动画的动作</span></div><div class="line">				    </div><div class="line"><span class="comment">// 提交动画</span></div><div class="line">[<span class="built_in">UIView</span> commitAnimations];</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="civenujfh003zr6esu66xutmg" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="civrvwf8y001evkes2nff4bbq" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/#ds-thread" class="article-comment-link">评论</a>
       
@@ -274,16 +274,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.字符串和数字互转<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[str1 intValue]</span><br><span class="line">str1<span class="variable">.intValue</span></span><br><span class="line"></span><br><span class="line">[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d"</span>, <span class="number">8</span>];</span><br></pre></td></tr></table></figure></p>
-<p>2、收回键盘<br>a)当页面内textField比较少的时候，比如有两个<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span><span class="variable">.tfield1</span> resignFirstResponder];</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.tfield2</span> resignFirstResponder];</span><br></pre></td></tr></table></figure></p>
+        <p>1.字符串和数字互转<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[str1 intValue]</div><div class="line">str1.intValue</div><div class="line"></div><div class="line">[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d"</span>, <span class="number">8</span>];</div></pre></td></tr></table></figure></p>
+<p>2、收回键盘<br>a)当页面内textField比较少的时候，比如有两个<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span>.tfield1 resignFirstResponder];</div><div class="line">[<span class="keyword">self</span>.tfield2 resignFirstResponder];</div></pre></td></tr></table></figure></p>
 <p>给一个并不是第一响应者的UIView取消第一响应并不会有什么问题</p>
-<p>b)当页面内编辑框很多的时候，上述写法显然很繁琐，如下解决<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span><span class="variable">.view</span> endEditing:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure></p>
+<p>b)当页面内编辑框很多的时候，上述写法显然很繁琐，如下解决<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span>.view endEditing:<span class="literal">YES</span>];</div></pre></td></tr></table></figure></p>
 <p>让控制器所管理的view停止编辑</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="civenujfo004br6escqahjjih" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="civrvwf8v001avkess4v4845n" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/15/ios学习笔记——散记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -333,7 +333,7 @@
         <p>每次都忘记…好记性不好烂笔头<br>1、拉一个table view控件到storyboard,然后选中table view右击，将选项中的delegate和dataSource连接到controller,如下截图<br><img src="/pics/table-pic1.png" alt="pic1"></p>
 <p>2、拉一个table view cell控件到上述table view中，然后正常结构应该是这样的</p>
 <p><img src="/pics/table-pic2.png" alt="pic2"></p>
-<p>3、让controller的声明文件添加协议和Property,如下代码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span>  : <span class="title">UIViewController</span> &lt;<span class="title">UITableViewDelegate</span>, <span class="title">UITableViewDataSource</span>, <span class="title">UIActionSheetDelegate</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>3、让controller的声明文件添加协议和Property,如下代码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span>  : <span class="title">UIViewController</span> &lt;<span class="title">UITableViewDelegate</span>, <span class="title">UITableViewDataSource</span>, <span class="title">UIActionSheetDelegate</span>&gt;</span></div></pre></td></tr></table></figure></p>
         
           <p class="article-more-link">
             <a href="/2015/08/12/ios开发之table-view的使用/#more">Read More</a>
@@ -342,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="civenujfj0041r6es0v0zfacl" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="civrvwf8w001bvkesqxumegmm" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
       
@@ -392,13 +392,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今天在做demo的时候需要用到定时器，这里简要记录一下</p>
-<p>1、先定义一个timer<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSTimer</span> *hqTimer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">5.0</span></span><br><span class="line">                                                        target:<span class="keyword">self</span></span><br><span class="line">							selector:<span class="keyword">@selector</span>(refreshHq:) </span><br><span class="line">							userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure></p>
-<p>以上定义一个timer,5.0表示每5秒执行一次，<code>repeats:YES</code>表示重复执行，如果为NO执行一次就失效，<code>refreshHq:</code>表示要调用的方法，将在下面定义<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)refreshHq:(<span class="built_in">NSTimer</span> *)theTimer &#123;</span><br><span class="line">	<span class="built_in">NSLog</span>(<span class="string">@"fsdafsf"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>1、先定义一个timer<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSTimer</span> *hqTimer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">5.0</span></div><div class="line">                                                        target:<span class="keyword">self</span></div><div class="line">							selector:<span class="keyword">@selector</span>(refreshHq:) </div><div class="line">							userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</div></pre></td></tr></table></figure></p>
+<p>以上定义一个timer,5.0表示每5秒执行一次，<code>repeats:YES</code>表示重复执行，如果为NO执行一次就失效，<code>refreshHq:</code>表示要调用的方法，将在下面定义<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)refreshHq:(<span class="built_in">NSTimer</span> *)theTimer &#123;</div><div class="line">	<span class="built_in">NSLog</span>(<span class="string">@"fsdafsf"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/10/怎么使用NSTimer/" data-id="civenujdg000pr6esty5ul6gq" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/10/怎么使用NSTimer/" data-id="civrvwf9y0037vkesxlfkrzme" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/10/怎么使用NSTimer/#ds-thread" class="article-comment-link">评论</a>
       
@@ -448,14 +448,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近总是这么多事，想闲下来思考一下都不得空…<br>不管了，拿出一个番茄的时间写个博客总结一下吧！</p>
-<h5 id="何去何从">何去何从</h5><p>&emsp;&emsp;之前去新三板的机会已经推掉了，我们得面临转是否转java，但是实际上这是一个很漫长的过程…整个项目百分之90的代码都是php的，新的开发需求还一波接一波！<br>&emsp;&emsp;选择多了心就乱了，之前本来已经想好转java了，近来再细想一下，这对我的职业发展等各方面可能并不是一个好的选择，然后我也必须要开始学习一个新的技能了，让自己忙起来，安逸享受是留给死人的！</p>
-<h5 id="要做的事">要做的事</h5><p>想太多却不做也没什么卵用，不如把接下来要做的事列一下<br>1、业务时间把phpredis的中文文档翻译完<br>2、证书，还没有自己配过，一定得实现下<br>3、php unit，你得会折腾<br>4、php异常抛出，用的不多，也弄一下吧<br>5、坚持学IOS开发吧，这是接下来半年的最大的战略部署</p>
+<p>#####何去何从<br>&emsp;&emsp;之前去新三板的机会已经推掉了，我们得面临转是否转java，但是实际上这是一个很漫长的过程…整个项目百分之90的代码都是php的，新的开发需求还一波接一波！<br>&emsp;&emsp;选择多了心就乱了，之前本来已经想好转java了，近来再细想一下，这对我的职业发展等各方面可能并不是一个好的选择，然后我也必须要开始学习一个新的技能了，让自己忙起来，安逸享受是留给死人的！</p>
+<p>#####要做的事<br>想太多却不做也没什么卵用，不如把接下来要做的事列一下<br>1、业务时间把phpredis的中文文档翻译完<br>2、证书，还没有自己配过，一定得实现下<br>3、php unit，你得会折腾<br>4、php异常抛出，用的不多，也弄一下吧<br>5、坚持学IOS开发吧，这是接下来半年的最大的战略部署</p>
 <p>把每一步都走好，结果总不会太差吧，加油！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/07/总结一下/" data-id="civenujdc000nr6esj0580i0x" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/07/总结一下/" data-id="civrvwf9z0039vkesewribjyq" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/07/总结一下/#ds-thread" class="article-comment-link">评论</a>
       
@@ -581,7 +581,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; Tue Jul 28 2015 08:00:00 GMT+0800 (CST) - 2016 路人-戊<br>
+      &copy; 2015-7-28 - 2016 路人-戊<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
@@ -609,11 +609,11 @@
 <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

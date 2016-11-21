@@ -6,30 +6,33 @@
   <title>设计模式分享 | 路人-戊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="mark~在新浪的时候，一个小组技术分享会
-什么是设计模式？设计模式是一套代码设计经验的总结
-为什么要提倡“Design Pattern“根本原因是为了代码复用，增加可维护性
-几个误区设计模式并非起源于计算机科学，而是建筑学
-设计模式并非只有23种设计模式并不只适用于面向对象
-面向对象设计的5大原则1）单一职责原则 避免相同的职责分散到不同的类中；避免一个类承担太多的职责 eg:活字印刷术，拆分成">
+###什么是设计模式？设计模式是一套代码设计经验的总结
+###为什么要提倡“Design Pattern“根本原因是为了代码复用，增加可维护性
+###几个误区设计模式并非起源于计算机科学，而是建筑学
+###设计模式并非只有23种设计模式并不只适用于面向对象
+###面向对象设计的5大原则
+ ####1）单一职责原则 避免相同的职责分散到不同的类中；避免一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式分享">
 <meta property="og:url" content="http://luren5.com/2015/03/03/设计模式分享/index.html">
 <meta property="og:site_name" content="路人-戊">
 <meta property="og:description" content="mark~在新浪的时候，一个小组技术分享会
-什么是设计模式？设计模式是一套代码设计经验的总结
-为什么要提倡“Design Pattern“根本原因是为了代码复用，增加可维护性
-几个误区设计模式并非起源于计算机科学，而是建筑学
-设计模式并非只有23种设计模式并不只适用于面向对象
-面向对象设计的5大原则1）单一职责原则 避免相同的职责分散到不同的类中；避免一个类承担太多的职责 eg:活字印刷术，拆分成">
+###什么是设计模式？设计模式是一套代码设计经验的总结
+###为什么要提倡“Design Pattern“根本原因是为了代码复用，增加可维护性
+###几个误区设计模式并非起源于计算机科学，而是建筑学
+###设计模式并非只有23种设计模式并不只适用于面向对象
+###面向对象设计的5大原则
+ ####1）单一职责原则 避免相同的职责分散到不同的类中；避免一个">
 <meta property="og:updated_time" content="2015-08-18T05:51:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式分享">
 <meta name="twitter:description" content="mark~在新浪的时候，一个小组技术分享会
-什么是设计模式？设计模式是一套代码设计经验的总结
-为什么要提倡“Design Pattern“根本原因是为了代码复用，增加可维护性
-几个误区设计模式并非起源于计算机科学，而是建筑学
-设计模式并非只有23种设计模式并不只适用于面向对象
-面向对象设计的5大原则1）单一职责原则 避免相同的职责分散到不同的类中；避免一个类承担太多的职责 eg:活字印刷术，拆分成">
+###什么是设计模式？设计模式是一套代码设计经验的总结
+###为什么要提倡“Design Pattern“根本原因是为了代码复用，增加可维护性
+###几个误区设计模式并非起源于计算机科学，而是建筑学
+###设计模式并非只有23种设计模式并不只适用于面向对象
+###面向对象设计的5大原则
+ ####1）单一职责原则 避免相同的职责分散到不同的类中；避免一个">
   
   
     <link rel="icon" href="favicon.png">
@@ -38,8 +41,8 @@
   <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
   <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   -->
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -177,16 +180,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>mark~在新浪的时候，一个小组技术分享会</p>
-<h3 id="什么是设计模式？">什么是设计模式？</h3><p>设计模式是一套代码设计经验的总结</p>
-<h3 id="为什么要提倡“Design_Pattern“">为什么要提倡“Design Pattern“</h3><p>根本原因是为了代码复用，增加可维护性</p>
-<h3 id="几个误区">几个误区</h3><p>设计模式并非起源于计算机科学，而是建筑学</p>
-<h3 id="设计模式并非只有23种">设计模式并非只有23种</h3><p>设计模式并不只适用于面向对象</p>
-<h3 id="面向对象设计的5大原则">面向对象设计的5大原则</h3><h4 id="1）单一职责原则">1）单一职责原则</h4><p> 避免相同的职责分散到不同的类中；避免一个类承担太多的职责<br> eg:活字印刷术，拆分成词？<br> 工厂模式，只负责生产对象，但是不负责对象的具体实现</p>
-<h4 id="2）接口隔离原则">2）接口隔离原则</h4><p> 一个类对另一个类的依赖性应当是建立在最小的接口上的；客户端程序不应该依赖它不需要的接口方法<br> eg: 缓存基类，（连接、关闭，get、set操作）但是不应该有（zset、zget）此类操作<br> 多继承防止胖接口， 或者考虑组合</p>
-<h4 id="3）开放封闭原则">3）开放封闭原则</h4><p> 一个模块在可扩展性方面应该是开放的，在可更改方面应该是封闭的<br> eg: 电脑组装的案例</p>
-<h4 id="4）里氏替换原则">4）里氏替换原则</h4><p> 子类必须能够替换掉它们的父类型、并出现在父类能够出现的任何地方<br> eg: 手机 到  智能机    （最基本的电话短信功能，可以添加任何其它功能  mp3，导航等，它依然是手机，但是如果它不能打电话发短信呢？最多是个pad）</p>
-<h4 id="5）依赖倒置原则">5）依赖倒置原则</h4><p> 上层模块不应该依赖于下层模块 ，它们共同依赖于一个抽象（父类不能依赖于子类，它们都要依赖抽象类），抽象不应该依赖于具体，具体应该依赖于抽象<br> 因为抽象是相对稳定，不易变化的<br> eg: 给前端同事提供接口，基类两个抽象方法 （接收并检查参数，返回约定格式的结果）  那么不管你是怎么具体来实现的，谁来实现，都应该依赖于这个抽象</p>
-<h3 id="设计模式的分类，总体来说设计模式分为三大类：">设计模式的分类，总体来说设计模式分为三大类：</h3><p>  创建型模式，共五种</p>
+<p>###什么是设计模式？<br>设计模式是一套代码设计经验的总结</p>
+<p>###为什么要提倡“Design Pattern“<br>根本原因是为了代码复用，增加可维护性</p>
+<p>###几个误区<br>设计模式并非起源于计算机科学，而是建筑学</p>
+<p>###设计模式并非只有23种<br>设计模式并不只适用于面向对象</p>
+<p>###面向对象设计的5大原则</p>
+<p> ####1）单一职责原则<br> 避免相同的职责分散到不同的类中；避免一个类承担太多的职责<br> eg:活字印刷术，拆分成词？<br> 工厂模式，只负责生产对象，但是不负责对象的具体实现</p>
+<p> ####2）接口隔离原则<br> 一个类对另一个类的依赖性应当是建立在最小的接口上的；客户端程序不应该依赖它不需要的接口方法<br> eg: 缓存基类，（连接、关闭，get、set操作）但是不应该有（zset、zget）此类操作<br> 多继承防止胖接口， 或者考虑组合</p>
+<p> ####3）开放封闭原则<br> 一个模块在可扩展性方面应该是开放的，在可更改方面应该是封闭的<br> eg: 电脑组装的案例</p>
+<h4 id="4）里氏替换原则"><a href="#4）里氏替换原则" class="headerlink" title="4）里氏替换原则"></a>4）里氏替换原则</h4><p> 子类必须能够替换掉它们的父类型、并出现在父类能够出现的任何地方<br> eg: 手机 到  智能机    （最基本的电话短信功能，可以添加任何其它功能  mp3，导航等，它依然是手机，但是如果它不能打电话发短信呢？最多是个pad）</p>
+<p>####5）依赖倒置原则<br> 上层模块不应该依赖于下层模块 ，它们共同依赖于一个抽象（父类不能依赖于子类，它们都要依赖抽象类），抽象不应该依赖于具体，具体应该依赖于抽象<br> 因为抽象是相对稳定，不易变化的<br> eg: 给前端同事提供接口，基类两个抽象方法 （接收并检查参数，返回约定格式的结果）  那么不管你是怎么具体来实现的，谁来实现，都应该依赖于这个抽象</p>
+<p>###设计模式的分类，总体来说设计模式分为三大类：</p>
+<p>  创建型模式，共五种</p>
 <p>  工厂模式、抽象工厂模式、单例模式、建造者模式、原型模式。</p>
 <p>  结构型模式，共七种</p>
 <p>  适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式。</p>
@@ -256,19 +261,19 @@
 <p>   }</p>
 <p>   //车轮</p>
 <p>   abstract class Wheel{</p>
-<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">()</span></span>{}
+<pre><code>public function get(){}
 </code></pre><p> }</p>
 <p> //轿车车轮</p>
 <p> class CarWheel extends Wheel{</p>
 <p>   public function get(){</p>
-<pre><code>  <span class="built_in">echo</span> <span class="string">'get car wheel'</span>;
+<pre><code>  echo &apos;get car wheel&apos;;
 
 }
 </code></pre><p>}</p>
 <p>//巴士车轮</p>
 <p>class BusWheel extends Wheel{</p>
 <p>   public function get(){</p>
-<pre><code> <span class="built_in">echo</span> <span class="string">'get bus wheel'</span>;
+<pre><code> echo &apos;get bus wheel&apos;;
 
 }
 </code></pre><p> }</p>
@@ -575,7 +580,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/03/03/设计模式分享/" data-id="civenujd10006r6esflddz9o6" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/03/03/设计模式分享/" data-id="civrvwfa3003jvkeso5ni4qhg" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/03/03/设计模式分享/#ds-thread" class="article-comment-link">评论</a>
       
@@ -725,7 +730,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; Tue Jul 28 2015 08:00:00 GMT+0800 (CST) - 2016 路人-戊<br>
+      &copy; 2015-7-28 - 2016 路人-戊<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
@@ -753,11 +758,11 @@
 <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

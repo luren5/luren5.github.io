@@ -29,8 +29,8 @@
   <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
   <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   -->
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -167,16 +167,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.字符串和数字互转<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[str1 intValue]</span><br><span class="line">str1<span class="variable">.intValue</span></span><br><span class="line"></span><br><span class="line">[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d"</span>, <span class="number">8</span>];</span><br></pre></td></tr></table></figure></p>
-<p>2、收回键盘<br>a)当页面内textField比较少的时候，比如有两个<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span><span class="variable">.tfield1</span> resignFirstResponder];</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.tfield2</span> resignFirstResponder];</span><br></pre></td></tr></table></figure></p>
+        <p>1.字符串和数字互转<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[str1 intValue]</div><div class="line">str1.intValue</div><div class="line"></div><div class="line">[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d"</span>, <span class="number">8</span>];</div></pre></td></tr></table></figure></p>
+<p>2、收回键盘<br>a)当页面内textField比较少的时候，比如有两个<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span>.tfield1 resignFirstResponder];</div><div class="line">[<span class="keyword">self</span>.tfield2 resignFirstResponder];</div></pre></td></tr></table></figure></p>
 <p>给一个并不是第一响应者的UIView取消第一响应并不会有什么问题</p>
-<p>b)当页面内编辑框很多的时候，上述写法显然很繁琐，如下解决<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span><span class="variable">.view</span> endEditing:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure></p>
+<p>b)当页面内编辑框很多的时候，上述写法显然很繁琐，如下解决<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span>.view endEditing:<span class="literal">YES</span>];</div></pre></td></tr></table></figure></p>
 <p>让控制器所管理的view停止编辑</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="civenujfo004br6escqahjjih" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="civrvwf8v001avkess4v4845n" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/15/ios学习笔记——散记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -324,7 +324,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; Tue Jul 28 2015 08:00:00 GMT+0800 (CST) - 2016 路人-戊<br>
+      &copy; 2015-7-28 - 2016 路人-戊<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
@@ -352,11 +352,11 @@
 <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

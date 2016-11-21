@@ -26,6 +26,7 @@
 2、拉一个table view cell控件到上述table view中，然后正常结构应该是这样的
 
 3、让controller的声明文件添加协议和Property,如下代码1@interfac">
+<meta name="twitter:image" content="http://luren5.com/pics/table-pic1.png">
   
   
     <link rel="icon" href="favicon.png">
@@ -34,8 +35,8 @@
   <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
   <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   -->
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -175,15 +176,15 @@
         <p>每次都忘记…好记性不好烂笔头<br>1、拉一个table view控件到storyboard,然后选中table view右击，将选项中的delegate和dataSource连接到controller,如下截图<br><img src="/pics/table-pic1.png" alt="pic1"></p>
 <p>2、拉一个table view cell控件到上述table view中，然后正常结构应该是这样的</p>
 <p><img src="/pics/table-pic2.png" alt="pic2"></p>
-<p>3、让controller的声明文件添加协议和Property,如下代码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span>  : <span class="title">UIViewController</span> &lt;<span class="title">UITableViewDelegate</span>, <span class="title">UITableViewDataSource</span>, <span class="title">UIActionSheetDelegate</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>3、让controller的声明文件添加协议和Property,如下代码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span>  : <span class="title">UIViewController</span> &lt;<span class="title">UITableViewDelegate</span>, <span class="title">UITableViewDataSource</span>, <span class="title">UIActionSheetDelegate</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>4、<em>生成row</em>,实现UITableViewDataSource接口中的方法，添加如下两个方法<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    </span><br><span class="line">	    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier: <span class="string">@"tableIdentifier"</span>];</span><br><span class="line">		    </span><br><span class="line">			    <span class="keyword">if</span>(cell == <span class="literal">nil</span>)&#123;</span><br><span class="line">				        cell = [[<span class="built_in">UITableViewCell</span> alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span> reuseIdentifier:<span class="string">@"tableIdentifier"</span>];</span><br><span class="line">						    &#125;</span><br><span class="line"></span><br><span class="line">							    cell<span class="variable">.textLabel</span><span class="variable">.text</span> = [<span class="keyword">self</span><span class="variable">.testData</span> objectAtIndex: [indexPath row]];</span><br><span class="line">								    <span class="keyword">return</span> cell;</span><br><span class="line">									&#125;</span><br><span class="line"></span><br><span class="line">									- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section</span><br><span class="line">									&#123;</span><br><span class="line">									    <span class="keyword">return</span> <span class="keyword">self</span><span class="variable">.testData</span><span class="variable">.count</span>;</span><br><span class="line">										&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4、<em>生成row</em>,实现UITableViewDataSource接口中的方法，添加如下两个方法<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</div><div class="line">    </div><div class="line">	    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier: <span class="string">@"tableIdentifier"</span>];</div><div class="line">		    </div><div class="line">			    <span class="keyword">if</span>(cell == <span class="literal">nil</span>)&#123;</div><div class="line">				        cell = [[<span class="built_in">UITableViewCell</span> alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span> reuseIdentifier:<span class="string">@"tableIdentifier"</span>];</div><div class="line">						    &#125;</div><div class="line"></div><div class="line">							    cell.textLabel.text = [<span class="keyword">self</span>.testData objectAtIndex: [indexPath row]];</div><div class="line">								    <span class="keyword">return</span> cell;</div><div class="line">									&#125;</div><div class="line"></div><div class="line">									- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section</div><div class="line">									&#123;</div><div class="line">									    <span class="keyword">return</span> <span class="keyword">self</span>.testData.count;</div><div class="line">										&#125;</div></pre></td></tr></table></figure></p>
 <p>上述方法中的 self.testData 是自定义的一个NSArray,测试数据<br> @”tableIdentifier”是自定义的一个标识符</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="civenujfj0041r6es0v0zfacl" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="civrvwf8w001bvkesqxumegmm" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
       
@@ -333,7 +334,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; Tue Jul 28 2015 08:00:00 GMT+0800 (CST) - 2016 路人-戊<br>
+      &copy; 2015-7-28 - 2016 路人-戊<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
@@ -361,11 +362,11 @@
 <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

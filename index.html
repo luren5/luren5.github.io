@@ -96,7 +96,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        48
+        49
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -127,6 +127,70 @@
 
       
       <section id="main">
+      <article id="post-centos上gcc升级" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/22/centos上gcc升级/">centos上gcc升级</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/11/22/centos上gcc升级/">
+      <time datetime="2016-11-22T08:53:57.000Z" itemprop="datePublished">2016-11-22</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>centos 6.8上<code>yum install</code>安装gcc默认版本为4.4.7,太低</p>
+<h4 id="准备升级"><a href="#准备升级" class="headerlink" title="准备升级"></a>准备升级</h4><ul>
+<li>下载高点版本，我这里下载 <a href="http://www.netgull.com/gcc/releases/gcc-4.9.2/gcc-4.9.2.tar.gz" target="_blank" rel="external">4.9.2</a></li>
+<li>解压<code>tar -xvf  gcc-4.9.2.tar.gz</code></li>
+<li>加载依赖项 <code>./contrib/download_prerequisites</code></li>
+</ul>
+<font color="red">坑来了,天坑</font>
+
+<p>终端上一直卡在下面这步<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@localhost gcc-4.9.2]<span class="comment"># ./contrib/download_prerequisites</span></div><div class="line">--2016-11-22 00:50:42--  ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2</div><div class="line">           =&gt; “isl-0.12.2.tar.bz2”</div><div class="line">Resolving gcc.gnu.org... 209.132.180.131</div><div class="line">Connecting to gcc.gnu.org|209.132.180.131|:21... connected.</div><div class="line">Logging <span class="keyword">in</span> as anonymous ... Logged <span class="keyword">in</span>!</div><div class="line">==&gt; SYST ... done.    ==&gt; PWD ... done.</div><div class="line">==&gt; TYPE I ... done.  ==&gt; CWD (1) /pub/gcc/infrastructure ... done.</div><div class="line">==&gt; SIZE isl-0.12.2.tar.bz2 ... 1319434</div><div class="line">==&gt; PASV ...</div></pre></td></tr></table></figure></p>
+<p>这是因为ftp连接不上，需要的那些依赖项都下载不下来，<code>vim ./contrib/download_prerequisites</code>,文件部分内容如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Necessary to build GCC.</span></div><div class="line">MPFR=mpfr-2.4.2</div><div class="line">GMP=gmp-4.3.2</div><div class="line">MPC=mpc-0.8.1</div><div class="line"></div><div class="line">wget ftp://gcc.gnu.org/pub/gcc/infrastructure/<span class="variable">$MPFR</span>.tar.bz2 || <span class="built_in">exit</span> 1</div><div class="line">tar xjf <span class="variable">$MPFR</span>.tar.bz2 || <span class="built_in">exit</span> 1</div><div class="line">ln -sf <span class="variable">$MPFR</span> mpfr || <span class="built_in">exit</span> 1</div><div class="line"></div><div class="line">wget ftp://gcc.gnu.org/pub/gcc/infrastructure/<span class="variable">$GMP</span>.tar.bz2 || <span class="built_in">exit</span> 1</div><div class="line">tar xjf <span class="variable">$GMP</span>.tar.bz2  || <span class="built_in">exit</span> 1</div><div class="line">ln -sf <span class="variable">$GMP</span> gmp || <span class="built_in">exit</span> 1</div><div class="line"></div><div class="line">wget ftp://gcc.gnu.org/pub/gcc/infrastructure/<span class="variable">$MPC</span>.tar.gz || <span class="built_in">exit</span> 1</div><div class="line">tar xzf <span class="variable">$MPC</span>.tar.gz || <span class="built_in">exit</span> 1</div><div class="line">ln -sf <span class="variable">$MPC</span> mpc || <span class="built_in">exit</span> 1</div><div class="line"></div><div class="line"><span class="comment"># Necessary to build GCC with the Graphite loop optimizations.</span></div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$GRAPHITE_LOOP_OPT</span>"</span> = <span class="string">"yes"</span> ] ; <span class="keyword">then</span></div><div class="line">  ISL=isl-0.12.2</div><div class="line">  CLOOG=cloog-0.18.1</div><div class="line"></div><div class="line">  wget ftp://gcc.gnu.org/pub/gcc/infrastructure/<span class="variable">$ISL</span>.tar.bz2 || <span class="built_in">exit</span> 1</div><div class="line">  tar xjf <span class="variable">$ISL</span>.tar.bz2  || <span class="built_in">exit</span> 1</div><div class="line">  ln -sf <span class="variable">$ISL</span> isl || <span class="built_in">exit</span> 1</div><div class="line"></div><div class="line">  wget ftp://gcc.gnu.org/pub/gcc/infrastructure/<span class="variable">$CLOOG</span>.tar.gz || <span class="built_in">exit</span> 1</div><div class="line">  tar xzf <span class="variable">$CLOOG</span>.tar.gz || <span class="built_in">exit</span> 1</div><div class="line">  ln -sf <span class="variable">$CLOOG</span> cloog || <span class="built_in">exit</span> 1</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>还好浏览器可以翻墙，笨办法，先用浏览器把需要下载的依赖项下载下来<br>下载的时候注意变量替换，比如:<br><code>ftp://gcc.gnu.org/pub/gcc/infrastructure/mpfr-2.4.2.tar.bz2</code></li>
+<li>其它类似，都下载下来然后放到<code>gcc-4.9.2</code>目录下</li>
+<li>再把上述文件里面所有的<code>wget</code>命令都注释掉</li>
+<li>重新执行 <code>./contrib/download_prerequisites</code>,问题解决了</li>
+<li>再执行 <code>make</code>(make的过程会很慢，等着吧), <code>make install</code></li>
+</ul>
+<p>打完收工</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2016/11/22/centos上gcc升级/" data-id="civtaex2u000hz0es83yoo9az" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2016/11/22/centos上gcc升级/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-图解php变量内核实现" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -161,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/11/12/图解php变量内核实现/" data-id="civrvwf9u002wvkeswgjks8i8" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/11/12/图解php变量内核实现/" data-id="civtaex520036z0esduxguf1g" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/11/12/图解php变量内核实现/#ds-thread" class="article-comment-link">评论</a>
       
@@ -210,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/11/11/php运行模式/" data-id="civrvwf9b001zvkesotxpdc3o" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/11/11/php运行模式/" data-id="civtaex4p0027z0esr8ka52xw" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/11/11/php运行模式/#ds-thread" class="article-comment-link">评论</a>
       
@@ -259,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/10/17/全vim开发第一天，纪念一下/" data-id="civrvwf9r002rvkesmkxmkxk8" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/10/17/全vim开发第一天，纪念一下/" data-id="civtaex4y002xz0esx77d4rer" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/10/17/全vim开发第一天，纪念一下/#ds-thread" class="article-comment-link">评论</a>
       
@@ -307,7 +371,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/08/17/CentOS7配置网卡/" data-id="civrvwf7x0009vkesigan5mmc" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/08/17/CentOS7配置网卡/" data-id="civtaex2g0009z0esiib8zsfv" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/08/17/CentOS7配置网卡/#ds-thread" class="article-comment-link">评论</a>
       
@@ -360,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/08/08/实用shell脚本/" data-id="civrvwf9w0030vkes01249dex" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/08/08/实用shell脚本/" data-id="civtaex500034z0esgi5mi2ez" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/08/08/实用shell脚本/#ds-thread" class="article-comment-link">评论</a>
       
@@ -375,58 +439,8 @@
 
 
     
-      <article id="post-Git-忽略-gitignore文件自身" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/20/Git-忽略-gitignore文件自身/">Git 忽略.gitignore文件自身</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2016/07/20/Git-忽略-gitignore文件自身/">
-      <time datetime="2016-07-20T02:47:44.000Z" itemprop="datePublished">2016-07-20</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如果要排除某些文件不提交，可以写规则到.gitignore文件中，但是.gitignore不能忽略自身，而我又不想把这个文件提交到server上，怎么办呢？可以编辑.git/info/exclude文件，语法与.gitignore一致。两个文件区别在于，exclude只用于设置本地需要忽略的文件，而.gitignore是公共需要排除的。</p>
-<p>摘自<a href="http://www.pocketdigi.com/20140210/1271.html" target="_blank">应用开发笔记</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/07/20/Git-忽略-gitignore文件自身/" data-id="civrvwf84000hvkest6v10bx3" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2016/07/20/Git-忽略-gitignore文件自身/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
       <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
       </nav>
     </section>
       
@@ -446,6 +460,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/22/centos上gcc升级/" class="title">centos上gcc升级</a></p>
+              <p class="item-date"><time datetime="2016-11-22T08:53:57.000Z" itemprop="datePublished">2016-11-22</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -480,15 +503,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/08/17/CentOS7配置网卡/" class="title">CentOS7配置网卡</a></p>
               <p class="item-date"><time datetime="2016-08-17T06:54:05.000Z" itemprop="datePublished">2016-08-17</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/08/08/实用shell脚本/" class="title">实用shell脚本收藏</a></p>
-              <p class="item-date"><time datetime="2016-08-08T09:36:28.000Z" itemprop="datePublished">2016-08-08</time></p>
             </div>
           </li>
         

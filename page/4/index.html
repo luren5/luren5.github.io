@@ -96,7 +96,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        48
+        49
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -127,6 +127,64 @@
 
       
       <section id="main">
+      <article id="post-mysql-exists、any、all、union、union-all关键字" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/18/mysql-exists、any、all、union、union-all关键字/">mysql exists、any、all、union、union all关键字</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/18/mysql-exists、any、all、union、union-all关键字/">
+      <time datetime="2015-08-18T07:48:01.000Z" itemprop="datePublished">2015-08-18</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Mysql/">Mysql</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>exists</code> 内层查询只返回布尔型，如果为真，则执行外层select 操作，否则不执行！<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> …  <span class="keyword">where</span> (<span class="keyword">not</span>) <span class="keyword">exists</span> ( sub <span class="keyword">select</span> )</div></pre></td></tr></table></figure></p>
+<p><code>any</code> 内层查询只要有一条满足，则执行上层查询,eg:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> score &gt;= <span class="keyword">ANY</span> (<span class="keyword">select</span> score <span class="keyword">from</span> scholarship);</div></pre></td></tr></table></figure></p>
+<p><code>all</code> 只有满足内层查询语句返回的所有结果，才执行外层查询, eg:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> socre &gt;= All (<span class="keyword">select</span> score <span class="keyword">from</span> scholarship);</div></pre></td></tr></table></figure></p>
+<p><code>union</code> 合并查询结果，并消除重复的记录, eg:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select1  union  select2;</div></pre></td></tr></table></figure></p>
+<p><code>union all</code>  只是简单的合并查询结果，并不去重</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/" data-id="civtaex49001oz0esin2ivp7r" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2015/08/18/mysql-exists、any、all、union、union-all关键字/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-Xcode安装插件失败" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -171,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/18/Xcode安装插件失败/" data-id="civrvwf8a000qvkesh0wkc9xj" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/18/Xcode安装插件失败/" data-id="civtaex3m000xz0es9q63zac8" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/18/Xcode安装插件失败/#ds-thread" class="article-comment-link">评论</a>
       
@@ -227,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="civrvwf8y001evkes2nff4bbq" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="civtaex47001lz0eswkj5im6w" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/#ds-thread" class="article-comment-link">评论</a>
       
@@ -283,7 +341,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="civrvwf8v001avkess4v4845n" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="civtaex3x0019z0esjoz7f6wc" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/15/ios学习笔记——散记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -342,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="civrvwf8w001bvkesqxumegmm" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="civtaex3t0013z0ese69q177w" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
       
@@ -398,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/10/怎么使用NSTimer/" data-id="civrvwf9y0037vkesxlfkrzme" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/10/怎么使用NSTimer/" data-id="civtaex55003cz0esvfy9dv44" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/10/怎么使用NSTimer/#ds-thread" class="article-comment-link">评论</a>
       
@@ -413,63 +471,8 @@
 
 
     
-      <article id="post-总结一下" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/07/总结一下/">总结一下</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/07/总结一下/">
-      <time datetime="2015-08-07T07:49:52.000Z" itemprop="datePublished">2015-08-07</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近总是这么多事，想闲下来思考一下都不得空…<br>不管了，拿出一个番茄的时间写个博客总结一下吧！</p>
-<p>#####何去何从<br>&emsp;&emsp;之前去新三板的机会已经推掉了，我们得面临转是否转java，但是实际上这是一个很漫长的过程…整个项目百分之90的代码都是php的，新的开发需求还一波接一波！<br>&emsp;&emsp;选择多了心就乱了，之前本来已经想好转java了，近来再细想一下，这对我的职业发展等各方面可能并不是一个好的选择，然后我也必须要开始学习一个新的技能了，让自己忙起来，安逸享受是留给死人的！</p>
-<p>#####要做的事<br>想太多却不做也没什么卵用，不如把接下来要做的事列一下<br>1、业务时间把phpredis的中文文档翻译完<br>2、证书，还没有自己配过，一定得实现下<br>3、php unit，你得会折腾<br>4、php异常抛出，用的不多，也弄一下吧<br>5、坚持学IOS开发吧，这是接下来半年的最大的战略部署</p>
-<p>把每一步都走好，结果总不会太差吧，加油！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/07/总结一下/" data-id="civrvwf9z0039vkesewribjyq" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/08/07/总结一下/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">下一页 &raquo;</a>
       </nav>
     </section>
       
@@ -489,6 +492,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/22/centos上gcc升级/" class="title">centos上gcc升级</a></p>
+              <p class="item-date"><time datetime="2016-11-22T08:53:57.000Z" itemprop="datePublished">2016-11-22</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -523,15 +535,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/08/17/CentOS7配置网卡/" class="title">CentOS7配置网卡</a></p>
               <p class="item-date"><time datetime="2016-08-17T06:54:05.000Z" itemprop="datePublished">2016-08-17</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/08/08/实用shell脚本/" class="title">实用shell脚本收藏</a></p>
-              <p class="item-date"><time datetime="2016-08-08T09:36:28.000Z" itemprop="datePublished">2016-08-08</time></p>
             </div>
           </li>
         

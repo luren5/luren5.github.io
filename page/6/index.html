@@ -96,7 +96,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        48
+        49
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -127,6 +127,66 @@
 
       
       <section id="main">
+      <article id="post-nginx平滑改变配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/01/nginx平滑改变配置/">nginx平滑改变配置</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/01/nginx平滑改变配置/">
+      <time datetime="2015-08-01T03:49:17.000Z" itemprop="datePublished">2015-08-01</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Nginx/">Nginx</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要是记录下怎样在不停止nginx服务的同时修复nginx的配置，节选自<a href="http://www.nginx.cn/nginxchscommandline" target="_blank" rel="external">这里</a></p>
+<p>1、测试新的配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#nginx -t -c /etc/nginx/nginx.conf</span></div></pre></td></tr></table></figure></p>
+<p>解释一下参数<br>-t : 不运行，仅仅测试配置文件。nginx将检查配置文件的语法正确性，并尝试打开配置文件中所引用到的文件<br>-c : 指定一个配置文件位置，代码缺省的</p>
+<p>2、执行以下命令，找到nginx的进程号pid<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux | egrep <span class="string">'(PID|nginx)'</span></div></pre></td></tr></table></figure></p>
+<p>3、执行以下命令平滑过渡<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">kill</span> -HUP pid</div></pre></td></tr></table></figure></p>
+<p>HUP是nginx的控制信号之一，nginx可以使用信号系统来控制主进程。HUP的意思是 重载配置，用新的配置开始新的工作进程，从容关闭旧的工作进程</p>
+<p>当 nginx 接收到 HUP 信号，它会尝试先解析配置文件（如果指定配置文件，就使用指定的，否则使用默认的），成功的话，就应用新的配置文件（例如：重新打开日志文件或监听的套接 字）。之后，nginx 运行新的工作进程并从容关闭旧的工作进程。通知工作进程关闭监听套接字但是继续为当前连接的客户提供服务。所有客户端的服务完成后，旧的工作进程被关闭。 如果新的配置文件应用失败，nginx 将继续使用旧的配置进行工作。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2015/08/01/nginx平滑改变配置/" data-id="civtaex4i001yz0esxkn8f7ah" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2015/08/01/nginx平滑改变配置/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-memcache内存管理机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -164,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/memcache内存管理机制/" data-id="civrvwf90001jvkeszdlq2nhm" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/memcache内存管理机制/" data-id="civtaex46001hz0es6fn143to" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/memcache内存管理机制/#ds-thread" class="article-comment-link">评论</a>
       
@@ -218,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/ubuntu下安装配置vsftp/" data-id="civrvwf9f0024vkesm8w3feku" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/ubuntu下安装配置vsftp/" data-id="civtaex4q0029z0es2mxss388" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/ubuntu下安装配置vsftp/#ds-thread" class="article-comment-link">评论</a>
       
@@ -272,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/mac下把日历分享给其它用户/" data-id="civrvwf8z001gvkesekn5av26" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/mac下把日历分享给其它用户/" data-id="civtaex42001cz0es6hb0x5n7" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/mac下把日历分享给其它用户/#ds-thread" class="article-comment-link">评论</a>
       
@@ -328,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/Linux配置ssh免密码登录/" data-id="civrvwf86000ivkesjvjy6p49" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/Linux配置ssh免密码登录/" data-id="civtaex2r000gz0esrb35oaus" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/Linux配置ssh免密码登录/#ds-thread" class="article-comment-link">评论</a>
       
@@ -407,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="civrvwf9p002mvkesgwzji91x" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="civtaex4t002iz0esktpootay" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/#ds-thread" class="article-comment-link">评论</a>
       
@@ -422,59 +482,8 @@
 
 
     
-      <article id="post-Linux给普通用户添加sudo权限" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/Linux给普通用户添加sudo权限/">Linux给普通用户添加sudo权限</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/Linux给普通用户添加sudo权限/">
-      <time datetime="2015-07-31T09:19:14.000Z" itemprop="datePublished">2015-07-31</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记一下，免得每次都要google<br>修改/etc/sudoers文件，修改命令必须为visudo才行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># visudo -f /etc/sudoers</span></div></pre></td></tr></table></figure></p>
-<p>或者直接输入 visudo 就可以<br>在root ALL=(ALL) ALL 之后增加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tom ALL=(ALL) ALL</div><div class="line">Defaults:tom timestamp_timeout=-1,runaspw</div></pre></td></tr></table></figure></p>
-<p>timestamp_timeout=-1 只需验证一次密码，以后系统自动记忆<br>runaspw  需要root密码，如果不加默认是要输入普通账户的密码</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/Linux给普通用户添加sudo权限/" data-id="civrvwf83000dvkeslqs1clie" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/07/31/Linux给普通用户添加sudo权限/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sudo/">sudo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/权限/">权限</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/5/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/5/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">下一页 &raquo;</a>
       </nav>
     </section>
       
@@ -494,6 +503,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/22/centos上gcc升级/" class="title">centos上gcc升级</a></p>
+              <p class="item-date"><time datetime="2016-11-22T08:53:57.000Z" itemprop="datePublished">2016-11-22</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -528,15 +546,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/08/17/CentOS7配置网卡/" class="title">CentOS7配置网卡</a></p>
               <p class="item-date"><time datetime="2016-08-17T06:54:05.000Z" itemprop="datePublished">2016-08-17</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/08/08/实用shell脚本/" class="title">实用shell脚本收藏</a></p>
-              <p class="item-date"><time datetime="2016-08-08T09:36:28.000Z" itemprop="datePublished">2016-08-08</time></p>
             </div>
           </li>
         

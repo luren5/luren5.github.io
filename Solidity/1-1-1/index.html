@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>一个简单的智能合约示例 | 路人-戊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="目录 | 下一节: 区块链基础
+
+一个简单的智能合约先来个最基础的例子,然后再由浅入深12345678910111213pragma solidity ^0.4.0;contract SimpleStorage &amp;#123;    uint storedData;    function set(uint x) &amp;#123;        storedData = x;    &amp;#125;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="一个简单的智能合约示例">
+<meta property="og:url" content="http://luren5.com/Solidity/1-1-1/index.html">
+<meta property="og:site_name" content="路人-戊">
+<meta property="og:description" content="目录 | 下一节: 区块链基础
+
+一个简单的智能合约先来个最基础的例子,然后再由浅入深12345678910111213pragma solidity ^0.4.0;contract SimpleStorage &amp;#123;    uint storedData;    function set(uint x) &amp;#123;        storedData = x;    &amp;#125;">
+<meta property="og:image" content="http://luren5.com/pics/zhifu.png">
+<meta property="og:updated_time" content="2016-11-30T03:32:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个简单的智能合约示例">
+<meta name="twitter:description" content="目录 | 下一节: 区块链基础
+
+一个简单的智能合约先来个最基础的例子,然后再由浅入深12345678910111213pragma solidity ^0.4.0;contract SimpleStorage &amp;#123;    uint storedData;    function set(uint x) &amp;#123;        storedData = x;    &amp;#125;">
+<meta name="twitter:image" content="http://luren5.com/pics/zhifu.png">
+  
+  
+    <link rel="icon" href="favicon.png">
+  
+  <!--
+  <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  
+
+  
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">路人-戊</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/Solidity">Solidity中文文档</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://luren5.com"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+          <td><a class="main-nav-link" href="/Solidity">Solidity中文文档</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://luren5.com"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/css/images/avatar.png">
+      <h2 id="name">路人-戊</h2>
+      <h3 id="title">Software Engineer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>中国北京</span>
+      <a id="follow" href="https://github.com/minishine/">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        49
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        54
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/minishine/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://www.facebook.com/huanhuan.xu.73" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+          
+          <td><a href="http://weibo.com/hjhuanhuan" target="_blank" title="weibo"><i class="fa fa-weibo"></i></a></td>
+          
+          <td><a href="mailto:minishine90@gmail.com" target="_blank" title="mail"><i class="fa fa-mail"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一个简单的智能合约示例
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Solidity/1-1-1/index.html">
+      <time datetime="2016-11-29T08:24:51.000Z" itemprop="datePublished">2016-11-29</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="/Solidity">目录</a> | <a href="/Solidity/1-1-2/">下一节: 区块链基础</a></p>
+<hr>
+<h4 id="一个简单的智能合约"><a href="#一个简单的智能合约" class="headerlink" title="一个简单的智能合约"></a>一个简单的智能合约</h4><p>先来个最基础的例子,然后再由浅入深<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">pragma solidity ^0.4.0;</div><div class="line"></div><div class="line">contract SimpleStorage &#123;</div><div class="line">    uint storedData;</div><div class="line"></div><div class="line">    <span class="keyword">function</span> <span class="built_in">set</span>(uint x) &#123;</div><div class="line">        storedData = x;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">function</span> get() constant returns (uint) &#123;</div><div class="line">        <span class="built_in">return</span> storedData;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><code>pragma solidity ^0.4.0;</code> 声明代码是基于Solidity 0.4.0版本编写的，不包括此版本以上的新特性（向下兼容），这可以确保不会因为使用了更高版本的编译器而表现不同。</li>
+<li>合约是存储在以太坊区块链中一个特殊地址的代码（合约方法）和数据（合约状态）的集合。</li>
+<li><code>uint storedData;</code>声明一个<code>uint</code>（unsigned integer of 256 bits）类型的状态变量。可把它想像成数据库中的一小块存储数据，可以通过管理数据库的方法（函数）进行查询和修改。</li>
+<li>方法<code>get</code> <code>set</code>可以分别用来读取和修改变量的值。</li>
+<li>使用状态变量的时候，你不需要像其它言语那样使用<code>this.</code>前缀</li>
+<li>此合约除了存储一个能被任何人访问的数字以外，不能干别的，而且不能阻止这个数字被公开。 </li>
+<li>当然任何人都可以调用 <code>set</code>重新设置值，但是这前的值还是会被存储在区块链的历史中。</li>
+<li>稍后将演示怎样通过权限控制，以确保只有你可以修改这个值</li>
+</ul>
+<h4 id="数字货币示例"><a href="#数字货币示例" class="headerlink" title="数字货币示例"></a>数字货币示例</h4><p>下面这个合约将展示一个最简单的加密货币的实现。它有可以无声无息的产生货币，但是只有创建这个合约的人才能做到。此外，任何人都可以转币给其它人，不需要使用用户名密码进行注册，只需要一个以太坊的密钥对。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">pragma solidity ^0.4.0;</div><div class="line"></div><div class="line">contract Coin &#123;</div><div class="line">    // The keyword <span class="string">"public"</span> makes those variables</div><div class="line">    // readable from outside.</div><div class="line">    address public minter;</div><div class="line">    mapping (address =&gt; uint) public balances;</div><div class="line"></div><div class="line">    // Events allow light clients to react on</div><div class="line">    // changes efficiently.</div><div class="line">    event Sent(address from, address to, uint amount);</div><div class="line"></div><div class="line">    // This is the constructor whose code is</div><div class="line">    // run only when the contract is created.</div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">Coin</span></span>() &#123;</div><div class="line">        minter = msg.sender;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">function</span> mint(address receiver, uint amount) &#123;</div><div class="line">        <span class="keyword">if</span> (msg.sender != minter) <span class="built_in">return</span>;</div><div class="line">        balances[receiver] += amount;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">function</span> send(address receiver, uint amount) &#123;</div><div class="line">        <span class="keyword">if</span> (balances[msg.sender] &lt; amount) <span class="built_in">return</span>;</div><div class="line">        balances[msg.sender] -= amount;</div><div class="line">        balances[receiver] += amount;</div><div class="line">        Sent(msg.sender, receiver, amount);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这个合约引入了一些新的概念，来逐一解释</p>
+<ul>
+<li><code>address public minter;</code> 声明了一个address类型的状态变量，可以对外访问（public）</li>
+<li><code>address</code>是一个160 bit的值，不允许进行任何算术运算。它适合存储合约的地址或者存储密钥对。<br>-关键字<code>public</code>自动生成一个允许在外部访问此状态变量值的方法，如果没有<code>public</code>关键字，其它的合约无权限访问这个状态变量，只有合约内部的代码可以对这个状态变量进行读写。</li>
+<li><p><code>public</code>自动生成的方法类似于</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> minter() returns (address) &#123; <span class="built_in">return</span> minter; &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>手动添加一个和上面一样的方法是不行的，因为这样的话就会有一个方法和变量是同名的，编译器会报错（原文：but hopefully, you get the idea - the compiler figures that out for you.）</p>
+</li>
+<li><code>mapping (address =&gt; uint) public balances;</code> 同样声明一个public类型的状态变量，但是它的类型更复杂，此类型将<code>address</code>映射到<code>unsigned integers</code>。</li>
+<li>mapping可以被认为是一个哈希表，每一个可能的key对应的value被虚拟的初始化为全0</li>
+<li>此类型即不包含key的列表，也不包含value的列表，所以需要记住往<code>mapping</code>里面添加了什么</li>
+<li>这个<code>public</code>关键字创建的存取器函数更加复杂，代码如下：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> balances(address _account) returns (uint) &#123;</div><div class="line">    <span class="built_in">return</span> balances[_account];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>你可以通过这个方法很容易的查询一个账户的余额</p>
+<ul>
+<li><code>event Sent(address from, address to, uint amount);</code> 声明了一个“事件”，在<code>send</code>方法的最后一行被触发</li>
+<li>用户/服务器应用 接口可以很容易监听这些事件在区块链上被触发，一旦被触发，监听者会接收到参数<code>from</code>,<code>to</code>,<code>amount</code>, 用以很容易追踪这笔交易。为了监听这个事件，你可以这么写<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Coin.Sent().watch(&#123;&#125;, <span class="string">''</span>, <span class="keyword">function</span>(error, result) &#123;</div><div class="line">    <span class="keyword">if</span> (!error) &#123;</div><div class="line">        console.log(<span class="string">"Coin transfer: "</span> + result.args.amount +</div><div class="line">            <span class="string">" coins were sent from "</span> + result.args.from +</div><div class="line">            <span class="string">" to "</span> + result.args.to + <span class="string">"."</span>);</div><div class="line">        console.log(<span class="string">"Balances now:\n"</span> +</div><div class="line">            <span class="string">"Sender: "</span> + Coin.balances.call(result.args.from) +</div><div class="line">            <span class="string">"Receiver: "</span> + Coin.balances.call(result.args.to));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如上可以追踪用户是怎样通过接口调用<code>balance</code>方法的</p>
+<ul>
+<li><code>Coin</code>方法是构造器方法，当合约被创建的时候会自动调用，不能通过其它方式调用。它会永久存储合约创建者的地址<code>msg</code>, <code>msg</code>(包括<code>tx</code> 和<code>block</code>)是一个全局的魔术变量，它包含一些可以接触到区块链的属性。</li>
+<li><code>msg.sender</code>存储当前外部方法调用的来源地址</li>
+<li>如果<code>mint</code>方法被合约创建者以外的账户调用，无作用。但是<code>send</code>方法可以被任何人调用（互相转币）</li>
+<li>如果用这个合约给某个地址转币，在区块链浏览器上看这个地址，没有任何变化。因为转币操作和资产变化仅仅只存储在这个数字货币合约里面。</li>
+<li>使用“事件”很容易追踪交易和账户资产变化</li>
+</ul>
+<hr>
+<h4 id="如果觉得本文对您有用，请随意打赏。您的支持将鼓励我继续创作！"><a href="#如果觉得本文对您有用，请随意打赏。您的支持将鼓励我继续创作！" class="headerlink" title="如果觉得本文对您有用，请随意打赏。您的支持将鼓励我继续创作！"></a>如果觉得本文对您有用，请随意打赏。您的支持将鼓励我继续创作！</h4><p><img src="/pics/zhifu.png" alt=""> </p>
+<hr>
+<p><a href="/Solidity">目录</a> | <a href="/Solidity/1-1-2/">下一节: 区块链基础</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/Solidity/1-1-1/index.html" data-id="ciw3brlxn0006cxes1b1l8j9c" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/Solidity/1-1-1/index.html#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://luren5.com/Solidity/1-1-1/index.html" data-title="一个简单的智能合约示例" data-url="http://luren5.com/Solidity/1-1-1/index.html">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
+      </div>
+  </section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 12.5px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 17.5px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/linux-CentOS/" style="font-size: 10px;">linux CentOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/php-fpm/" style="font-size: 12.5px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/session/" style="font-size: 12.5px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/22/centos上gcc升级/" class="title">centos上gcc升级</a></p>
+              <p class="item-date"><time datetime="2016-11-22T08:53:57.000Z" itemprop="datePublished">2016-11-22</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/12/图解php变量内核实现/" class="title">图解php变量内核实现</a></p>
+              <p class="item-date"><time datetime="2016-11-12T03:17:31.000Z" itemprop="datePublished">2016-11-12</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/11/php运行模式/" class="title">php运行模式</a></p>
+              <p class="item-date"><time datetime="2016-11-11T10:17:10.000Z" itemprop="datePublished">2016-11-11</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/10/17/全vim开发第一天，纪念一下/" class="title">全vim开发第一天，纪念一下</a></p>
+              <p class="item-date"><time datetime="2016-10-17T10:30:32.000Z" itemprop="datePublished">2016-10-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/08/17/CentOS7配置网卡/" class="title">CentOS7配置网卡</a></p>
+              <p class="item-date"><time datetime="2016-08-17T06:54:05.000Z" itemprop="datePublished">2016-08-17</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS学习笔记/">IOS学习笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TECH-DOC/">TECH DOC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://veryyoung.me/">Veryyoung</a>
+          </li>
+        
+          <li>
+            <a href="http://helloco.github.io">Helloco</a>
+          </li>
+        
+          <li>
+            <a href="https://ironmantony.github.io/">Ironman</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015-7-28 - 2016 路人-戊<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+
+    </div>
+  </div>
+</footer>
+
+    
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"minishine"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

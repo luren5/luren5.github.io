@@ -17,7 +17,7 @@
 
 区块链对程序员来说不是一个太难理解的概念。因为多数不易理解的地方（挖矿，哈希，椭圆曲线加密算法，p2p网络…）只是用来提供一些特性和承诺。如果你接受这些特性，不用关注它的底层实现，就像你使用Amazon’s AWS(亚马逊的云服务)的时候不需要知道它的内部是怎样运转的。
 交易区块链是全局共享的交易数据库，只要加入网络，所有人都可以读">
-<meta property="og:updated_time" content="2016-11-29T14:22:47.000Z">
+<meta property="og:updated_time" content="2016-11-30T05:13:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="区块链基础">
 <meta name="twitter:description" content="上一节: 一个简单智能合约 | 目录 | 下一节: 区块链基础
@@ -178,14 +178,14 @@
 <h4 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h4><p>在比特币系统中，一个主要要克服的问题就是“双花”攻击：两笔交易同时转同一笔资产，然后冲突了。<br>这里译者兴个例子，账户A里面有一个币，现在给账户B转一个币，此时交易还没有得到确认，再把这个币转给C，这个称之为“双花”</p>
 <p>你不需要关注解决这个问题的方法，系统会帮你选交易的顺序，交易会被打包进区块然后被执行，并广播到所有的节点。如果两笔交易相冲突，那么第二笔交易会被拒绝，被拒绝的交易不会被打包进区块。</p>
 <p>这此区块按照时间先后形成一个线性序列，这就是“区块链”这个词的由来。新的区块会定期加到区块链中，以太坊的区块链每17秒打包一个新的区块</p>
-<p>As part of the “order selection mechanism” (which is called “mining”) it may happen that blocks are reverted from time to time, but only at the “tip” of the chain. The more blocks that are added on top, the less likely it is. So it might be that your transactions are reverted and even removed from the blockchain, but the longer you wait, the less likely it will be.</p>
+<p>区块偶尔会被推翻（孤立）也是区块链生成（挖矿）过程中的一部分，它只会发生在靠近链条末端的区块。链条中某个区块后续添加的新区块越多，这个区块被推翻的概率就越小（难度越大）。区块推翻（孤立）的时候，你的交易会被退回或者是从区块链里删除，但如果作为交易接收方，你等待接收交易所有区块确认的次数越多（时间越长），交易发生双花&amp;无效的概率就会越低。</p>
 <hr>
 <p><a href="/Solidity/1-1-1/">上一节: 一个简单智能合约</a> | <a href="/Solidity">目录</a> | <a href="/Solidity/1-1-3/">下一节: 区块链基础</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/Solidity/1-1-2/index.html" data-id="ciw3kh0xc000083es68f4k112" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/Solidity/1-1-2/index.html" data-id="ciw4hjdb0006i5lesunzyrh9c" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/Solidity/1-1-2/index.html#ds-thread" class="article-comment-link">评论</a>
       

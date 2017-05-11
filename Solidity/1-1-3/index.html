@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>以太坊虚拟机 | 路人-戊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="上一节: 区块链基础 | 目录 
+
+概述以太坊虚拟机（EVM）是智能合约的运行环境。它是一个完全独立的沙盒，合约代码在EVM内部运行，对外是完全隔离的，甚至不同合约之间也只有有限的访问权限
+账户
+以太坊中有两种不同类型但是共享同一地址空间的账户：外部账户由一对公私钥控制，合约账户由账户内部的合约代码控制。
+
+外部账户的地址是由公钥（经过hash运算）决定的，而合约账户的地址在此合约被创建的时候决定">
+<meta property="og:type" content="website">
+<meta property="og:title" content="以太坊虚拟机">
+<meta property="og:url" content="http://luren5.com/Solidity/1-1-3/index.html">
+<meta property="og:site_name" content="路人-戊">
+<meta property="og:description" content="上一节: 区块链基础 | 目录 
+
+概述以太坊虚拟机（EVM）是智能合约的运行环境。它是一个完全独立的沙盒，合约代码在EVM内部运行，对外是完全隔离的，甚至不同合约之间也只有有限的访问权限
+账户
+以太坊中有两种不同类型但是共享同一地址空间的账户：外部账户由一对公私钥控制，合约账户由账户内部的合约代码控制。
+
+外部账户的地址是由公钥（经过hash运算）决定的，而合约账户的地址在此合约被创建的时候决定">
+<meta property="og:updated_time" content="2016-12-04T07:37:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="以太坊虚拟机">
+<meta name="twitter:description" content="上一节: 区块链基础 | 目录 
+
+概述以太坊虚拟机（EVM）是智能合约的运行环境。它是一个完全独立的沙盒，合约代码在EVM内部运行，对外是完全隔离的，甚至不同合约之间也只有有限的访问权限
+账户
+以太坊中有两种不同类型但是共享同一地址空间的账户：外部账户由一对公私钥控制，合约账户由账户内部的合约代码控制。
+
+外部账户的地址是由公钥（经过hash运算）决定的，而合约账户的地址在此合约被创建的时候决定">
+  
+  
+    <link rel="icon" href="favicon.png">
+  
+  <!--
+  <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  
+
+  
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">路人-戊</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://luren5.com"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://luren5.com"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/css/images/avatar.png">
+      <h2 id="name">路人-戊</h2>
+      <h3 id="title">Software Engineer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>中国北京</span>
+      <a id="follow" href="https://github.com/minishine/">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        50
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        54
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/minishine/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://www.facebook.com/huanhuan.xu.73" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+          
+          <td><a href="http://weibo.com/hjhuanhuan" target="_blank" title="weibo"><i class="fa fa-weibo"></i></a></td>
+          
+          <td><a href="mailto:minishine90@gmail.com" target="_blank" title="mail"><i class="fa fa-mail"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      以太坊虚拟机
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Solidity/1-1-3/index.html">
+      <time datetime="2016-11-30T08:24:51.000Z" itemprop="datePublished">2016-11-30</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="/Solidity/1-1-2/">上一节: 区块链基础</a> | <a href="/Solidity">目录</a> </p>
+<hr>
+<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>以太坊虚拟机（EVM）是智能合约的运行环境。它是一个完全独立的沙盒，合约代码在EVM内部运行，对外是完全隔离的，甚至不同合约之间也只有有限的访问权限</p>
+<h4 id="账户"><a href="#账户" class="headerlink" title="账户"></a>账户</h4><ul>
+<li><p>以太坊中有两种不同类型但是共享同一地址空间的账户：<code>外部账户</code>由一对公私钥控制，<code>合约账户</code>由账户内部的合约代码控制。</p>
+</li>
+<li><p>外部账户的地址是由公钥（经过hash运算）决定的，而合约账户的地址在此合约被创建的时候决定的（由合约创建者的地址和发送到此合约地址的交易数决定，这就是所谓的“nonce”）</p>
+</li>
+<li><p>不管是哪种类型的账户，EVM的处理方式是一样的</p>
+</li>
+<li><p>每个账户都有一个持久的key-value类型的存储，把256字节的key映射到256字节的value</p>
+</li>
+<li><p>此外，每个账户都有以“Wei”为单位，在交易过程中会被修改的资产(balance)信息</p>
+</li>
+</ul>
+<h4 id="交易"><a href="#交易" class="headerlink" title="交易"></a>交易</h4><ul>
+<li><p>交易是一个从账户发往另一个账户（可以是同一个账户或者是special zero-account）的消息。它包含二进制数据（交易相关的数据）and Ether。</p>
+</li>
+<li><p>如果目标账户包含代码，代码会被执行，交易相关的数据将作为参数</p>
+</li>
+<li><p>如果目标账户是地址为0的账户<code>zero-account</code>, 交易会创建一个新的合约。如上文提到的，合约地址不是一个地址为0的地址，而是一个由交易发送者和交易数来决定的地址。这样的一笔（到zero-account）交易的相关参数会被转化为EVM字节码<br>然后被执行，输出结果就是被永久存储的合约代码。这意味着为了创建一个合约，并不需要发送真实的合约代码，代码可以被自动创建</p>
+</li>
+</ul>
+<h4 id="费用"><a href="#费用" class="headerlink" title="费用"></a>费用</h4><ul>
+<li><p>创建之后，每笔交易都需要一定数量的费用，用于限制交易所消耗的工作量，即交易是需要付出代价的（避免DDoS攻击）。EVM执行交易的过程中，费用会按一个特殊规则逐渐减少</p>
+</li>
+<li><p>费用的多少是由交易发起者设置，至少需要从发起账户支付<code>gas_price * gas</code>用费。如果交易执行完毕费用还有剩余的，将退回到发起账户。</p>
+</li>
+<li><p>如果交易完成之前费用耗尽，将会抛出一个<code>out-of-gas</code>的异常，所有的修改都会被回滚</p>
+</li>
+</ul>
+<h4 id="storage-memory-stack"><a href="#storage-memory-stack" class="headerlink" title="storage,memory,stack"></a>storage,memory,stack</h4><ul>
+<li>每个账户都有一个持久的内存空间，称之为<code>storage</code>,<code>storage</code>以key-value形式存储，256字节的key映射到256字节value，合约内部不可能枚举<code>storage</code>(内部元素)，读取或者修改<code>storage</code>操作消耗都很大(原文是 It is not possible to enumerate storage from within a contract and it is comparatively costly to read and even more so, to modify storage. )。 合约只能读取和修改自己的<code>storage</code>里的数据。</li>
+<li><p>第二种内存空间称之为<code>memory</code>,里面存储着每个消息调用时合约创建的实例。<code>memory</code>是线型的，可以以字节级别来处理，但是限制为256字节宽度，写入可以是8或256字节宽度。当读取或写入一个预先未触发的指令的时候会消耗<code>memory</code>的空间，消耗空间的同时，必须支付费用（gas）。<code>memory</code>消耗的越多，手续费越多（按平方级增长）</p>
+</li>
+<li><p>EVM不是一个注册的机器而是一个堆栈机器，所以所有的计算指令都在<code>stack</code>空间里面执行。<code>stack</code>最多只能容纳1024个长度不超过256字节的指令元素。只能用下述方法，从顶部访问<code>stack</code>：可以拷贝最顶部的16个元素中的一个到<code>stack</code>的最顶部，或者将最顶部的那个元素与其下面的16个元素之一互换。所有其它操作从<code>stack</code>最顶部取出两个（或一个，或更多，取决于操作）元素，然后把结果push到<code>stack</code>顶端。当然将<code>stack</code>中的元素移到<code>memory</code>或者<code>storage</code>也是可以的，但是不能直接访问<code>stack</code>中间的元素（必须从头部开始访问）</p>
+</li>
+</ul>
+<h4 id="指令集合"><a href="#指令集合" class="headerlink" title="指令集合"></a>指令集合</h4><ul>
+<li>EVM的指令集合控制的很小，这样可以避免错误的执行引发问题。所有的指令都是操作最基本的数据类型，256字节。而且都是最常见的逻辑，算法，字节和比较运算。有条件或无条件的跳转都可以。此外，合约可以访问当前区块的属性，比如区块编号和时间戳。</li>
+</ul>
+<h4 id="消息调用"><a href="#消息调用" class="headerlink" title="消息调用"></a>消息调用</h4><ul>
+<li><p>合约之间可以通过消息调用的方式进行相互调用或者另一个给另一个无合约账户（外部账户）转币。消息调用很像交易，两者都有源账户，目标账户，数据（data payload），<code>Ether</code>,费用和返回数据。实际上每笔交易都由一个可创建更多调用的顶级调用组成。</p>
+</li>
+<li><p>合约可以决定内部消息调用的时候发送多少手续费，保留多少。如果在内部消息调用的时候抛出<code>out-of-gas</code>异常（或者其它异常），这个会被一个错误值标记，放到<code>stack</code>顶部。如此，只有和消息一起发出的手续费才会被消耗。在<code>Solidity</code>中这种情形默认会引发一个异常，以便异常“冒泡”到<code>stack</code>最顶端</p>
+</li>
+<li><p>如上所述，被调用的合约会接收到一个刚创建的<code>memory</code>实例，并且可以访问调用参数，调用参数被存储在一个被为<code>calldata</code>的隔离的区域。执行完毕后，被调用的合约将返回数据存储在调用合约预先创建的内存中。</p>
+</li>
+<li><p>调用被限制在1024深度，这意味着复杂的操作应尽量使用循环代替递归调用。</p>
+</li>
+</ul>
+<h4 id="代理调用-调用代码和库"><a href="#代理调用-调用代码和库" class="headerlink" title="代理调用/调用代码和库"></a>代理调用/调用代码和库</h4><p>存在一种称为<code>delegatecall</code>的特殊的多样性的消息调用，which is identical to a message call apart from the fact that the code at the target address is executed in the context of the calling contract and msg.sender and msg.value do not change their values.</p>
+<ul>
+<li><p>这意味着合约可以在运行的时候动态的从另一个地址加载代码。存储、当前地址和资产仍然和调用的合约相关联，只有代码来自被调用的地址。</p>
+</li>
+<li><p>这样可以实现Solidity库的特性:反复使用的库代码可以被应用到合约的<code>storage</code>来实现复杂的数据结构。</p>
+</li>
+</ul>
+<h4 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h4><hr>
+<p><a href="/Solidity/1-1-2/">上一节: 一个简单智能合约</a> | <a href="/Solidity">目录</a> </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/Solidity/1-1-3/index.html" data-id="cj2jsltyb006m9jw4fvw2pn43" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/Solidity/1-1-3/index.html#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://luren5.com/Solidity/1-1-3/index.html" data-title="以太坊虚拟机" data-url="http://luren5.com/Solidity/1-1-3/index.html">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
+      </div>
+  </section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 16.67px;">ios</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/linux-CentOS/" style="font-size: 10px;">linux CentOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/php-fpm/" style="font-size: 13.33px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/session/" style="font-size: 13.33px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2017/05/11/提交大文件导致-git-objects-pack目录很大解决办法/" class="title">提交大文件导致.git/objects/pack目录很大解决办法</a></p>
+              <p class="item-date"><time datetime="2017-05-11T02:19:49.000Z" itemprop="datePublished">2017-05-11</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/22/centos上gcc升级/" class="title">centos上gcc升级</a></p>
+              <p class="item-date"><time datetime="2016-11-22T08:53:57.000Z" itemprop="datePublished">2016-11-22</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/12/图解php变量内核实现/" class="title">图解php变量内核实现</a></p>
+              <p class="item-date"><time datetime="2016-11-12T03:17:31.000Z" itemprop="datePublished">2016-11-12</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/11/11/php运行模式/" class="title">php运行模式</a></p>
+              <p class="item-date"><time datetime="2016-11-11T10:17:10.000Z" itemprop="datePublished">2016-11-11</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/10/17/全vim开发第一天，纪念一下/" class="title">全vim开发第一天，纪念一下</a></p>
+              <p class="item-date"><time datetime="2016-10-17T10:30:32.000Z" itemprop="datePublished">2016-10-17</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS学习笔记/">IOS学习笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TECH-DOC/">TECH DOC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://veryyoung.me/">Veryyoung</a>
+          </li>
+        
+          <li>
+            <a href="http://helloco.github.io">Helloco</a>
+          </li>
+        
+          <li>
+            <a href="https://ironmantony.github.io/">Ironman</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015-7-28 - 2017 路人-戊<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+
+    </div>
+  </div>
+</footer>
+
+    
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"minishine"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

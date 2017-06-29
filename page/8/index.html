@@ -96,7 +96,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        50
+        51
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -127,6 +127,58 @@
 
       
       <section id="main">
+      <article id="post-nginx-php-fpm-下php错误日志" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/31/nginx-php-fpm-下php错误日志/">nginx + php-fpm 下php错误日志</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/07/31/nginx-php-fpm-下php错误日志/">
+      <time datetime="2015-07-31T03:30:47.000Z" itemprop="datePublished">2015-07-31</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在lamp组合中php的错误日志位置是在当前的 vhost来定义的，很好找<br>现在使用nginx+php-fpm，调试过程中错误日志肯定少不了… 网上搜了下，都行不通</p>
+<p>好吧，记录下我解决的过程<br>编辑 <em>/etc/php-fpm.d/www.conf</em>  (别的环境或者不同的安装方法位置可能不同)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">php_admin_value[error_log]=<span class="string">"error_log_path"</span>      <span class="comment">#注意文件的写权限</span></div><div class="line">php_admin_flag[log_errors] = on</div></pre></td></tr></table></figure></p>
+<p>重启下 php-fpm, OK了，记录什么级别的错误也是受php.ini里的 error_reporting 设置的影响</p>
+<p>有时候为了开发调试方便，希望错误信息直接显示在浏览器上，怎么破？<br>编辑php.ini 文件，设置 <em>display_errors = on</em> 即可<br>不要忘记重启php-fpm</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2015/07/31/nginx-php-fpm-下php错误日志/" data-id="cj4hu5ccr001tduw4w5nt0gmd" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2015/07/31/nginx-php-fpm-下php错误日志/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php-fpm/">php-fpm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误日志/">错误日志</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-centos-桌面安装与卸载" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -169,7 +221,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/centos-桌面安装与卸载/" data-id="cj2jsltup000v9jw43xg38hlx" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/centos-桌面安装与卸载/" data-id="cj4hu5cbz000xduw4ca4zbozn" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/centos-桌面安装与卸载/#ds-thread" class="article-comment-link">评论</a>
       
@@ -220,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/30/湖工大在线/" data-id="cj2jsltwu003k9jw4xllos8dd" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/30/湖工大在线/" data-id="cj4hu5cdv003mduw4opkou16c" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/30/湖工大在线/#ds-thread" class="article-comment-link">评论</a>
       
@@ -277,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/29/回写机制造成session-无法被删除/" data-id="cj2jsltw8002q9jw4idknqgnd" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/29/回写机制造成session-无法被删除/" data-id="cj4hu5cdh002xduw4wjn4vgbq" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/29/回写机制造成session-无法被删除/#ds-thread" class="article-comment-link">评论</a>
       
@@ -337,7 +389,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/29/session存储到redis/" data-id="cj2jsltvx00279jw4bxdllegp" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/29/session存储到redis/" data-id="cj4hu5cd30028duw42o6i21zc" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/29/session存储到redis/#ds-thread" class="article-comment-link">评论</a>
       
@@ -398,70 +450,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/29/vim下NERDTree配置及快捷键/" data-id="cj2jsltw5002k9jw4njs4en1b" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/29/vim下NERDTree配置及快捷键/" data-id="cj4hu5cd8002gduw4dy4a3rzy" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/29/vim下NERDTree配置及快捷键/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NERDTree/">NERDTree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/快捷键/">快捷键</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-人生之艰难如洪水猛兽" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/28/人生之艰难如洪水猛兽/">人生之艰难如洪水猛兽</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/28/人生之艰难如洪水猛兽/">
-      <time datetime="2015-07-28T06:55:48.000Z" itemprop="datePublished">2015-07-28</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>昨晚堂兄打电话传来噩耗，大表兄，姑妈的长子突然离世……晴空霹雳，一个活生生亲人就这样突然离开了，连见最后一面的机会都没有。脑子一遍空白，整个人已经痛苦到不能思考…<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/07/28/人生之艰难如洪水猛兽/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/28/人生之艰难如洪水猛兽/" data-id="cj2jsltw4002i9jw4x2s41wk4" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/07/28/人生之艰难如洪水猛兽/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/亲情/">亲情</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人生多艰/">人生多艰</a></li></ul>
 
     </footer>
   </div>
@@ -492,6 +486,15 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/杂谈/">杂谈</a></p>
+              <p class="item-title"><a href="/2017/06/29/整理心情再出发/" class="title">整理心情再出发</a></p>
+              <p class="item-date"><time datetime="2017-06-29T02:23:29.000Z" itemprop="datePublished">2017-06-29</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -529,15 +532,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/10/17/全vim开发第一天，纪念一下/" class="title">全vim开发第一天，纪念一下</a></p>
-              <p class="item-date"><time datetime="2016-10-17T10:30:32.000Z" itemprop="datePublished">2016-10-17</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -547,7 +541,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS学习笔记/">IOS学习笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TECH-DOC/">TECH DOC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS学习笔记/">IOS学习笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TECH-DOC/">TECH DOC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 

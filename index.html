@@ -96,11 +96,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        51
+        54
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        54
+        56
         <span>标签</span>
       </div>
     </div>
@@ -127,6 +127,227 @@
 
       
       <section id="main">
+      <article id="post-这是一篇测试文章" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/06/这是一篇测试文章/">这是一篇测试文章</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2018/02/06/这是一篇测试文章/">
+      <time datetime="2018-02-06T02:28:19.000Z" itemprop="datePublished">2018-02-06</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/aaa/">aaa</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="这里是正文"><a href="#这里是正文" class="headerlink" title="这里是正文"></a>这里是正文</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">here is code</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2018/02/06/这是一篇测试文章/" data-id="cjdb11d60003tldyu9r6gr5kd" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2018/02/06/这是一篇测试文章/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pool/">pool</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-1-3以太坊智能合约" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/02/1-3以太坊智能合约/">1.3以太坊智能合约</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2017/09/02/1-3以太坊智能合约/">
+      <time datetime="2017-09-02T02:37:37.000Z" itemprop="datePublished">2017-09-02</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="以太坊智能合约"><a href="#以太坊智能合约" class="headerlink" title="以太坊智能合约"></a>以太坊智能合约</h4><p>比特币代表区块链1.0, 它构建了一个全新的数字货币发行及支付系统。以太坊则代表区块链2.0，基于以太坊的智能合约，几乎可以让所有数字化资产在链上流动起来。相较于比特币以太坊支持一个更强大的（图灵完备）脚本语言，允许开发者在上面开发任意去中心化应用，实现任意智能合约，这也是以太坊的最强大之处。作为平台，以太坊可以类比于苹果的应用商店，任何开发者都可以在上面开发应用，并出售给用户。</p>
+<h4 id="开发语言"><a href="#开发语言" class="headerlink" title="开发语言"></a>开发语言</h4><p>开发以太坊智能合约的语言主要有以下几种</p>
+<ul>
+<li>Serpent 语法类似于Python</li>
+<li>Solidity 语法类似于JavaScript</li>
+<li>Mutan 语法类似于Go</li>
+<li>LLL 语法类似于Lisp</li>
+</ul>
+<p>其中Solidity是开发以太坊智能合约的首选语言，也是官方支持力度最大更新最快的合约开发语言，本书讲解的也都是基于Solidity语言。Solidity目前还在持续开发中，最新版本为0.4.17。</p>
+<h4 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h4><p>如果说普通交易是按照指定的模板来修改账本，例如账户A给账户B转账5 ether,那么对于账本的修改就是增加这条交易记录并更新交易双方的资产，这个变化是比较单一化、模式化的。而合约则更加灵活，可以按照指定的“套路”来修改账本，这里的“套路”即合约的代码逻辑，而代码逻辑是根据实际需求来灵活定制的。<br>当一条合约交易被广播后，矿工会在evm里执行这笔合约交易data字段的字节码。如果一切顺利矿工会将这笔交易添加到当前区块中, 最终成功打包该区块的矿工会将这个区块广播到全网，其它节点验证无误后将该区块添加到自身所维护的账本中。</p>
+<h4 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h4><p>工欲善其事，必先利其器。所以在学习合约开发之前，先把合约开的环境搭建好是非常必要的。普通记事本即可完成合约编写的工作，但是编译和部署相对比较麻烦，还是要选择一个工具，以下介绍几个常见的合约开发工具，读者可根据喜好来选择</p>
+<h5 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h5><ul>
+<li><p>在线编辑<br>官方提供了一个在线solidity编译器Remix <a href="https://ethereum.github.io/browser-solidity/，无需安装，访问网页即可编写合约" target="_blank" rel="external">https://ethereum.github.io/browser-solidity/，无需安装，访问网页即可编写合约</a></p>
+</li>
+<li><p>本地搭建browser-solidity<br>当你的网络状态不是很好，或者合约代码比较重要，不希望在网络上传输的时候，可以本地搭一个Remix。<br>1、下载browser-solidity源码 <a href="https://github.com/ethereum/browser-solidity/archive/master.zip" target="_blank" rel="external">https://github.com/ethereum/browser-solidity/archive/master.zip</a><br>2、解压后安装依赖模块、构建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">luren5@ubuntu:~/browser-solidity-master# npm install</div><div class="line">luren5@ubuntu:~/browser-solidity-master# npm run build</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>3、访问，访问的方式也可以有多种<br>a)本地资源访问，在浏览器中访问<code>file:///home/xuhuan/browser-solidity-master/index.html</code>(根据代码实际路径修改访问url)<br>b)执行 npm run serve 启动服务，再访问 <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a><br>c)添加浏览器扩展（推荐）, chrome下打开chrome://extensions/, 勾选上 Developer Mode, 然后点击 Load unpacked extension, 再选择 browser-solidity-master 目录，点击应用图标即可快速启动IDE<br><img src="https://bitshuo.com/public/upload/5abe8bc123589402ea88d9e1765eb585.jpg" alt="remix_extension"></p>
+<p>4、vimer推荐安装vim-solidity插件 <a href="https://github.com/tomlion/vim-solidity" target="_blank" rel="external">https://github.com/tomlion/vim-solidity</a><br><img src="https://bitshuo.com/public/upload/0038359163d64e3b818dc2b2ca012c97.png" alt="vim-solidity"></p>
+<h4 id="交易"><a href="#交易" class="headerlink" title="交易"></a>交易</h4><p>在解释智能合约的运行机制之前，先来了解下以太坊的交易。以太坊中所有的资产流动都是以一笔交易的形式来完成的，而交易的本质是对于账本的修改。从交易的形式来讲，可分为普通交易和合约交易, 其中合约交易可以再细分为 部署合约交易 和 调用合约方法交易。</p>
+<h5 id="以下是发起一笔交易所需要的几个参数"><a href="#以下是发起一笔交易所需要的几个参数" class="headerlink" title="以下是发起一笔交易所需要的几个参数"></a>以下是发起一笔交易所需要的几个参数</h5><ul>
+<li>from, 交易的发起方</li>
+<li>to, 交易的接收方</li>
+<li>gas, 交易的gas数</li>
+<li>gasPrice, gas的价格</li>
+<li>value, 交易金额</li>
+<li>data, 普通交易的附加数据，或者合约交易的字节码</li>
+<li>nonce, 随机数，对于每个地址的交易nonce是递增的，可以使用相同的nonce覆盖交易池（tx pool）中相同nonce的交易</li>
+</ul>
+<h5 id="下面来具体探讨一下这几种交易"><a href="#下面来具体探讨一下这几种交易" class="headerlink" title="下面来具体探讨一下这几种交易"></a>下面来具体探讨一下这几种交易</h5><ul>
+<li><p>普通交易，这是最为常见的交易，例如A账户给B账户转发5 ether。from即发起方地址，这个地址需要支付这5eth和该笔交易所需要的gas; to接收方地址,普通交易中不可省略; data 普通交易中，它是一个附加数据，可缺省，如果data不为空，那么随着这笔交易被打包，它将成为账本数据的一部分;</p>
+</li>
+<li><p>部署合约交易，当开发完一个合约应用之后，接下来就需要对它进行编译、部署。部署的过程是将合约编译后的字节码写入区块链同时创建合约账户的过程, 所以它也是一笔交易。部署合约交易中，from是交易的发起地址，它需要支付这笔交易所需要的gas; to可缺省; value 待探索;data 合约编译之后的字节码。部署合约交易会新建一个合约账户，它会返回合约账户地址</p>
+</li>
+<li><p>调用合约方法交易，并不是所有的调用合约方法的过程都是一笔交易，只有当它需要修改账本数据的时候才是一笔交易，关于调用合约方法的几种方式及区别在后面会有更详细的解释。</p>
+</li>
+</ul>
+<h5 id="参数差异"><a href="#参数差异" class="headerlink" title="参数差异"></a>参数差异</h5><table>
+<thead>
+<tr>
+<th style="text-align:left">交易类型</th>
+<th style="text-align:left">from</th>
+<th style="text-align:left">to</th>
+<th style="text-align:left">value</th>
+<th style="text-align:left">data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">普通交易</td>
+<td style="text-align:left">交易发起方，需要支付转账金额及交易所需要的gas</td>
+<td style="text-align:left">交易接收地址</td>
+<td style="text-align:left">交易金额,单位是wei</td>
+<td style="text-align:left">附加数据，可缺省</td>
+</tr>
+<tr>
+<td style="text-align:left">部署合约交易</td>
+<td style="text-align:left">交易发起方，需要支付交易所需要的gas</td>
+<td style="text-align:left">可缺省</td>
+<td style="text-align:left">==待查证==</td>
+<td style="text-align:left">合约编译后的字节码 + 编码后的构造函数参数值，如无构造函数则只需编译后的字节码</td>
+</tr>
+<tr>
+<td style="text-align:left">调用合约方法交易</td>
+<td style="text-align:left">交易发起方，需要支付交易所需要的gas及可能的value</td>
+<td style="text-align:left">合约账户地址</td>
+<td style="text-align:left">如果方法有payable关键字，value为接受资产的数量，如无可缺省</td>
+<td style="text-align:left">方法选择器 + 方法参数 经编码后的字节码</td>
+</tr>
+</tbody>
+</table>
+<h5 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h5><p>由上可见，普通交易和合约交易的参数是一样的，但是不同的交易参数值是不完全同的。其中gas、gasPrice、nonce以及合约交易中data字段的编码规范，我们将在后面的章节中更加深入的探讨</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2017/09/02/1-3以太坊智能合约/" data-id="cjdb11d3g000bldyuxhfxh0z7" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2017/09/02/1-3以太坊智能合约/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/book/">book</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-1-1什么是智能合约" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/02/1-1什么是智能合约/">1.1什么是智能合约</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2017/09/02/1-1什么是智能合约/">
+      <time datetime="2017-09-02T02:35:36.000Z" itemprop="datePublished">2017-09-02</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2017/09/02/1-1什么是智能合约/" data-id="cjdb11d3a0006ldyu8uphcec6" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2017/09/02/1-1什么是智能合约/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-整理心情再出发" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -170,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2017/06/29/整理心情再出发/" data-id="cj4hu5cdt003iduw4js4kxvov" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2017/06/29/整理心情再出发/" data-id="cjdb11d5p003dldyutrbpz8xo" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2017/06/29/整理心情再出发/#ds-thread" class="article-comment-link">评论</a>
       
@@ -236,7 +457,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2017/05/11/提交大文件导致-git-objects-pack目录很大解决办法/" data-id="cj4hu5cdq003gduw47ee7hvpq" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2017/05/11/提交大文件导致-git-objects-pack目录很大解决办法/" data-id="cjdb11d5r003fldyuyanpqedj" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2017/05/11/提交大文件导致-git-objects-pack目录很大解决办法/#ds-thread" class="article-comment-link">评论</a>
       
@@ -302,154 +523,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/11/22/centos上gcc升级/" data-id="cj4hu5cc10012duw4umo85719" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/11/22/centos上gcc升级/" data-id="cjdb11d410011ldyu8v28tu9p" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/11/22/centos上gcc升级/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-图解php变量内核实现" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/12/图解php变量内核实现/">图解php变量内核实现</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2016/11/12/图解php变量内核实现/">
-      <time datetime="2016-11-12T03:17:31.000Z" itemprop="datePublished">2016-11-12</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/pics/php变量内核实现.png" alt="内核实现"><br><a href="/attachment/php变量内核实现.gliffy">附件</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/11/12/图解php变量内核实现/" data-id="cj4hu5cdi002zduw4zr0hp8pe" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2016/11/12/图解php变量内核实现/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-php运行模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/11/php运行模式/">php运行模式</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2016/11/11/php运行模式/">
-      <time datetime="2016-11-11T10:17:10.000Z" itemprop="datePublished">2016-11-11</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/pics/php运行模式.png" alt="运行模式"><br><a href="/attachment/php运行模式.gliffy">附件</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/11/11/php运行模式/" data-id="cj4hu5cd00024duw40vcnygw5" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2016/11/11/php运行模式/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-全vim开发第一天，纪念一下" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/17/全vim开发第一天，纪念一下/">全vim开发第一天，纪念一下</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2016/10/17/全vim开发第一天，纪念一下/">
-      <time datetime="2016-10-17T10:30:32.000Z" itemprop="datePublished">2016-10-17</time>
-    </a>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##感觉略爽<br><img src="/pics/vim-all.png" alt="vim-all"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/10/17/全vim开发第一天，纪念一下/" data-id="cj4hu5cdg002uduw41iutml1w" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2016/10/17/全vim开发第一天，纪念一下/#ds-thread" class="article-comment-link">评论</a>
       
       
     </footer>
@@ -471,7 +547,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 16.67px;">ios</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/linux-CentOS/" style="font-size: 10px;">linux CentOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/php-fpm/" style="font-size: 13.33px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/session/" style="font-size: 13.33px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
+      <a href="/tags/CGI/" style="font-size: 10px;">CGI</a> <a href="/tags/FastCGI/" style="font-size: 10px;">FastCGI</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/NERDTree/" style="font-size: 10px;">NERDTree</a> <a href="/tags/PHP-CGI/" style="font-size: 10px;">PHP-CGI</a> <a href="/tags/PHP-FPM/" style="font-size: 10px;">PHP-FPM</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Spawn-FCGI/" style="font-size: 10px;">Spawn-FCGI</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/centos/" style="font-size: 13.33px;">centos</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hgdonline/" style="font-size: 10px;">hgdonline</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/ios/" style="font-size: 16.67px;">ios</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/linux-CentOS/" style="font-size: 10px;">linux CentOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/php-fpm/" style="font-size: 13.33px;">php-fpm</a> <a href="/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/tags/pool/" style="font-size: 10px;">pool</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/session/" style="font-size: 13.33px;">session</a> <a href="/tags/session-set-save-handler/" style="font-size: 10px;">session_set_save_handler</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/table-view/" style="font-size: 10px;">table view</a> <a href="/tags/timer/" style="font-size: 10px;">timer</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vsftp/" style="font-size: 10px;">vsftp</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/yum-install/" style="font-size: 10px;">yum install</a> <a href="/tags/亲情/" style="font-size: 10px;">亲情</a> <a href="/tags/人生多艰/" style="font-size: 10px;">人生多艰</a> <a href="/tags/内存管理/" style="font-size: 10px;">内存管理</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/基友/" style="font-size: 10px;">基友</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/换届合影/" style="font-size: 10px;">换届合影</a> <a href="/tags/无法删除/" style="font-size: 10px;">无法删除</a> <a href="/tags/日历/" style="font-size: 10px;">日历</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/湖工大在线/" style="font-size: 10px;">湖工大在线</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/错误日志/" style="font-size: 10px;">错误日志</a>
     </div>
   </div>
 
@@ -481,6 +557,33 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/aaa/">aaa</a></p>
+              <p class="item-title"><a href="/2018/02/06/这是一篇测试文章/" class="title">这是一篇测试文章</a></p>
+              <p class="item-date"><time datetime="2018-02-06T02:28:19.000Z" itemprop="datePublished">2018-02-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2017/09/02/1-3以太坊智能合约/" class="title">1.3以太坊智能合约</a></p>
+              <p class="item-date"><time datetime="2017-09-02T02:37:37.000Z" itemprop="datePublished">2017-09-02</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2017/09/02/1-1什么是智能合约/" class="title">1.1什么是智能合约</a></p>
+              <p class="item-date"><time datetime="2017-09-02T02:35:36.000Z" itemprop="datePublished">2017-09-02</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -500,33 +603,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/11/22/centos上gcc升级/" class="title">centos上gcc升级</a></p>
-              <p class="item-date"><time datetime="2016-11-22T08:53:57.000Z" itemprop="datePublished">2016-11-22</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/11/12/图解php变量内核实现/" class="title">图解php变量内核实现</a></p>
-              <p class="item-date"><time datetime="2016-11-12T03:17:31.000Z" itemprop="datePublished">2016-11-12</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/11/11/php运行模式/" class="title">php运行模式</a></p>
-              <p class="item-date"><time datetime="2016-11-11T10:17:10.000Z" itemprop="datePublished">2016-11-11</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -536,7 +612,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS学习笔记/">IOS学习笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TECH-DOC/">TECH DOC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS学习笔记/">IOS学习笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TECH-DOC/">TECH DOC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech-Doc/">Tech Doc</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/aaa/">aaa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios学习笔记/">ios学习笔记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reids/">reids</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -573,7 +649,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015-7-28 - 2017 路人-戊<br>
+      &copy; 2015-7-28 - 2018 路人-戊<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 

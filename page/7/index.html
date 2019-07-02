@@ -96,7 +96,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        53
+        54
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -127,6 +127,58 @@
 
       
       <section id="main">
+      <article id="post-memcache内存管理机制" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/31/memcache内存管理机制/">memcache内存管理机制</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/07/31/memcache内存管理机制/">
+      <time datetime="2015-07-31T10:02:35.000Z" itemprop="datePublished">2015-07-31</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Memcache使用了一个非常简单的内存管理机制——固定空间分配</p>
+<p>Memcache将内存空间分为一组slab，每个slab里又包含一组chunk，同一个slab里的每个chunk的大小是固定的，拥有相同大小chunk的slab被组织在一起，叫做slab_class。存储数据时根据数据的Size大小，寻找一个大于Size的最小chunk将数据写入。这种内存管理方式避免了内存碎片管理的问题，内存的分配和释放都是以chunk为单位的。</p>
+<p>Memcahce采用LRU算法释放最近最少使用的数据，释放的chunk会被标记为未用，等待下一个合适大小数据写入</p>
+<p>这种机制会存在内存浪费的问题，数据只能存入一个比它大的chunk里，而一个chunk只能存一个数据，其它的空间就被浪费了。所以应该注意启动参数的配置，否则浪费可能惊人…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2015/07/31/memcache内存管理机制/" data-id="cjkaqsmvq00239nyuki8qtrlv" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2015/07/31/memcache内存管理机制/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcache/">memcache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存管理/">内存管理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-ubuntu下安装配置vsftp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -166,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/ubuntu下安装配置vsftp/" data-id="cjdb1qk6g002eqgyufaj15n5h" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/ubuntu下安装配置vsftp/" data-id="cjkaqsmvy002g9nyu21420u4q" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/ubuntu下安装配置vsftp/#ds-thread" class="article-comment-link">评论</a>
       
@@ -220,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/mac下把日历分享给其它用户/" data-id="cjdb1qk61001pqgyu4g675hm2" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/mac下把日历分享给其它用户/" data-id="cjkaqsmvd001g9nyunqwff14l" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/mac下把日历分享给其它用户/#ds-thread" class="article-comment-link">评论</a>
       
@@ -276,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/Linux配置ssh免密码登录/" data-id="cjdb1qk5g000oqgyubbxfkm9n" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/Linux配置ssh免密码登录/" data-id="cjkaqsmus00109nyutwj84r63" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/Linux配置ssh免密码登录/#ds-thread" class="article-comment-link">评论</a>
       
@@ -355,7 +407,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="cjdb1qk6m002tqgyuws48exnh" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/" data-id="cjkaqsmwa00329nyuie6b4lh9" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/什么是CGI、FastCGI、PHP-CGI、PHP-FPM、Spawn-FCGI/#ds-thread" class="article-comment-link">评论</a>
       
@@ -406,66 +458,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/Linux给普通用户添加sudo权限/" data-id="cjdb1qk5f000lqgyucctrcckb" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/07/31/Linux给普通用户添加sudo权限/" data-id="cjkaqsmub000i9nyugixb9c2d" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/07/31/Linux给普通用户添加sudo权限/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sudo/">sudo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/权限/">权限</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-基友们" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/基友们/">基友们</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/07/31/基友们/">
-      <time datetime="2015-07-31T06:28:10.000Z" itemprop="datePublished">2015-07-31</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/pics/jiyou.jpg" alt="帝都生活-某日在上地公园"><br><img src="/pics/jiyou2.jpg" alt="当年我们还是学生--在长江大桥上"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/07/31/基友们/" data-id="cjdb1qk6s0034qgyuvuj6kdq1" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/07/31/基友们/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基友/">基友</a></li></ul>
 
     </footer>
   </div>
@@ -501,6 +499,15 @@
             
             <div class="item-inner">
               <p class="item-category"></p>
+              <p class="item-title"><a href="/2018/08/01/太平洋战争/" class="title">太平洋战争</a></p>
+              <p class="item-date"><time datetime="2018-08-01T06:13:20.000Z" itemprop="datePublished">2018-08-01</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
               <p class="item-title"><a href="/2017/09/02/1-3以太坊智能合约/" class="title">1.3以太坊智能合约</a></p>
               <p class="item-date"><time datetime="2017-09-02T02:37:37.000Z" itemprop="datePublished">2017-09-02</time></p>
             </div>
@@ -530,15 +537,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2017/05/11/提交大文件导致-git-objects-pack目录很大解决办法/" class="title">提交大文件导致.git/objects/pack目录很大解决办法</a></p>
               <p class="item-date"><time datetime="2017-05-11T02:19:49.000Z" itemprop="datePublished">2017-05-11</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/11/22/centos上gcc升级/" class="title">centos上gcc升级</a></p>
-              <p class="item-date"><time datetime="2016-11-22T08:53:57.000Z" itemprop="datePublished">2016-11-22</time></p>
             </div>
           </li>
         
@@ -588,7 +586,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015-7-28 - 2018 路人-戊<br>
+      &copy; 2015-7-28 - 2019 路人-戊<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 

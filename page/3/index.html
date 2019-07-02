@@ -96,7 +96,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        53
+        54
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -127,6 +127,60 @@
 
       
       <section id="main">
+      <article id="post-git-rebase相关" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/04/git-rebase相关/">git rebase相关</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/06/04/git-rebase相关/">
+      <time datetime="2016-06-04T03:13:58.000Z" itemprop="datePublished">2016-06-04</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在本地commit之后，需要push到远端，如果远端已经有人push过会出现下面的error<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">error: failed to push some refs to <span class="string">'/path/to/repo.git'</span></div><div class="line">hint: Updates were rejected because the tip of your current branch is behind</div><div class="line">hint: its remote counterpart. Merge the remote changes (e.g. <span class="string">'git pull'</span>)</div><div class="line">hint: before pushing again.</div><div class="line">hint: See the <span class="string">'Note about fast-forwards'</span> <span class="keyword">in</span> <span class="string">'git push --help'</span> <span class="keyword">for</span> details.</div></pre></td></tr></table></figure></p>
+<p>对，你需要pull，那么问题来了,如果只是<code>git pull origin branch_name</code>   pull操作要同步远端仓库中别人修改时，提交历史会以一个多余的『合并提交』结尾。 对于集中式工作流，最好是使用rebase而不是生成一个合并提交。<br>所以，使用  <code>git pull —rebase origin branch_name</code></p>
+<p>rebase操作过程是把本地提交一次一个地迁移到更新了的中央仓库master分支之上。 这意味着可能要解决在迁移某个提交时出现的合并冲突，而不是解决包含了所有提交的大型合并时所出现的冲突。 这样的方式让你尽可能保持每个提交的聚焦和项目历史的整洁。反过来，简化了哪里引入Bug的分析，如果有必要，回滚修改也可以做到对项目影响最小。</p>
+<p>如果A和B的功能是不相关的，不大可能在rebase过程中有冲突。如果有，Git在合并有冲突的提交处暂停rebase过程，输出下面的信息并带上相关的指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> &lt;some-file&gt;</div></pre></td></tr></table></figure></p>
+<p>此时需要解决冲突并添加这些文件到暂存区，然后让rebase完成剩下的事<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add &lt;some-file&gt; </div><div class="line">git rebase --continue</div></pre></td></tr></table></figure></p>
+<p>Git会继续一个一个地合并后面的提交，如其它的提交有冲突就重复这个过程。<br>如果你碰到了冲突，但发现搞不定，不要惊慌。只要执行下面这条命令，就可以回到你执行<code>git pull --rebase</code>命令前的样子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rebase --abort</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2016/06/04/git-rebase相关/" data-id="cjkaqsmv9001c9nyulluz60hr" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2016/06/04/git-rebase相关/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-解决php-v和phpinfo-打印的php版本不一致问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -166,7 +220,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" data-id="cjdb1qk74003rqgyuru0wc2wj" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/" data-id="cjkaqsmx0003n9nyu4c1f99cd" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/04/28/解决php-v和phpinfo-打印的php版本不一致问题/#ds-thread" class="article-comment-link">评论</a>
       
@@ -216,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/04/27/phpstorm切换上载sftp/" data-id="cjdb1qk6b0024qgyuj6s0nrpv" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/04/27/phpstorm切换上载sftp/" data-id="cjkaqsmvr00259nyu9zqfvqx4" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/04/27/phpstorm切换上载sftp/#ds-thread" class="article-comment-link">评论</a>
       
@@ -268,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/01/22/iOS添加tabbar高亮图片/" data-id="cjdb1qk5u001aqgyu1dtqww49" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/01/22/iOS添加tabbar高亮图片/" data-id="cjkaqsmuu00149nyuti1mravi" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/01/22/iOS添加tabbar高亮图片/#ds-thread" class="article-comment-link">评论</a>
       
@@ -315,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" data-id="cjdb1qk69001yqgyu70tl6j43" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2016/01/06/nginx-php-fpm访问php文件，File-not-found/" data-id="cjkaqsmvi001q9nyux4ctzw5p" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2016/01/06/nginx-php-fpm访问php文件，File-not-found/#ds-thread" class="article-comment-link">评论</a>
       
@@ -377,72 +431,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/11/27/11-27组内分享-http协议/" data-id="cjdb1qk58000bqgyu3gaivftj" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/11/27/11-27组内分享-http协议/" data-id="cjkaqsmu7000d9nyum4je9zlu" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/11/27/11-27组内分享-http协议/#ds-thread" class="article-comment-link">评论</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分享/">分享</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-10-26正则表达式分享会" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/29/10-26正则表达式分享会/">10.26正则表达式分享会</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/10/29/10-26正则表达式分享会/">
-      <time datetime="2015-10-29T01:59:57.000Z" itemprop="datePublished">2015-10-29</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Tech-Doc/">Tech Doc</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##正则表达式来的来源<br>正则表达式起源于科学家对人类神经系统工作原理的早期研究。美国的两位神经生理方面的科学家研究了一种用数学方式来描述神经网络的新方法，他们创造性地将神经系统中的神经元描述成了小而简单的自动控制元，从而作出了一项伟大的工作革新。</p>
-<p>在1956 年,美国一位名叫Stephen Kleene的数学科学家，他在上述两位神经生理学家的早期工作的基础之上，发表了一篇题目是<span style="font-color:orange">《神经网事件的表示法》</span>的论文，利用称之为正则集合的数学符号来描述此模型，引入了正则表达式的概念。正则表达式被作为用来描述其称之为“正则集的代数”的一种表达式，因而采用了“正则表达式”这个术语。</p>
-<p>再后来这项研究成果被应用于其它的方面，包括Ken Thompson，它把这一成果应用于计算搜索算法，Ken Thompson就是Unix之父。</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/29/10-26正则表达式分享会/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/10/29/10-26正则表达式分享会/" data-id="cjdb1qk5a000dqgyu1xew0b0l" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/10/29/10-26正则表达式分享会/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
 
     </footer>
   </div>
@@ -478,6 +472,15 @@
             
             <div class="item-inner">
               <p class="item-category"></p>
+              <p class="item-title"><a href="/2018/08/01/太平洋战争/" class="title">太平洋战争</a></p>
+              <p class="item-date"><time datetime="2018-08-01T06:13:20.000Z" itemprop="datePublished">2018-08-01</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
               <p class="item-title"><a href="/2017/09/02/1-3以太坊智能合约/" class="title">1.3以太坊智能合约</a></p>
               <p class="item-date"><time datetime="2017-09-02T02:37:37.000Z" itemprop="datePublished">2017-09-02</time></p>
             </div>
@@ -507,15 +510,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2017/05/11/提交大文件导致-git-objects-pack目录很大解决办法/" class="title">提交大文件导致.git/objects/pack目录很大解决办法</a></p>
               <p class="item-date"><time datetime="2017-05-11T02:19:49.000Z" itemprop="datePublished">2017-05-11</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/11/22/centos上gcc升级/" class="title">centos上gcc升级</a></p>
-              <p class="item-date"><time datetime="2016-11-22T08:53:57.000Z" itemprop="datePublished">2016-11-22</time></p>
             </div>
           </li>
         
@@ -565,7 +559,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015-7-28 - 2018 路人-戊<br>
+      &copy; 2015-7-28 - 2019 路人-戊<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 

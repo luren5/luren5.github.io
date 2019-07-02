@@ -96,7 +96,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        53
+        54
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -127,6 +127,63 @@
 
       
       <section id="main">
+      <article id="post-Xcode安装插件失败" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/18/Xcode安装插件失败/">Xcode安装插件失败</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/08/18/Xcode安装插件失败/">
+      <time datetime="2015-08-18T02:34:50.000Z" itemprop="datePublished">2015-08-18</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/ios学习笔记/">ios学习笔记</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天尝试着安装VVDocumenter和KSImageNamed这两个插件，看教程上挺简单的，直接clone下来，然后Xcode打开，command + b，提示构建成功，OK！</p>
+<p><em>然后问题来了，插件并没有起作用</em></p>
+<p><span style="color:red">症状和解决方案…</span></p>
+<p>再次打开之后在xcode的Window菜单栏下并没有显示已经安装的插件，但是切换到<code>~/Library/Application Support/Developer/Shared/Xcode/Plug-ins</code> 插件确实构建成功而且存在</p>
+<p>好吧，原因找到了，构建之后再次打开会有一个弹出框，有两个选项<code>Load bundle</code>、 <code>Skip Bundle</code> 很不幸的选择了第二个。</p>
+<p>把<code>~/Li    brary/Application Support/Developer/Shared/Xcode/Plug-ins</code> 下已经构建好的插件删除，然后再重新构建一下，comman + q退出，再重启，选择 <code>Load bundle</code> 解决！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://luren5.com/2015/08/18/Xcode安装插件失败/" data-id="cjkaqsmum000u9nyun72y72g2" class="article-share-link">分享到</a>
+      
+        <a href="http://luren5.com/2015/08/18/Xcode安装插件失败/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-ios开发之坐标、大小、动画" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -170,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cjdb1qk5z001nqgyu8z1ochf6" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/" data-id="cjkaqsmvg001l9nyudplhsghk" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/16/ios开发之坐标、大小、动画/#ds-thread" class="article-comment-link">评论</a>
       
@@ -226,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="cjdb1qk5v001dqgyu7hkpmlrx" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/15/ios学习笔记——散记/" data-id="cjkaqsmv700189nyukko9d5sb" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/15/ios学习笔记——散记/#ds-thread" class="article-comment-link">评论</a>
       
@@ -285,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="cjdb1qk5x001kqgyuo8lioivc" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/12/ios开发之table-view的使用/" data-id="cjkaqsmve001i9nyuifwjnajq" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/12/ios开发之table-view的使用/#ds-thread" class="article-comment-link">评论</a>
       
@@ -341,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/10/怎么使用NSTimer/" data-id="cjdb1qk6v003eqgyuo3uli5pc" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/10/怎么使用NSTimer/" data-id="cjkaqsmwx003k9nyufddmsa42" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/10/怎么使用NSTimer/#ds-thread" class="article-comment-link">评论</a>
       
@@ -398,81 +455,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/07/总结一下/" data-id="cjdb1qk70003iqgyuora4u0de" class="article-share-link">分享到</a>
+      <a data-url="http://luren5.com/2015/08/07/总结一下/" data-id="cjkaqsmwi00399nyudcltg9j2" class="article-share-link">分享到</a>
       
         <a href="http://luren5.com/2015/08/07/总结一下/#ds-thread" class="article-comment-link">评论</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-redis编译安装杂记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/03/redis编译安装杂记/">redis编译安装杂记</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2015/08/03/redis编译安装杂记/">
-      <time datetime="2015-08-03T05:52:19.000Z" itemprop="datePublished">2015-08-03</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/reids/">reids</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装可以参考这里  <a href="http://871421448.iteye.com/blog/1921701" target="_blank" rel="external">http://871421448.iteye.com/blog/1921701</a></p>
-<p>启动用如下命令：redis-server /etc/redis/redis.conf&amp;，记住后面的&amp;，使其在后台运行！</p>
-<p>安装phpredis 扩展的时候整死人，看了诸多文档，搞不定，现在把关键步骤记录一下！</p>
-<p>1.下载 phpredis扩展</p>
-<p>2.cd到相应的文件夹</p>
-<ol>
-<li><p>phpize    (以下几步要注意，如果不是root需要使用sodu)</p>
-</li>
-<li><p>./configure</p>
-</li>
-<li><p>make</p>
-</li>
-<li><p>make install （到这一步的时候扩展已经编译成功并显示所在目录，我这里是在/usr/lib/php5/20100525+lfs/）</p>
-</li>
-</ol>
-<p>7.到这里就非常重要了，看别人的文档上写的都是直接用php –ini查找到php的配置文件，然后加上  extensiton=redis.so  ，重启apache就OK，但是这里搞不定。注意这里和php.ini同层有一个目录conf.d，cd进去，这里是已经装好的扩展，直接cp一份，把extension改成redis，然后再重启apache，这样才可以….</p>
-<p>总算大功告成了！！！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://luren5.com/2015/08/03/redis编译安装杂记/" data-id="cjdb1qk6d0026qgyu308h9sp3" class="article-share-link">分享到</a>
-      
-        <a href="http://luren5.com/2015/08/03/redis编译安装杂记/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-
     </footer>
   </div>
   
@@ -507,6 +494,15 @@
             
             <div class="item-inner">
               <p class="item-category"></p>
+              <p class="item-title"><a href="/2018/08/01/太平洋战争/" class="title">太平洋战争</a></p>
+              <p class="item-date"><time datetime="2018-08-01T06:13:20.000Z" itemprop="datePublished">2018-08-01</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
               <p class="item-title"><a href="/2017/09/02/1-3以太坊智能合约/" class="title">1.3以太坊智能合约</a></p>
               <p class="item-date"><time datetime="2017-09-02T02:37:37.000Z" itemprop="datePublished">2017-09-02</time></p>
             </div>
@@ -536,15 +532,6 @@
               <p class="item-category"></p>
               <p class="item-title"><a href="/2017/05/11/提交大文件导致-git-objects-pack目录很大解决办法/" class="title">提交大文件导致.git/objects/pack目录很大解决办法</a></p>
               <p class="item-date"><time datetime="2017-05-11T02:19:49.000Z" itemprop="datePublished">2017-05-11</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/11/22/centos上gcc升级/" class="title">centos上gcc升级</a></p>
-              <p class="item-date"><time datetime="2016-11-22T08:53:57.000Z" itemprop="datePublished">2016-11-22</time></p>
             </div>
           </li>
         
@@ -594,7 +581,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015-7-28 - 2018 路人-戊<br>
+      &copy; 2015-7-28 - 2019 路人-戊<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255960260'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1255960260%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
